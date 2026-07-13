@@ -1,68 +1,303 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Propriétés publiées — Area NA — 15 – 21 juin 2026</title>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Propriétés publiées — Area NA — 6 – 12 juillet 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box}
-body{font-family:'Inter',sans-serif;font-weight:300;background:#FAF9F8;color:#2B2926;margin:0;padding:0}
-.wrap{max-width:1180px;margin:0 auto;padding:24px}
-.banner{background:#024251;color:#fff;border-radius:12px;padding:28px 32px;margin-bottom:20px}
-.banner h1{margin:0;font-weight:600;font-size:24px}
-.banner p{margin:6px 0 0;color:#54CEEA;font-weight:300}
-.kpis{display:flex;gap:16px;margin-bottom:20px;flex-wrap:wrap}
-.kpi{flex:1;min-width:180px;background:#fff;border-radius:12px;padding:22px;box-shadow:0 2px 8px rgba(0,0,0,.05);border-top:4px solid #00809D}
-.kpi .num{font-size:34px;font-weight:600;color:#024251}
-.kpi .lbl{color:#938F8B;font-size:13px;margin-top:4px}
-.kpi.bad{border-top-color:#E2674E} .kpi.bad .num{color:#E2674E}
-.kpi.clean{border-top-color:#74CFA9} .kpi.clean .num{color:#74CFA9}
-.rule{background:#fff;border-radius:12px;padding:16px 22px;margin-bottom:20px;border-left:4px solid #54CEEA;font-size:13px;color:#2B2926}
-.rule b{font-weight:600;color:#024251}
-.toggle{display:flex;gap:10px;margin-bottom:18px}
-.tbtn{flex:1;padding:14px;border:none;border-radius:10px;background:#fff;color:#024251;font-family:inherit;font-weight:600;font-size:15px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.05)}
-.tbtn.active{background:#00809D;color:#fff}
-.pbtns{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
-.pbtn{padding:9px 14px;border:1px solid #00809D;border-radius:20px;background:#fff;color:#00809D;font-family:inherit;font-weight:600;font-size:13px;cursor:pointer}
-.pbtn.active{background:#00809D;color:#fff}
-.badge{display:inline-block;background:#E2674E;color:#fff;border-radius:10px;padding:0 7px;font-size:11px;margin-left:4px}
-.pbtn.active .badge{background:#fff;color:#E2674E}
-table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05);font-size:13px}
-th{background:#00809D;color:#fff;font-weight:600;padding:10px 8px;text-align:left}
-td{padding:9px 8px;border-bottom:1px solid #f0eeec;vertical-align:top}
-.ho{color:#938F8B;font-size:11px}
-.chip{display:inline-block;background:#E2674E;color:#fff;border-radius:8px;padding:2px 7px;font-size:11px;margin:1px}
-.ok{color:#74CFA9;font-weight:600}
-.view{display:block}
-.footer{text-align:center;color:#938F8B;font-size:12px;margin-top:28px}
+:root{--primary:#00809D;--dark:#024251;--accent:#54CEEA;--green:#74CFA9;--coral:#E2674E;--bg:#FAF9F8;--text:#2B2926;--grey:#938F8B;}
+*{box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;font-weight:300;background:var(--bg);color:var(--text);margin:0;padding:0 0 40px;}
+.banner{background:var(--dark);color:#fff;padding:28px 32px;}
+.banner h1{font-weight:600;margin:0;font-size:22px;}
+.banner p{margin:6px 0 0;color:var(--accent);font-size:14px;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+.kpis{display:flex;gap:18px;margin:24px 0;}
+.kpi{flex:1;background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.05);padding:20px;text-align:center;border-top:4px solid var(--primary);}
+.kpi .n{font-size:34px;font-weight:600;}
+.kpi .l{color:var(--grey);font-size:13px;margin-top:4px;}
+.kpi.fix{border-top-color:var(--coral);} .kpi.fix .n{color:var(--coral);}
+.kpi.clean{border-top-color:var(--green);} .kpi.clean .n{color:var(--green);}
+.rule{background:#fff;border-left:4px solid var(--accent);border-radius:8px;padding:14px 18px;font-size:13px;color:var(--text);margin-bottom:22px;box-shadow:0 1px 6px rgba(0,0,0,.04);}
+.rule b{color:var(--dark);}
+.toggle{display:flex;gap:10px;margin-bottom:16px;}
+.toggle button{flex:0 0 auto;border:none;background:#fff;color:var(--dark);border:1px solid #e3e0dc;border-radius:24px;padding:10px 22px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;}
+.toggle button.active{background:var(--primary);color:#fff;}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+.tab{border:1px solid #e3e0dc;background:#fff;border-radius:20px;padding:7px 16px;font-family:inherit;font-size:13px;cursor:pointer;color:var(--text);}
+.tab.active{background:var(--dark);color:#fff;border-color:var(--dark);}
+.tab .cnt{display:inline-block;background:var(--coral);color:#fff;border-radius:10px;padding:0 7px;font-size:11px;margin-left:4px;}
+.tab.active .cnt{background:var(--accent);color:var(--dark);}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.05);font-size:13px;}
+th{background:var(--primary);color:#fff;font-weight:600;padding:10px 8px;text-align:left;}
+td{padding:9px 8px;border-bottom:1px solid #f0eeeb;vertical-align:top;}
+tr.fix{background:#FFF6F3;}
+.ho{color:var(--grey);font-size:11px;}
+.chip{display:inline-block;background:var(--coral);color:#fff;border-radius:6px;padding:2px 7px;font-size:11px;margin:1px 2px 1px 0;}
+.ok{color:var(--green);font-weight:600;}
+.foot{text-align:center;color:var(--grey);font-size:11px;margin-top:30px;}
 </style></head>
-<body><div class="wrap">
-<div class="banner"><h1>Propriétés publiées — Area Nouvelle-Aquitaine</h1><p>Semaine du 15 – 21 juin 2026</p></div>
+<body>
+<div class="banner"><div class="wrap" style="padding:0"><h1>Propriétés publiées — Area Nouvelle-Aquitaine</h1><p>Semaine du 6 – 12 juillet 2026 · Périmètre NA (Focus) + OOF FR</p></div></div>
+<div class="wrap">
 <div class="kpis">
-<div class="kpi"><div class="num">37</div><div class="lbl">Propriétés publiées</div></div>
-<div class="kpi bad"><div class="num">18</div><div class="lbl">À corriger</div></div>
-<div class="kpi clean"><div class="num">19</div><div class="lbl">Clean</div></div>
+<div class="kpi"><div class="n">18</div><div class="l">Publiées</div></div>
+<div class="kpi fix"><div class="n">12</div><div class="l">À corriger</div></div>
+<div class="kpi clean"><div class="n">6</div><div class="l">Clean</div></div>
 </div>
-<div class="rule"><b>Règle « à corriger » (1 critère suffit) :</b> Sellable &lt; 0,50 · canal manquant (Airbnb ou Booking.com) · Distribution &lt; 0,70 · Flexibilité &lt; 0,75 · Compétitivité &lt; 0,60 · iCal max &gt; 90 jours · ou un score manquant.</div>
+<div class="rule"><b>Règle « à corriger » (1 critère suffit) :</b> Sellable &lt; 0,50 · canal Airbnb ou Booking manquant · Distribution &lt; 0,70 · Flexibilité &lt; 0,75 · Compétitivité &lt; 0,60 · iCal max &gt; 90 jours · ou un score manquant.</div>
 <div class="toggle">
-<button class="tbtn active" id="tb_am" onclick="showView('am')">👤 Vue par AM</button>
-<button class="tbtn" id="tb_sm" onclick="showView('sm')">🧑‍💼 Vue par SM</button>
+<button id="btnAM" class="active" onclick="showView('am_name')">👤 Vue par AM</button>
+<button id="btnSM" onclick="showView('sm_name')">🧑‍💼 Vue par SM</button>
 </div>
-<div class="view" id="view_am"><div class="pbtns"><button class="pbtn active" onclick="showPerson('am',0)">Amandine <span class="badge">7</span></button><button class="pbtn" onclick="showPerson('am',1)">Mariana <span class="badge">4</span></button><button class="pbtn" onclick="showPerson('am',2)">Remi <span class="badge">3</span></button><button class="pbtn" onclick="showPerson('am',3)">— <span class="badge">3</span></button><button class="pbtn" onclick="showPerson('am',4)">Laetitia <span class="badge">1</span></button><button class="pbtn" onclick="showPerson('am',5)">Naomi <span class="badge">0</span></button></div><div class="panel" id="panel_am_0"><table><tr><th>Propriété</th><th>Zone</th><th>SM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr><tr style="background:#FFF6F3"><td><b>67975976</b><br><span class="ho">galtierd@orange.fr</span></td><td>NA</td><td>Arthur Monnier</td><td>2026-06-17</td><td>0.57</td><td>AB✓ BC✓</td><td>0.81</td><td>1.00</td><td>0.54</td><td>4</td><td><span class="chip">Compétitivité faible</span></td></tr><tr><td><b>69044981</b><br><span class="ho">galtierd@orange.fr</span></td><td>NA</td><td>Arthur Monnier</td><td>2026-06-17</td><td>0.72</td><td>AB✓ BC✓</td><td>0.81</td><td>1.00</td><td>0.69</td><td>14</td><td><span class="ok">✓</span></td></tr><tr><td><b>69073710</b><br><span class="ho">delcros12@gmail.com</span></td><td>NA</td><td>Arthur Monnier</td><td>2026-06-17</td><td>0.66</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.92</td><td>—</td><td><span class="ok">✓</span></td></tr><tr><td><b>69169485</b><br><span class="ho">olivier.delahousse@gmail.com</span></td><td>NA</td><td>Elisa Blond</td><td>2026-06-19</td><td>0.88</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.81</td><td>—</td><td><span class="ok">✓</span></td></tr><tr><td><b>69169619</b><br><span class="ho">olivier.delahousse@gmail.com</span></td><td>NA</td><td>Elisa Blond</td><td>2026-06-19</td><td>0.68</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.77</td><td>—</td><td><span class="ok">✓</span></td></tr><tr style="background:#FFF6F3"><td><b>68976650</b><br><span class="ho">thomsen@yogasurmer.fr</span></td><td>NA</td><td>Jade Ricbourg</td><td>2026-06-18</td><td>0.62</td><td>AB✓ BC✓</td><td>0.81</td><td>1.00</td><td>0.25</td><td>17</td><td><span class="chip">Compétitivité faible</span></td></tr><tr style="background:#FFF6F3"><td><b>69066725</b><br><span class="ho">pasquon.sonia@gmail.fr</span></td><td>NA</td><td>Jade Ricbourg</td><td>2026-06-15</td><td>0.45</td><td>AB✓ BC✓</td><td>1.00</td><td>0.52</td><td>0.90</td><td>—</td><td><span class="chip">Sellable faible</span><span class="chip">Flexibilité faible</span></td></tr><tr><td><b>69065997</b><br><span class="ho">visites@chateausaintgeorges.fr</span></td><td>NA</td><td>Jonathan Bouchereau</td><td>2026-06-18</td><td>0.95</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.92</td><td>—</td><td><span class="ok">✓</span></td></tr><tr style="background:#FFF6F3"><td><b>69191234</b><br><span class="ho">francisvinolo@yahoo.fr</span></td><td>NA</td><td>Jonathan Bouchereau</td><td>2026-06-19</td><td>0.58</td><td>AB✓ BC✗</td><td>0.48</td><td>1.00</td><td>0.44</td><td>—</td><td><span class="chip">Canal manquant</span><span class="chip">Distribution faible</span><span class="chip">Compétitivité faible</span></td></tr><tr><td><b>68993444</b><br><span class="ho">gite.chezclara@gmail.com</span></td><td>NA</td><td>Loic Kouame</td><td>2026-06-15</td><td>0.85</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.94</td><td>—</td><td><span class="ok">✓</span></td></tr><tr style="background:#FFF6F3"><td><b>68995322</b><br><span class="ho">chambres.isa@gmail.com</span></td><td>NA</td><td>Melanie Gachon</td><td>2026-06-18</td><td>0.94</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.12</td><td>—</td><td><span class="chip">Compétitivité faible</span></td></tr><tr style="background:#FFF6F3"><td><b>68995323</b><br><span class="ho">chambres.isa@gmail.com</span></td><td>NA</td><td>Melanie Gachon</td><td>2026-06-18</td><td>0.94</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.13</td><td>—</td><td><span class="chip">Compétitivité faible</span></td></tr><tr style="background:#FFF6F3"><td><b>68995324</b><br><span class="ho">chambres.isa@gmail.com</span></td><td>NA</td><td>Melanie Gachon</td><td>2026-06-18</td><td>0.90</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.25</td><td>—</td><td><span class="chip">Compétitivité faible</span></td></tr></table></div><div class="panel" id="panel_am_1" style="display:none"><table><tr><th>Propriété</th><th>Zone</th><th>SM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr><tr><td><b>69107584</b><br><span class="ho">jean-philippe.peyrat@orange.fr</span></td><td>NA</td><td>Arthur Monnier</td><td>2026-06-17</td><td>0.95</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.92</td><td>—</td><td><span class="ok">✓</span></td></tr><tr style="background:#FFF6F3"><td><b>69016519</b><br><span class="ho">bigot.francois@sfr.fr</span></td><td>NA</td><td>Jade Ricbourg</td><td>2026-06-18</td><td>0.27</td><td>AB✓ BC✓</td><td>0.81</td><td>1.00</td><td>1.00</td><td>298</td><td><span class="chip">Sellable faible</span><span class="chip">iCal &gt; 90j</span></td></tr><tr style="background:#FFF6F3"><td><b>69190472</b><br><span class="ho">atteimb@gmail.com</span></td><td>NA</td><td>Jade Ricbourg</td><td>2026-06-19</td><td>0.36</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.69</td><td>—</td><td><span class="chip">Sellable faible</span></td></tr><tr style="background:#FFF6F3"><td><b>69169457</b><br><span class="ho">sonia50100@yahoo.fr</span></td><td>NA</td><td>Theo Serre</td><td>2026-06-17</td><td>0.34</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.96</td><td>—</td><td><span class="chip">Sellable faible</span></td></tr><tr><td><b>69064065</b><br><span class="ho">francoise.bandini@orange.fr</span></td><td>Other</td><td>Arthur Monnier</td><td>2026-06-16</td><td>0.59</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.92</td><td>—</td><td><span class="ok">✓</span></td></tr><tr style="background:#FFF6F3"><td><b>69030070</b><br><span class="ho">lachouetteburgonde@gmail.com</span></td><td>Other</td><td>Ludovic Ollivier</td><td>2026-06-17</td><td>0.90</td><td>AB✓ BC✓</td><td>1.00</td><td>0.65</td><td>0.96</td><td>—</td><td><span class="chip">Flexibilité faible</span></td></tr></table></div><div class="panel" id="panel_am_2" style="display:none"><table><tr><th>Propriété</th><th>Zone</th><th>SM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr><tr><td><b>69065937</b><br><span class="ho">mtandrews@icloud.com</span></td><td>NA</td><td>Blanche Poyet</td><td>2026-06-16</td><td>0.79</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.83</td><td>—</td><td><span class="ok">✓</span></td></tr><tr style="background:#FFF6F3"><td><b>68769613</b><br><span class="ho">marieange.santos@gmail.com</span></td><td>NA</td><td>Delphine Ruhlow</td><td>2026-06-16</td><td>0.74</td><td>AB✗ BC✓</td><td>0.48</td><td>0.91</td><td>0.62</td><td>9</td><td><span class="chip">Canal manquant</span><span class="chip">Distribution faible</span></td></tr><tr style="background:#FFF6F3"><td><b>68769614</b><br><span class="ho">marieange.santos@gmail.com</span></td><td>NA</td><td>Delphine Ruhlow</td><td>2026-06-16</td><td>0.75</td><td>AB✗ BC✓</td><td>0.48</td><td>0.90</td><td>0.58</td><td>7</td><td><span class="chip">Canal manquant</span><span class="chip">Distribution faible</span><span class="chip">Compétitivité faible</span></td></tr><tr><td><b>68988579</b><br><span class="ho">sarlbienetresimple@gmail.com</span></td><td>NA</td><td>Gauthier Sibrac</td><td>2026-06-17</td><td>0.85</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.79</td><td>10</td><td><span class="ok">✓</span></td></tr><tr><td><b>68988581</b><br><span class="ho">sarlbienetresimple@gmail.com</span></td><td>NA</td><td>Gauthier Sibrac</td><td>2026-06-17</td><td>0.88</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.61</td><td>9</td><td><span class="ok">✓</span></td></tr><tr><td><b>68988582</b><br><span class="ho">sarlbienetresimple@gmail.com</span></td><td>NA</td><td>Gauthier Sibrac</td><td>2026-06-17</td><td>0.86</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.61</td><td>7</td><td><span class="ok">✓</span></td></tr><tr><td><b>68988584</b><br><span class="ho">sarlbienetresimple@gmail.com</span></td><td>NA</td><td>Gauthier Sibrac</td><td>2026-06-17</td><td>0.89</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.79</td><td>6</td><td><span class="ok">✓</span></td></tr><tr><td><b>68988585</b><br><span class="ho">sarlbienetresimple@gmail.com</span></td><td>NA</td><td>Gauthier Sibrac</td><td>2026-06-17</td><td>0.82</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.61</td><td>5</td><td><span class="ok">✓</span></td></tr><tr><td><b>68467626</b><br><span class="ho">piscinemurat@gmail.com</span></td><td>NA</td><td>Jonathan Bouchereau</td><td>2026-06-19</td><td>0.50</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>1.00</td><td>—</td><td><span class="ok">✓</span></td></tr><tr style="background:#FFF6F3"><td><b>68799154</b><br><span class="ho">gite.maguiga@gmail.com</span></td><td>NA</td><td>Naomi Sellier</td><td>2026-06-17</td><td>0.52</td><td>AB✗ BC✓</td><td>0.61</td><td>1.00</td><td>0.28</td><td>96</td><td><span class="chip">Canal manquant</span><span class="chip">Distribution faible</span><span class="chip">Compétitivité faible</span><span class="chip">iCal &gt; 90j</span></td></tr></table></div><div class="panel" id="panel_am_3" style="display:none"><table><tr><th>Propriété</th><th>Zone</th><th>SM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr><tr style="background:#FFF6F3"><td><b>50183371</b><br><span class="ho">contact@dunevoile.com</span></td><td>NA</td><td>—</td><td>2026-06-17</td><td>0.28</td><td>AB✓ BC✓</td><td>1.00</td><td>0.86</td><td>0.73</td><td>—</td><td><span class="chip">Sellable faible</span></td></tr><tr style="background:#FFF6F3"><td><b>68977465</b><br><span class="ho">jeanmarcrollet@me.com</span></td><td>NA</td><td>—</td><td>2026-06-19</td><td>0.62</td><td>AB✓ BC✗</td><td>0.42</td><td>0.71</td><td>0.08</td><td>14</td><td><span class="chip">Canal manquant</span><span class="chip">Distribution faible</span><span class="chip">Flexibilité faible</span><span class="chip">Compétitivité faible</span></td></tr><tr style="background:#FFF6F3"><td><b>68977466</b><br><span class="ho">jeanmarcrollet@me.com</span></td><td>NA</td><td>—</td><td>2026-06-19</td><td>0.52</td><td>AB✓ BC✗</td><td>0.42</td><td>1.00</td><td>0.00</td><td>94</td><td><span class="chip">Canal manquant</span><span class="chip">Distribution faible</span><span class="chip">Compétitivité faible</span><span class="chip">iCal &gt; 90j</span></td></tr><tr><td><b>69123410</b><br><span class="ho">h.marks@xipio.nl</span></td><td>Other</td><td>—</td><td>2026-06-19</td><td>0.56</td><td>AB✓ BC✓</td><td>1.00</td><td>0.97</td><td>0.88</td><td>7</td><td><span class="ok">✓</span></td></tr></table></div><div class="panel" id="panel_am_4" style="display:none"><table><tr><th>Propriété</th><th>Zone</th><th>SM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr><tr><td><b>68604954</b><br><span class="ho">evelyne.boschet@orange.fr</span></td><td>NA</td><td>Gauthier Sibrac</td><td>2026-06-19</td><td>0.98</td><td>AB✓ BC✓</td><td>1.00</td><td>0.96</td><td>0.92</td><td>7</td><td><span class="ok">✓</span></td></tr><tr style="background:#FFF6F3"><td><b>68937457</b><br><span class="ho">estellelaporte25@gmail.com</span></td><td>NA</td><td>Loic Kouame</td><td>2026-06-19</td><td>0.16</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.73</td><td>—</td><td><span class="chip">Sellable faible</span></td></tr><tr><td><b>69032236</b><br><span class="ho">nina.carrere@landyloc.fr</span></td><td>NA</td><td>Naomi Sellier</td><td>2026-06-15</td><td>0.97</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>1.00</td><td>—</td><td><span class="ok">✓</span></td></tr></table></div><div class="panel" id="panel_am_5" style="display:none"><table><tr><th>Propriété</th><th>Zone</th><th>SM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr><tr><td><b>68762179</b><br><span class="ho">carolinecoget.cg78@gmail.com</span></td><td>NA</td><td>Remi Clemenceau</td><td>2026-06-18</td><td>0.95</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.85</td><td>—</td><td><span class="ok">✓</span></td></tr></table></div></div>
-<div class="view" id="view_sm" style="display:none"><div class="pbtns"><button class="pbtn active" onclick="showPerson('sm',0)">Jade <span class="badge">4</span></button><button class="pbtn" onclick="showPerson('sm',1)">— <span class="badge">3</span></button><button class="pbtn" onclick="showPerson('sm',2)">Melanie <span class="badge">3</span></button><button class="pbtn" onclick="showPerson('sm',3)">Delphine <span class="badge">2</span></button><button class="pbtn" onclick="showPerson('sm',4)">Arthur <span class="badge">1</span></button><button class="pbtn" onclick="showPerson('sm',5)">Jonathan <span class="badge">1</span></button><button class="pbtn" onclick="showPerson('sm',6)">Loic <span class="badge">1</span></button><button class="pbtn" onclick="showPerson('sm',7)">Naomi <span class="badge">1</span></button><button class="pbtn" onclick="showPerson('sm',8)">Theo <span class="badge">1</span></button><button class="pbtn" onclick="showPerson('sm',9)">Ludovic <span class="badge">1</span></button><button class="pbtn" onclick="showPerson('sm',10)">Gauthier <span class="badge">0</span></button><button class="pbtn" onclick="showPerson('sm',11)">Elisa <span class="badge">0</span></button><button class="pbtn" onclick="showPerson('sm',12)">Blanche <span class="badge">0</span></button><button class="pbtn" onclick="showPerson('sm',13)">Remi <span class="badge">0</span></button></div><div class="panel" id="panel_sm_0"><table><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr><tr style="background:#FFF6F3"><td><b>68976650</b><br><span class="ho">thomsen@yogasurmer.fr</span></td><td>NA</td><td>Amandine Dicharry</td><td>2026-06-18</td><td>0.62</td><td>AB✓ BC✓</td><td>0.81</td><td>1.00</td><td>0.25</td><td>17</td><td><span class="chip">Compétitivité faible</span></td></tr><tr style="background:#FFF6F3"><td><b>69016519</b><br><span class="ho">bigot.francois@sfr.fr</span></td><td>NA</td><td>Mariana Braz</td><td>2026-06-18</td><td>0.27</td><td>AB✓ BC✓</td><td>0.81</td><td>1.00</td><td>1.00</td><td>298</td><td><span class="chip">Sellable faible</span><span class="chip">iCal &gt; 90j</span></td></tr><tr style="background:#FFF6F3"><td><b>69066725</b><br><span class="ho">pasquon.sonia@gmail.fr</span></td><td>NA</td><td>Amandine Dicharry</td><td>2026-06-15</td><td>0.45</td><td>AB✓ BC✓</td><td>1.00</td><td>0.52</td><td>0.90</td><td>—</td><td><span class="chip">Sellable faible</span><span class="chip">Flexibilité faible</span></td></tr><tr style="background:#FFF6F3"><td><b>69190472</b><br><span class="ho">atteimb@gmail.com</span></td><td>NA</td><td>Mariana Braz</td><td>2026-06-19</td><td>0.36</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.69</td><td>—</td><td><span class="chip">Sellable faible</span></td></tr></table></div><div class="panel" id="panel_sm_1" style="display:none"><table><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr><tr style="background:#FFF6F3"><td><b>50183371</b><br><span class="ho">contact@dunevoile.com</span></td><td>NA</td><td>—</td><td>2026-06-17</td><td>0.28</td><td>AB✓ BC✓</td><td>1.00</td><td>0.86</td><td>0.73</td><td>—</td><td><span class="chip">Sellable faible</span></td></tr><tr style="background:#FFF6F3"><td><b>68977465</b><br><span class="ho">jeanmarcrollet@me.com</span></td><td>NA</td><td>—</td><td>2026-06-19</td><td>0.62</td><td>AB✓ BC✗</td><td>0.42</td><td>0.71</td><td>0.08</td><td>14</td><td><span class="chip">Canal manquant</span><span class="chip">Distribution faible</span><span class="chip">Flexibilité faible</span><span class="chip">Compétitivité faible</span></td></tr><tr style="background:#FFF6F3"><td><b>68977466</b><br><span class="ho">jeanmarcrollet@me.com</span></td><td>NA</td><td>—</td><td>2026-06-19</td><td>0.52</td><td>AB✓ BC✗</td><td>0.42</td><td>1.00</td><td>0.00</td><td>94</td><td><span class="chip">Canal manquant</span><span class="chip">Distribution faible</span><span class="chip">Compétitivité faible</span><span class="chip">iCal &gt; 90j</span></td></tr><tr><td><b>69123410</b><br><span class="ho">h.marks@xipio.nl</span></td><td>Other</td><td>—</td><td>2026-06-19</td><td>0.56</td><td>AB✓ BC✓</td><td>1.00</td><td>0.97</td><td>0.88</td><td>7</td><td><span class="ok">✓</span></td></tr></table></div><div class="panel" id="panel_sm_2" style="display:none"><table><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr><tr style="background:#FFF6F3"><td><b>68995322</b><br><span class="ho">chambres.isa@gmail.com</span></td><td>NA</td><td>Amandine Dicharry</td><td>2026-06-18</td><td>0.94</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.12</td><td>—</td><td><span class="chip">Compétitivité faible</span></td></tr><tr style="background:#FFF6F3"><td><b>68995323</b><br><span class="ho">chambres.isa@gmail.com</span></td><td>NA</td><td>Amandine Dicharry</td><td>2026-06-18</td><td>0.94</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.13</td><td>—</td><td><span class="chip">Compétitivité faible</span></td></tr><tr style="background:#FFF6F3"><td><b>68995324</b><br><span class="ho">chambres.isa@gmail.com</span></td><td>NA</td><td>Amandine Dicharry</td><td>2026-06-18</td><td>0.90</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.25</td><td>—</td><td><span class="chip">Compétitivité faible</span></td></tr></table></div><div class="panel" id="panel_sm_3" style="display:none"><table><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr><tr style="background:#FFF6F3"><td><b>68769613</b><br><span class="ho">marieange.santos@gmail.com</span></td><td>NA</td><td>Remi Clemenceau</td><td>2026-06-16</td><td>0.74</td><td>AB✗ BC✓</td><td>0.48</td><td>0.91</td><td>0.62</td><td>9</td><td><span class="chip">Canal manquant</span><span class="chip">Distribution faible</span></td></tr><tr style="background:#FFF6F3"><td><b>68769614</b><br><span class="ho">marieange.santos@gmail.com</span></td><td>NA</td><td>Remi Clemenceau</td><td>2026-06-16</td><td>0.75</td><td>AB✗ BC✓</td><td>0.48</td><td>0.90</td><td>0.58</td><td>7</td><td><span class="chip">Canal manquant</span><span class="chip">Distribution faible</span><span class="chip">Compétitivité faible</span></td></tr></table></div><div class="panel" id="panel_sm_4" style="display:none"><table><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr><tr style="background:#FFF6F3"><td><b>67975976</b><br><span class="ho">galtierd@orange.fr</span></td><td>NA</td><td>Amandine Dicharry</td><td>2026-06-17</td><td>0.57</td><td>AB✓ BC✓</td><td>0.81</td><td>1.00</td><td>0.54</td><td>4</td><td><span class="chip">Compétitivité faible</span></td></tr><tr><td><b>69044981</b><br><span class="ho">galtierd@orange.fr</span></td><td>NA</td><td>Amandine Dicharry</td><td>2026-06-17</td><td>0.72</td><td>AB✓ BC✓</td><td>0.81</td><td>1.00</td><td>0.69</td><td>14</td><td><span class="ok">✓</span></td></tr><tr><td><b>69073710</b><br><span class="ho">delcros12@gmail.com</span></td><td>NA</td><td>Amandine Dicharry</td><td>2026-06-17</td><td>0.66</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.92</td><td>—</td><td><span class="ok">✓</span></td></tr><tr><td><b>69107584</b><br><span class="ho">jean-philippe.peyrat@orange.fr</span></td><td>NA</td><td>Mariana Braz</td><td>2026-06-17</td><td>0.95</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.92</td><td>—</td><td><span class="ok">✓</span></td></tr><tr><td><b>69064065</b><br><span class="ho">francoise.bandini@orange.fr</span></td><td>Other</td><td>Mariana Braz</td><td>2026-06-16</td><td>0.59</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.92</td><td>—</td><td><span class="ok">✓</span></td></tr></table></div><div class="panel" id="panel_sm_5" style="display:none"><table><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr><tr><td><b>68467626</b><br><span class="ho">piscinemurat@gmail.com</span></td><td>NA</td><td>Remi Clemenceau</td><td>2026-06-19</td><td>0.50</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>1.00</td><td>—</td><td><span class="ok">✓</span></td></tr><tr><td><b>69065997</b><br><span class="ho">visites@chateausaintgeorges.fr</span></td><td>NA</td><td>Amandine Dicharry</td><td>2026-06-18</td><td>0.95</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.92</td><td>—</td><td><span class="ok">✓</span></td></tr><tr style="background:#FFF6F3"><td><b>69191234</b><br><span class="ho">francisvinolo@yahoo.fr</span></td><td>NA</td><td>Amandine Dicharry</td><td>2026-06-19</td><td>0.58</td><td>AB✓ BC✗</td><td>0.48</td><td>1.00</td><td>0.44</td><td>—</td><td><span class="chip">Canal manquant</span><span class="chip">Distribution faible</span><span class="chip">Compétitivité faible</span></td></tr></table></div><div class="panel" id="panel_sm_6" style="display:none"><table><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr><tr style="background:#FFF6F3"><td><b>68937457</b><br><span class="ho">estellelaporte25@gmail.com</span></td><td>NA</td><td>Laetitia Millan</td><td>2026-06-19</td><td>0.16</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.73</td><td>—</td><td><span class="chip">Sellable faible</span></td></tr><tr><td><b>68993444</b><br><span class="ho">gite.chezclara@gmail.com</span></td><td>NA</td><td>Amandine Dicharry</td><td>2026-06-15</td><td>0.85</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.94</td><td>—</td><td><span class="ok">✓</span></td></tr></table></div><div class="panel" id="panel_sm_7" style="display:none"><table><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr><tr style="background:#FFF6F3"><td><b>68799154</b><br><span class="ho">gite.maguiga@gmail.com</span></td><td>NA</td><td>Remi Clemenceau</td><td>2026-06-17</td><td>0.52</td><td>AB✗ BC✓</td><td>0.61</td><td>1.00</td><td>0.28</td><td>96</td><td><span class="chip">Canal manquant</span><span class="chip">Distribution faible</span><span class="chip">Compétitivité faible</span><span class="chip">iCal &gt; 90j</span></td></tr><tr><td><b>69032236</b><br><span class="ho">nina.carrere@landyloc.fr</span></td><td>NA</td><td>Laetitia Millan</td><td>2026-06-15</td><td>0.97</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>1.00</td><td>—</td><td><span class="ok">✓</span></td></tr></table></div><div class="panel" id="panel_sm_8" style="display:none"><table><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr><tr style="background:#FFF6F3"><td><b>69169457</b><br><span class="ho">sonia50100@yahoo.fr</span></td><td>NA</td><td>Mariana Braz</td><td>2026-06-17</td><td>0.34</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.96</td><td>—</td><td><span class="chip">Sellable faible</span></td></tr></table></div><div class="panel" id="panel_sm_9" style="display:none"><table><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr><tr style="background:#FFF6F3"><td><b>69030070</b><br><span class="ho">lachouetteburgonde@gmail.com</span></td><td>Other</td><td>Mariana Braz</td><td>2026-06-17</td><td>0.90</td><td>AB✓ BC✓</td><td>1.00</td><td>0.65</td><td>0.96</td><td>—</td><td><span class="chip">Flexibilité faible</span></td></tr></table></div><div class="panel" id="panel_sm_10" style="display:none"><table><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr><tr><td><b>68604954</b><br><span class="ho">evelyne.boschet@orange.fr</span></td><td>NA</td><td>Laetitia Millan</td><td>2026-06-19</td><td>0.98</td><td>AB✓ BC✓</td><td>1.00</td><td>0.96</td><td>0.92</td><td>7</td><td><span class="ok">✓</span></td></tr><tr><td><b>68988579</b><br><span class="ho">sarlbienetresimple@gmail.com</span></td><td>NA</td><td>Remi Clemenceau</td><td>2026-06-17</td><td>0.85</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.79</td><td>10</td><td><span class="ok">✓</span></td></tr><tr><td><b>68988581</b><br><span class="ho">sarlbienetresimple@gmail.com</span></td><td>NA</td><td>Remi Clemenceau</td><td>2026-06-17</td><td>0.88</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.61</td><td>9</td><td><span class="ok">✓</span></td></tr><tr><td><b>68988582</b><br><span class="ho">sarlbienetresimple@gmail.com</span></td><td>NA</td><td>Remi Clemenceau</td><td>2026-06-17</td><td>0.86</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.61</td><td>7</td><td><span class="ok">✓</span></td></tr><tr><td><b>68988584</b><br><span class="ho">sarlbienetresimple@gmail.com</span></td><td>NA</td><td>Remi Clemenceau</td><td>2026-06-17</td><td>0.89</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.79</td><td>6</td><td><span class="ok">✓</span></td></tr><tr><td><b>68988585</b><br><span class="ho">sarlbienetresimple@gmail.com</span></td><td>NA</td><td>Remi Clemenceau</td><td>2026-06-17</td><td>0.82</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.61</td><td>5</td><td><span class="ok">✓</span></td></tr></table></div><div class="panel" id="panel_sm_11" style="display:none"><table><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr><tr><td><b>69169485</b><br><span class="ho">olivier.delahousse@gmail.com</span></td><td>NA</td><td>Amandine Dicharry</td><td>2026-06-19</td><td>0.88</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.81</td><td>—</td><td><span class="ok">✓</span></td></tr><tr><td><b>69169619</b><br><span class="ho">olivier.delahousse@gmail.com</span></td><td>NA</td><td>Amandine Dicharry</td><td>2026-06-19</td><td>0.68</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.77</td><td>—</td><td><span class="ok">✓</span></td></tr></table></div><div class="panel" id="panel_sm_12" style="display:none"><table><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr><tr><td><b>69065937</b><br><span class="ho">mtandrews@icloud.com</span></td><td>NA</td><td>Remi Clemenceau</td><td>2026-06-16</td><td>0.79</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.83</td><td>—</td><td><span class="ok">✓</span></td></tr></table></div><div class="panel" id="panel_sm_13" style="display:none"><table><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr><tr><td><b>68762179</b><br><span class="ho">carolinecoget.cg78@gmail.com</span></td><td>NA</td><td>Naomi Sellier</td><td>2026-06-18</td><td>0.95</td><td>AB✓ BC✓</td><td>1.00</td><td>1.00</td><td>0.85</td><td>—</td><td><span class="ok">✓</span></td></tr></table></div></div>
-<div class="footer">© Holidu GmbH | Confidential — Périmètre : Nouvelle-Aquitaine (Focus) + OOF FR. Source : Athena holidu_homes.</div>
+<div id="view_am_name">
+<div class="tabs"><button class="tab active" onclick="showGroup('am_name','Mariana')">Mariana <span class="cnt">6</span></button>
+<button class="tab" onclick="showGroup('am_name','Laetitia')">Laetitia <span class="cnt">4</span></button>
+<button class="tab" onclick="showGroup('am_name','Amandine')">Amandine <span class="cnt">2</span></button>
+<button class="tab" onclick="showGroup('am_name','Remi')">Remi <span class="cnt">0</span></button>
+</div><div class="tblwrap" id="grp_am_name_Mariana" style="display:block">
+<table><thead><tr><th>Propriété</th><th>Zone</th><th>SM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
+<tbody><tr class="fix">
+<td><b>67204756</b><br><span class="ho">bienvenue</span></td>
+<td>NA</td><td>Gauthier</td><td>2026-07-08</td>
+<td>0.90</td><td>manque Booking</td><td>0.61</td><td>1.00</td><td>0.92</td><td>—</td>
+<td><span class="chip">Distribution faible</span><span class="chip">Booking manquant</span></td></tr>
+<tr class="fix">
+<td><b>69483497</b><br><span class="ho">valeriecazulet</span></td>
+<td>NA</td><td>Jade</td><td>2026-07-07</td>
+<td>0.94</td><td>OK</td><td>1.00</td><td>0.29</td><td>0.73</td><td>—</td>
+<td><span class="chip">Flexibilité faible</span></td></tr>
+<tr class="fix">
+<td><b>69369252</b><br><span class="ho">chris58120</span></td>
+<td>Other</td><td>Melanie</td><td>2026-07-07</td>
+<td>0.00</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.75</td><td>—</td>
+<td><span class="chip">Sellable faible</span></td></tr>
+<tr class="fix">
+<td><b>69369253</b><br><span class="ho">chris58120</span></td>
+<td>Other</td><td>Melanie</td><td>2026-07-07</td>
+<td>0.00</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.81</td><td>—</td>
+<td><span class="chip">Sellable faible</span></td></tr>
+<tr class="fix">
+<td><b>69224460</b><br><span class="ho">cedric.boyer57</span></td>
+<td>Other</td><td>Naomi</td><td>2026-07-06</td>
+<td>0.00</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.60</td><td>—</td>
+<td><span class="chip">Sellable faible</span></td></tr>
+<tr class="fix">
+<td><b>67256491</b><br><span class="ho">jpdkerrio</span></td>
+<td>Other</td><td>Sophie</td><td>2026-07-07</td>
+<td>0.00</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.58</td><td>—</td>
+<td><span class="chip">Sellable faible</span><span class="chip">Compétitivité faible</span></td></tr>
+<tr>
+<td><b>67975577</b><br><span class="ho">pascaltrotta64</span></td>
+<td>NA</td><td>Mailys</td><td>2026-07-07</td>
+<td>0.66</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.81</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr>
+</tbody></table></div>
+<div class="tblwrap" id="grp_am_name_Laetitia" style="display:none">
+<table><thead><tr><th>Propriété</th><th>Zone</th><th>SM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
+<tbody><tr class="fix">
+<td><b>69191052</b><br><span class="ho">vincenttib</span></td>
+<td>NA</td><td>Arthur</td><td>2026-07-06</td>
+<td>0.38</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.81</td><td>—</td>
+<td><span class="chip">Sellable faible</span></td></tr>
+<tr class="fix">
+<td><b>69191053</b><br><span class="ho">vincenttib</span></td>
+<td>NA</td><td>Arthur</td><td>2026-07-06</td>
+<td>0.43</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.83</td><td>—</td>
+<td><span class="chip">Sellable faible</span></td></tr>
+<tr class="fix">
+<td><b>69191055</b><br><span class="ho">vincenttib</span></td>
+<td>NA</td><td>Arthur</td><td>2026-07-06</td>
+<td>0.31</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.75</td><td>—</td>
+<td><span class="chip">Sellable faible</span></td></tr>
+<tr class="fix">
+<td><b>69191056</b><br><span class="ho">vincenttib</span></td>
+<td>NA</td><td>Arthur</td><td>2026-07-06</td>
+<td>0.35</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.96</td><td>—</td>
+<td><span class="chip">Sellable faible</span></td></tr>
+<tr>
+<td><b>69369722</b><br><span class="ho">sylvie.schaff</span></td>
+<td>NA</td><td>Arthur</td><td>2026-07-07</td>
+<td>0.74</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.73</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr>
+<tr>
+<td><b>69369723</b><br><span class="ho">sylvie.schaff</span></td>
+<td>NA</td><td>Arthur</td><td>2026-07-07</td>
+<td>0.70</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.60</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr>
+<tr>
+<td><b>69485558</b><br><span class="ho">sylvie.schaff</span></td>
+<td>NA</td><td>Arthur</td><td>2026-07-07</td>
+<td>0.79</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.60</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr>
+</tbody></table></div>
+<div class="tblwrap" id="grp_am_name_Amandine" style="display:none">
+<table><thead><tr><th>Propriété</th><th>Zone</th><th>SM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
+<tbody><tr class="fix">
+<td><b>69464526</b><br><span class="ho">xavckx</span></td>
+<td>NA</td><td>Jade</td><td>2026-07-06</td>
+<td>0.15</td><td>OK</td><td>0.81</td><td>1.00</td><td>0.65</td><td>162</td>
+<td><span class="chip">Sellable faible</span><span class="chip">iCal > 90j</span></td></tr>
+<tr class="fix">
+<td><b>69486175</b><br><span class="ho">floriandelbez</span></td>
+<td>NA</td><td>Naomi</td><td>2026-07-07</td>
+<td>0.26</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.92</td><td>—</td>
+<td><span class="chip">Sellable faible</span></td></tr>
+</tbody></table></div>
+<div class="tblwrap" id="grp_am_name_Remi" style="display:none">
+<table><thead><tr><th>Propriété</th><th>Zone</th><th>SM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
+<tbody><tr>
+<td><b>68291127</b><br><span class="ho">nathaliejourdan32</span></td>
+<td>NA</td><td>Jade</td><td>2026-07-07</td>
+<td>0.58</td><td>OK</td><td>1.00</td><td>1.00</td><td>1.00</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr>
+<tr>
+<td><b>68949399</b><br><span class="ho">peyrouteau32</span></td>
+<td>NA</td><td>Loic</td><td>2026-07-07</td>
+<td>0.58</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.96</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr>
+</tbody></table></div>
+
+</div>
+<div id="view_sm_name" style="display:none">
+<div class="tabs"><button class="tab active" onclick="showGroup('sm_name','Arthur')">Arthur <span class="cnt">4</span></button>
+<button class="tab" onclick="showGroup('sm_name','Jade')">Jade <span class="cnt">2</span></button>
+<button class="tab" onclick="showGroup('sm_name','Melanie')">Melanie <span class="cnt">2</span></button>
+<button class="tab" onclick="showGroup('sm_name','Naomi')">Naomi <span class="cnt">2</span></button>
+<button class="tab" onclick="showGroup('sm_name','Gauthier')">Gauthier <span class="cnt">1</span></button>
+<button class="tab" onclick="showGroup('sm_name','Sophie')">Sophie <span class="cnt">1</span></button>
+<button class="tab" onclick="showGroup('sm_name','Loic')">Loic <span class="cnt">0</span></button>
+<button class="tab" onclick="showGroup('sm_name','Mailys')">Mailys <span class="cnt">0</span></button>
+</div><div class="tblwrap" id="grp_sm_name_Arthur" style="display:block">
+<table><thead><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
+<tbody><tr class="fix">
+<td><b>69191052</b><br><span class="ho">vincenttib</span></td>
+<td>NA</td><td>Laetitia</td><td>2026-07-06</td>
+<td>0.38</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.81</td><td>—</td>
+<td><span class="chip">Sellable faible</span></td></tr>
+<tr class="fix">
+<td><b>69191053</b><br><span class="ho">vincenttib</span></td>
+<td>NA</td><td>Laetitia</td><td>2026-07-06</td>
+<td>0.43</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.83</td><td>—</td>
+<td><span class="chip">Sellable faible</span></td></tr>
+<tr class="fix">
+<td><b>69191055</b><br><span class="ho">vincenttib</span></td>
+<td>NA</td><td>Laetitia</td><td>2026-07-06</td>
+<td>0.31</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.75</td><td>—</td>
+<td><span class="chip">Sellable faible</span></td></tr>
+<tr class="fix">
+<td><b>69191056</b><br><span class="ho">vincenttib</span></td>
+<td>NA</td><td>Laetitia</td><td>2026-07-06</td>
+<td>0.35</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.96</td><td>—</td>
+<td><span class="chip">Sellable faible</span></td></tr>
+<tr>
+<td><b>69369722</b><br><span class="ho">sylvie.schaff</span></td>
+<td>NA</td><td>Laetitia</td><td>2026-07-07</td>
+<td>0.74</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.73</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr>
+<tr>
+<td><b>69369723</b><br><span class="ho">sylvie.schaff</span></td>
+<td>NA</td><td>Laetitia</td><td>2026-07-07</td>
+<td>0.70</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.60</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr>
+<tr>
+<td><b>69485558</b><br><span class="ho">sylvie.schaff</span></td>
+<td>NA</td><td>Laetitia</td><td>2026-07-07</td>
+<td>0.79</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.60</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr>
+</tbody></table></div>
+<div class="tblwrap" id="grp_sm_name_Jade" style="display:none">
+<table><thead><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
+<tbody><tr class="fix">
+<td><b>69464526</b><br><span class="ho">xavckx</span></td>
+<td>NA</td><td>Amandine</td><td>2026-07-06</td>
+<td>0.15</td><td>OK</td><td>0.81</td><td>1.00</td><td>0.65</td><td>162</td>
+<td><span class="chip">Sellable faible</span><span class="chip">iCal > 90j</span></td></tr>
+<tr class="fix">
+<td><b>69483497</b><br><span class="ho">valeriecazulet</span></td>
+<td>NA</td><td>Mariana</td><td>2026-07-07</td>
+<td>0.94</td><td>OK</td><td>1.00</td><td>0.29</td><td>0.73</td><td>—</td>
+<td><span class="chip">Flexibilité faible</span></td></tr>
+<tr>
+<td><b>68291127</b><br><span class="ho">nathaliejourdan32</span></td>
+<td>NA</td><td>Remi</td><td>2026-07-07</td>
+<td>0.58</td><td>OK</td><td>1.00</td><td>1.00</td><td>1.00</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr>
+</tbody></table></div>
+<div class="tblwrap" id="grp_sm_name_Melanie" style="display:none">
+<table><thead><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
+<tbody><tr class="fix">
+<td><b>69369252</b><br><span class="ho">chris58120</span></td>
+<td>Other</td><td>Mariana</td><td>2026-07-07</td>
+<td>0.00</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.75</td><td>—</td>
+<td><span class="chip">Sellable faible</span></td></tr>
+<tr class="fix">
+<td><b>69369253</b><br><span class="ho">chris58120</span></td>
+<td>Other</td><td>Mariana</td><td>2026-07-07</td>
+<td>0.00</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.81</td><td>—</td>
+<td><span class="chip">Sellable faible</span></td></tr>
+</tbody></table></div>
+<div class="tblwrap" id="grp_sm_name_Naomi" style="display:none">
+<table><thead><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
+<tbody><tr class="fix">
+<td><b>69486175</b><br><span class="ho">floriandelbez</span></td>
+<td>NA</td><td>Amandine</td><td>2026-07-07</td>
+<td>0.26</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.92</td><td>—</td>
+<td><span class="chip">Sellable faible</span></td></tr>
+<tr class="fix">
+<td><b>69224460</b><br><span class="ho">cedric.boyer57</span></td>
+<td>Other</td><td>Mariana</td><td>2026-07-06</td>
+<td>0.00</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.60</td><td>—</td>
+<td><span class="chip">Sellable faible</span></td></tr>
+</tbody></table></div>
+<div class="tblwrap" id="grp_sm_name_Gauthier" style="display:none">
+<table><thead><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
+<tbody><tr class="fix">
+<td><b>67204756</b><br><span class="ho">bienvenue</span></td>
+<td>NA</td><td>Mariana</td><td>2026-07-08</td>
+<td>0.90</td><td>manque Booking</td><td>0.61</td><td>1.00</td><td>0.92</td><td>—</td>
+<td><span class="chip">Distribution faible</span><span class="chip">Booking manquant</span></td></tr>
+</tbody></table></div>
+<div class="tblwrap" id="grp_sm_name_Sophie" style="display:none">
+<table><thead><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
+<tbody><tr class="fix">
+<td><b>67256491</b><br><span class="ho">jpdkerrio</span></td>
+<td>Other</td><td>Mariana</td><td>2026-07-07</td>
+<td>0.00</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.58</td><td>—</td>
+<td><span class="chip">Sellable faible</span><span class="chip">Compétitivité faible</span></td></tr>
+</tbody></table></div>
+<div class="tblwrap" id="grp_sm_name_Loic" style="display:none">
+<table><thead><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
+<tbody><tr>
+<td><b>68949399</b><br><span class="ho">peyrouteau32</span></td>
+<td>NA</td><td>Remi</td><td>2026-07-07</td>
+<td>0.58</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.96</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr>
+</tbody></table></div>
+<div class="tblwrap" id="grp_sm_name_Mailys" style="display:none">
+<table><thead><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
+<tbody><tr>
+<td><b>67975577</b><br><span class="ho">pascaltrotta64</span></td>
+<td>NA</td><td>Mariana</td><td>2026-07-07</td>
+<td>0.66</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.81</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr>
+</tbody></table></div>
+
+</div>
+<div class="foot">© Holidu GmbH | Confidential · Source : Athena holidu_homes</div>
 </div>
 <script>
 function showView(v){
-  document.getElementById('view_am').style.display = v=='am'?'block':'none';
-  document.getElementById('view_sm').style.display = v=='sm'?'block':'none';
-  document.getElementById('tb_am').classList.toggle('active', v=='am');
-  document.getElementById('tb_sm').classList.toggle('active', v=='sm');
+  document.getElementById('view_am_name').style.display = v==='am_name'?'block':'none';
+  document.getElementById('view_sm_name').style.display = v==='sm_name'?'block':'none';
+  document.getElementById('btnAM').classList.toggle('active', v==='am_name');
+  document.getElementById('btnSM').classList.toggle('active', v==='sm_name');
 }
-function showPerson(role,i){
-  document.querySelectorAll('[id^="panel_"+role+"_"]').forEach(function(p){p.style.display='none';});
-  var panel=document.getElementById('panel_'+role+'_'+i); if(panel) panel.style.display='block';
-  var view=document.getElementById('view_'+role);
-  view.querySelectorAll('.pbtn').forEach(function(b){b.classList.remove('active');});
-  view.querySelectorAll('.pbtn')[i].classList.add('active');
+function showGroup(view,name){
+  var id=(view+'_'+name).replace(/ /g,'_');
+  var container=document.getElementById('view_'+view);
+  container.querySelectorAll('.tblwrap').forEach(function(t){t.style.display='none';});
+  var el=document.getElementById('grp_'+id); if(el) el.style.display='block';
+  container.querySelectorAll('.tab').forEach(function(b){b.classList.remove('active');});
+  event.target.closest('.tab').classList.add('active');
 }
 </script>
 </body></html>
