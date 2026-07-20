@@ -1,303 +1,437 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Propriétés publiées — Area NA — 6 – 12 juillet 2026</title>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Propriétés publiées — Area NA — 13 – 19 juillet 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
 <style>
 :root{--primary:#00809D;--dark:#024251;--accent:#54CEEA;--green:#74CFA9;--coral:#E2674E;--bg:#FAF9F8;--text:#2B2926;--grey:#938F8B;}
 *{box-sizing:border-box;}
-body{font-family:'Inter',sans-serif;font-weight:300;background:var(--bg);color:var(--text);margin:0;padding:0 0 40px;}
-.banner{background:var(--dark);color:#fff;padding:28px 32px;}
-.banner h1{font-weight:600;margin:0;font-size:22px;}
+body{font-family:'Inter',sans-serif;font-weight:300;background:var(--bg);color:var(--text);margin:0;padding:24px;}
+.wrap{max-width:1180px;margin:0 auto;}
+.banner{background:var(--dark);color:#fff;border-radius:12px;padding:26px 30px;box-shadow:0 4px 14px rgba(2,66,81,.15);}
+.banner h1{margin:0;font-weight:600;font-size:24px;}
 .banner p{margin:6px 0 0;color:var(--accent);font-size:14px;}
-.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
-.kpis{display:flex;gap:18px;margin:24px 0;}
-.kpi{flex:1;background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.05);padding:20px;text-align:center;border-top:4px solid var(--primary);}
+.kpis{display:flex;gap:16px;margin:20px 0;}
+.kpi{flex:1;background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,.05);border-top:4px solid var(--primary);}
 .kpi .n{font-size:34px;font-weight:600;}
 .kpi .l{color:var(--grey);font-size:13px;margin-top:4px;}
-.kpi.fix{border-top-color:var(--coral);} .kpi.fix .n{color:var(--coral);}
-.kpi.clean{border-top-color:var(--green);} .kpi.clean .n{color:var(--green);}
-.rule{background:#fff;border-left:4px solid var(--accent);border-radius:8px;padding:14px 18px;font-size:13px;color:var(--text);margin-bottom:22px;box-shadow:0 1px 6px rgba(0,0,0,.04);}
-.rule b{color:var(--dark);}
-.toggle{display:flex;gap:10px;margin-bottom:16px;}
-.toggle button{flex:0 0 auto;border:none;background:#fff;color:var(--dark);border:1px solid #e3e0dc;border-radius:24px;padding:10px 22px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;}
-.toggle button.active{background:var(--primary);color:#fff;}
-.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
-.tab{border:1px solid #e3e0dc;background:#fff;border-radius:20px;padding:7px 16px;font-family:inherit;font-size:13px;cursor:pointer;color:var(--text);}
-.tab.active{background:var(--dark);color:#fff;border-color:var(--dark);}
-.tab .cnt{display:inline-block;background:var(--coral);color:#fff;border-radius:10px;padding:0 7px;font-size:11px;margin-left:4px;}
-.tab.active .cnt{background:var(--accent);color:var(--dark);}
-table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.05);font-size:13px;}
-th{background:var(--primary);color:#fff;font-weight:600;padding:10px 8px;text-align:left;}
-td{padding:9px 8px;border-bottom:1px solid #f0eeeb;vertical-align:top;}
-tr.fix{background:#FFF6F3;}
-.ho{color:var(--grey);font-size:11px;}
-.chip{display:inline-block;background:var(--coral);color:#fff;border-radius:6px;padding:2px 7px;font-size:11px;margin:1px 2px 1px 0;}
-.ok{color:var(--green);font-weight:600;}
-.foot{text-align:center;color:var(--grey);font-size:11px;margin-top:30px;}
+.kpi.nc{border-top-color:var(--coral);} .kpi.nc .n{color:var(--coral);}
+.kpi.cl{border-top-color:var(--green);} .kpi.cl .n{color:var(--green);}
+.rule{background:#fff;border-left:4px solid var(--accent);border-radius:8px;padding:14px 18px;margin-bottom:22px;font-size:13px;color:var(--dark);box-shadow:0 1px 6px rgba(0,0,0,.04);}
+.toggle{display:flex;gap:10px;margin-bottom:18px;}
+.tbtn{flex:0 0 auto;background:#fff;border:1.5px solid var(--primary);color:var(--primary);border-radius:22px;padding:10px 22px;font-family:inherit;font-weight:600;font-size:14px;cursor:pointer;}
+.tbtn.active{background:var(--primary);color:#fff;}
+.pbtns{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+.pbtn{background:#fff;border:1px solid #e3e0dc;border-radius:20px;padding:8px 16px;font-family:inherit;font-weight:600;font-size:13px;color:var(--dark);cursor:pointer;}
+.pbtn.active{background:var(--primary);color:#fff;border-color:var(--primary);}
+.badge{display:inline-block;background:var(--coral);color:#fff;border-radius:10px;font-size:11px;padding:1px 7px;margin-left:5px;}
+.pbtn.active .badge{background:#fff;color:var(--coral);}
+.psub{font-size:14px;font-weight:600;color:var(--dark);margin-bottom:10px;}
+.psub .rd{color:var(--coral);} .psub .gr{color:var(--green);}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.05);font-size:12.5px;margin-bottom:26px;}
+thead th{background:var(--primary);color:#fff;font-weight:600;text-align:left;padding:10px 10px;font-size:12px;}
+tbody td{padding:9px 10px;border-bottom:1px solid #f0eeeb;vertical-align:top;}
+.host{color:var(--grey);font-size:11px;margin-top:2px;}
+.chip{display:inline-block;background:#FDE4DC;color:var(--coral);border-radius:8px;font-size:11px;font-weight:600;padding:2px 8px;margin:2px 3px 0 0;}
+.ok{color:var(--green);font-weight:600;font-size:12px;}
+.footer{color:var(--grey);font-size:11px;text-align:center;margin-top:20px;}
 </style></head>
-<body>
-<div class="banner"><div class="wrap" style="padding:0"><h1>Propriétés publiées — Area Nouvelle-Aquitaine</h1><p>Semaine du 6 – 12 juillet 2026 · Périmètre NA (Focus) + OOF FR</p></div></div>
-<div class="wrap">
+<body><div class="wrap">
+<div class="banner"><h1>Propriétés publiées — Area Nouvelle-Aquitaine</h1><p>Semaine du 13 – 19 juillet 2026 · Périmètre : NA (Focus) + OOF FR</p></div>
 <div class="kpis">
-<div class="kpi"><div class="n">18</div><div class="l">Publiées</div></div>
-<div class="kpi fix"><div class="n">12</div><div class="l">À corriger</div></div>
-<div class="kpi clean"><div class="n">6</div><div class="l">Clean</div></div>
+<div class="kpi"><div class="n">43</div><div class="l">Publiées</div></div>
+<div class="kpi nc"><div class="n">16</div><div class="l">À corriger</div></div>
+<div class="kpi cl"><div class="n">27</div><div class="l">Clean</div></div>
 </div>
-<div class="rule"><b>Règle « à corriger » (1 critère suffit) :</b> Sellable &lt; 0,50 · canal Airbnb ou Booking manquant · Distribution &lt; 0,70 · Flexibilité &lt; 0,75 · Compétitivité &lt; 0,60 · iCal max &gt; 90 jours · ou un score manquant.</div>
+<div class="rule"><strong>Règle « à corriger » (1 critère suffit) :</strong> Sellable &lt; 0,50 · canal AbnB ou B.com manquant · Distribution &lt; 0,70 · Flexibilité &lt; 0,75 · Compétitivité &lt; 0,60 · iCal &gt; 90 j · ou un score manquant.</div>
 <div class="toggle">
-<button id="btnAM" class="active" onclick="showView('am_name')">👤 Vue par AM</button>
-<button id="btnSM" onclick="showView('sm_name')">🧑‍💼 Vue par SM</button>
+<button class="tbtn active" id="tb_am" onclick="showView('am')">👤 Vue par AM</button>
+<button class="tbtn" id="tb_sm" onclick="showView('sm')">🧑‍💼 Vue par SM</button>
 </div>
-<div id="view_am_name">
-<div class="tabs"><button class="tab active" onclick="showGroup('am_name','Mariana')">Mariana <span class="cnt">6</span></button>
-<button class="tab" onclick="showGroup('am_name','Laetitia')">Laetitia <span class="cnt">4</span></button>
-<button class="tab" onclick="showGroup('am_name','Amandine')">Amandine <span class="cnt">2</span></button>
-<button class="tab" onclick="showGroup('am_name','Remi')">Remi <span class="cnt">0</span></button>
-</div><div class="tblwrap" id="grp_am_name_Mariana" style="display:block">
-<table><thead><tr><th>Propriété</th><th>Zone</th><th>SM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
-<tbody><tr class="fix">
-<td><b>67204756</b><br><span class="ho">bienvenue</span></td>
-<td>NA</td><td>Gauthier</td><td>2026-07-08</td>
-<td>0.90</td><td>manque Booking</td><td>0.61</td><td>1.00</td><td>0.92</td><td>—</td>
-<td><span class="chip">Distribution faible</span><span class="chip">Booking manquant</span></td></tr>
-<tr class="fix">
-<td><b>69483497</b><br><span class="ho">valeriecazulet</span></td>
-<td>NA</td><td>Jade</td><td>2026-07-07</td>
-<td>0.94</td><td>OK</td><td>1.00</td><td>0.29</td><td>0.73</td><td>—</td>
-<td><span class="chip">Flexibilité faible</span></td></tr>
-<tr class="fix">
-<td><b>69369252</b><br><span class="ho">chris58120</span></td>
-<td>Other</td><td>Melanie</td><td>2026-07-07</td>
-<td>0.00</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.75</td><td>—</td>
-<td><span class="chip">Sellable faible</span></td></tr>
-<tr class="fix">
-<td><b>69369253</b><br><span class="ho">chris58120</span></td>
-<td>Other</td><td>Melanie</td><td>2026-07-07</td>
-<td>0.00</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.81</td><td>—</td>
-<td><span class="chip">Sellable faible</span></td></tr>
-<tr class="fix">
-<td><b>69224460</b><br><span class="ho">cedric.boyer57</span></td>
-<td>Other</td><td>Naomi</td><td>2026-07-06</td>
-<td>0.00</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.60</td><td>—</td>
-<td><span class="chip">Sellable faible</span></td></tr>
-<tr class="fix">
-<td><b>67256491</b><br><span class="ho">jpdkerrio</span></td>
-<td>Other</td><td>Sophie</td><td>2026-07-07</td>
-<td>0.00</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.58</td><td>—</td>
-<td><span class="chip">Sellable faible</span><span class="chip">Compétitivité faible</span></td></tr>
-<tr>
-<td><b>67975577</b><br><span class="ho">pascaltrotta64</span></td>
-<td>NA</td><td>Mailys</td><td>2026-07-07</td>
-<td>0.66</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.81</td><td>—</td>
-<td><span class="ok">✓ clean</span></td></tr>
-</tbody></table></div>
-<div class="tblwrap" id="grp_am_name_Laetitia" style="display:none">
-<table><thead><tr><th>Propriété</th><th>Zone</th><th>SM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
-<tbody><tr class="fix">
-<td><b>69191052</b><br><span class="ho">vincenttib</span></td>
-<td>NA</td><td>Arthur</td><td>2026-07-06</td>
-<td>0.38</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.81</td><td>—</td>
-<td><span class="chip">Sellable faible</span></td></tr>
-<tr class="fix">
-<td><b>69191053</b><br><span class="ho">vincenttib</span></td>
-<td>NA</td><td>Arthur</td><td>2026-07-06</td>
-<td>0.43</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.83</td><td>—</td>
-<td><span class="chip">Sellable faible</span></td></tr>
-<tr class="fix">
-<td><b>69191055</b><br><span class="ho">vincenttib</span></td>
-<td>NA</td><td>Arthur</td><td>2026-07-06</td>
-<td>0.31</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.75</td><td>—</td>
-<td><span class="chip">Sellable faible</span></td></tr>
-<tr class="fix">
-<td><b>69191056</b><br><span class="ho">vincenttib</span></td>
-<td>NA</td><td>Arthur</td><td>2026-07-06</td>
-<td>0.35</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.96</td><td>—</td>
-<td><span class="chip">Sellable faible</span></td></tr>
-<tr>
-<td><b>69369722</b><br><span class="ho">sylvie.schaff</span></td>
-<td>NA</td><td>Arthur</td><td>2026-07-07</td>
-<td>0.74</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.73</td><td>—</td>
-<td><span class="ok">✓ clean</span></td></tr>
-<tr>
-<td><b>69369723</b><br><span class="ho">sylvie.schaff</span></td>
-<td>NA</td><td>Arthur</td><td>2026-07-07</td>
-<td>0.70</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.60</td><td>—</td>
-<td><span class="ok">✓ clean</span></td></tr>
-<tr>
-<td><b>69485558</b><br><span class="ho">sylvie.schaff</span></td>
-<td>NA</td><td>Arthur</td><td>2026-07-07</td>
-<td>0.79</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.60</td><td>—</td>
-<td><span class="ok">✓ clean</span></td></tr>
-</tbody></table></div>
-<div class="tblwrap" id="grp_am_name_Amandine" style="display:none">
-<table><thead><tr><th>Propriété</th><th>Zone</th><th>SM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
-<tbody><tr class="fix">
-<td><b>69464526</b><br><span class="ho">xavckx</span></td>
-<td>NA</td><td>Jade</td><td>2026-07-06</td>
-<td>0.15</td><td>OK</td><td>0.81</td><td>1.00</td><td>0.65</td><td>162</td>
-<td><span class="chip">Sellable faible</span><span class="chip">iCal > 90j</span></td></tr>
-<tr class="fix">
-<td><b>69486175</b><br><span class="ho">floriandelbez</span></td>
-<td>NA</td><td>Naomi</td><td>2026-07-07</td>
-<td>0.26</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.92</td><td>—</td>
-<td><span class="chip">Sellable faible</span></td></tr>
-</tbody></table></div>
-<div class="tblwrap" id="grp_am_name_Remi" style="display:none">
-<table><thead><tr><th>Propriété</th><th>Zone</th><th>SM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
-<tbody><tr>
-<td><b>68291127</b><br><span class="ho">nathaliejourdan32</span></td>
-<td>NA</td><td>Jade</td><td>2026-07-07</td>
-<td>0.58</td><td>OK</td><td>1.00</td><td>1.00</td><td>1.00</td><td>—</td>
-<td><span class="ok">✓ clean</span></td></tr>
-<tr>
-<td><b>68949399</b><br><span class="ho">peyrouteau32</span></td>
-<td>NA</td><td>Loic</td><td>2026-07-07</td>
-<td>0.58</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.96</td><td>—</td>
-<td><span class="ok">✓ clean</span></td></tr>
-</tbody></table></div>
-
-</div>
-<div id="view_sm_name" style="display:none">
-<div class="tabs"><button class="tab active" onclick="showGroup('sm_name','Arthur')">Arthur <span class="cnt">4</span></button>
-<button class="tab" onclick="showGroup('sm_name','Jade')">Jade <span class="cnt">2</span></button>
-<button class="tab" onclick="showGroup('sm_name','Melanie')">Melanie <span class="cnt">2</span></button>
-<button class="tab" onclick="showGroup('sm_name','Naomi')">Naomi <span class="cnt">2</span></button>
-<button class="tab" onclick="showGroup('sm_name','Gauthier')">Gauthier <span class="cnt">1</span></button>
-<button class="tab" onclick="showGroup('sm_name','Sophie')">Sophie <span class="cnt">1</span></button>
-<button class="tab" onclick="showGroup('sm_name','Loic')">Loic <span class="cnt">0</span></button>
-<button class="tab" onclick="showGroup('sm_name','Mailys')">Mailys <span class="cnt">0</span></button>
-</div><div class="tblwrap" id="grp_sm_name_Arthur" style="display:block">
-<table><thead><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
-<tbody><tr class="fix">
-<td><b>69191052</b><br><span class="ho">vincenttib</span></td>
-<td>NA</td><td>Laetitia</td><td>2026-07-06</td>
-<td>0.38</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.81</td><td>—</td>
-<td><span class="chip">Sellable faible</span></td></tr>
-<tr class="fix">
-<td><b>69191053</b><br><span class="ho">vincenttib</span></td>
-<td>NA</td><td>Laetitia</td><td>2026-07-06</td>
-<td>0.43</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.83</td><td>—</td>
-<td><span class="chip">Sellable faible</span></td></tr>
-<tr class="fix">
-<td><b>69191055</b><br><span class="ho">vincenttib</span></td>
-<td>NA</td><td>Laetitia</td><td>2026-07-06</td>
-<td>0.31</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.75</td><td>—</td>
-<td><span class="chip">Sellable faible</span></td></tr>
-<tr class="fix">
-<td><b>69191056</b><br><span class="ho">vincenttib</span></td>
-<td>NA</td><td>Laetitia</td><td>2026-07-06</td>
-<td>0.35</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.96</td><td>—</td>
-<td><span class="chip">Sellable faible</span></td></tr>
-<tr>
-<td><b>69369722</b><br><span class="ho">sylvie.schaff</span></td>
-<td>NA</td><td>Laetitia</td><td>2026-07-07</td>
-<td>0.74</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.73</td><td>—</td>
-<td><span class="ok">✓ clean</span></td></tr>
-<tr>
-<td><b>69369723</b><br><span class="ho">sylvie.schaff</span></td>
-<td>NA</td><td>Laetitia</td><td>2026-07-07</td>
-<td>0.70</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.60</td><td>—</td>
-<td><span class="ok">✓ clean</span></td></tr>
-<tr>
-<td><b>69485558</b><br><span class="ho">sylvie.schaff</span></td>
-<td>NA</td><td>Laetitia</td><td>2026-07-07</td>
-<td>0.79</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.60</td><td>—</td>
-<td><span class="ok">✓ clean</span></td></tr>
-</tbody></table></div>
-<div class="tblwrap" id="grp_sm_name_Jade" style="display:none">
-<table><thead><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
-<tbody><tr class="fix">
-<td><b>69464526</b><br><span class="ho">xavckx</span></td>
-<td>NA</td><td>Amandine</td><td>2026-07-06</td>
-<td>0.15</td><td>OK</td><td>0.81</td><td>1.00</td><td>0.65</td><td>162</td>
-<td><span class="chip">Sellable faible</span><span class="chip">iCal > 90j</span></td></tr>
-<tr class="fix">
-<td><b>69483497</b><br><span class="ho">valeriecazulet</span></td>
-<td>NA</td><td>Mariana</td><td>2026-07-07</td>
-<td>0.94</td><td>OK</td><td>1.00</td><td>0.29</td><td>0.73</td><td>—</td>
-<td><span class="chip">Flexibilité faible</span></td></tr>
-<tr>
-<td><b>68291127</b><br><span class="ho">nathaliejourdan32</span></td>
-<td>NA</td><td>Remi</td><td>2026-07-07</td>
-<td>0.58</td><td>OK</td><td>1.00</td><td>1.00</td><td>1.00</td><td>—</td>
-<td><span class="ok">✓ clean</span></td></tr>
-</tbody></table></div>
-<div class="tblwrap" id="grp_sm_name_Melanie" style="display:none">
-<table><thead><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
-<tbody><tr class="fix">
-<td><b>69369252</b><br><span class="ho">chris58120</span></td>
-<td>Other</td><td>Mariana</td><td>2026-07-07</td>
-<td>0.00</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.75</td><td>—</td>
-<td><span class="chip">Sellable faible</span></td></tr>
-<tr class="fix">
-<td><b>69369253</b><br><span class="ho">chris58120</span></td>
-<td>Other</td><td>Mariana</td><td>2026-07-07</td>
-<td>0.00</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.81</td><td>—</td>
-<td><span class="chip">Sellable faible</span></td></tr>
-</tbody></table></div>
-<div class="tblwrap" id="grp_sm_name_Naomi" style="display:none">
-<table><thead><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
-<tbody><tr class="fix">
-<td><b>69486175</b><br><span class="ho">floriandelbez</span></td>
-<td>NA</td><td>Amandine</td><td>2026-07-07</td>
-<td>0.26</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.92</td><td>—</td>
-<td><span class="chip">Sellable faible</span></td></tr>
-<tr class="fix">
-<td><b>69224460</b><br><span class="ho">cedric.boyer57</span></td>
-<td>Other</td><td>Mariana</td><td>2026-07-06</td>
-<td>0.00</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.60</td><td>—</td>
-<td><span class="chip">Sellable faible</span></td></tr>
-</tbody></table></div>
-<div class="tblwrap" id="grp_sm_name_Gauthier" style="display:none">
-<table><thead><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
-<tbody><tr class="fix">
-<td><b>67204756</b><br><span class="ho">bienvenue</span></td>
-<td>NA</td><td>Mariana</td><td>2026-07-08</td>
-<td>0.90</td><td>manque Booking</td><td>0.61</td><td>1.00</td><td>0.92</td><td>—</td>
-<td><span class="chip">Distribution faible</span><span class="chip">Booking manquant</span></td></tr>
-</tbody></table></div>
-<div class="tblwrap" id="grp_sm_name_Sophie" style="display:none">
-<table><thead><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
-<tbody><tr class="fix">
-<td><b>67256491</b><br><span class="ho">jpdkerrio</span></td>
-<td>Other</td><td>Mariana</td><td>2026-07-07</td>
-<td>0.00</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.58</td><td>—</td>
-<td><span class="chip">Sellable faible</span><span class="chip">Compétitivité faible</span></td></tr>
-</tbody></table></div>
-<div class="tblwrap" id="grp_sm_name_Loic" style="display:none">
-<table><thead><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
-<tbody><tr>
-<td><b>68949399</b><br><span class="ho">peyrouteau32</span></td>
-<td>NA</td><td>Remi</td><td>2026-07-07</td>
-<td>0.58</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.96</td><td>—</td>
-<td><span class="ok">✓ clean</span></td></tr>
-</tbody></table></div>
-<div class="tblwrap" id="grp_sm_name_Mailys" style="display:none">
-<table><thead><tr><th>Propriété</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead>
-<tbody><tr>
-<td><b>67975577</b><br><span class="ho">pascaltrotta64</span></td>
-<td>NA</td><td>Mariana</td><td>2026-07-07</td>
-<td>0.66</td><td>OK</td><td>1.00</td><td>1.00</td><td>0.81</td><td>—</td>
-<td><span class="ok">✓ clean</span></td></tr>
-</tbody></table></div>
-
-</div>
-<div class="foot">© Holidu GmbH | Confidential · Source : Athena holidu_homes</div>
+<div id="view_am"><div class="pbtns"><button class="pbtn active" onclick="showPanel('am','am_0')">Amandine <span class="badge">7</span></button><button class="pbtn" onclick="showPanel('am','am_1')">Mariana <span class="badge">6</span></button><button class="pbtn" onclick="showPanel('am','am_2')">Remi <span class="badge">3</span></button><button class="pbtn" onclick="showPanel('am','am_3')">Laetitia <span class="badge">0</span></button></div><div class="panel" id="am_0" style="display:block;">
+<div class="psub">Amandine Dicharry — 12 publiées · <span class="rd">7 à corriger</span> · <span class="gr">5 clean</span></div>
+<table><thead><tr><th>Propriété · Host</th><th>Zone</th><th>SM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead><tbody><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69114548" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69114548</a><div class="host">info@domainedebellac.com</div></td>
+<td>NA</td><td>Gauthier</td><td>14/07</td>
+<td>0,47</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,96</td><td>7</td>
+<td><span class="chip">Sellable &lt; 0,50</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69117641" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69117641</a><div class="host">daphne.mahler@gmail.com</div></td>
+<td>NA</td><td>Gauthier</td><td>14/07</td>
+<td>0,46</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,96</td><td>7</td>
+<td><span class="chip">Sellable &lt; 0,50</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69369699" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69369699</a><div class="host">info@domainedebellac.com</div></td>
+<td>NA</td><td>Gauthier</td><td>14/07</td>
+<td>0,45</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,96</td><td>7</td>
+<td><span class="chip">Sellable &lt; 0,50</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69370373" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69370373</a><div class="host">info@domainedebellac.com</div></td>
+<td>NA</td><td>Gauthier</td><td>14/07</td>
+<td>0,46</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,96</td><td>7</td>
+<td><span class="chip">Sellable &lt; 0,50</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69384357" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69384357</a><div class="host">info@domainedebellac.com</div></td>
+<td>NA</td><td>Gauthier</td><td>14/07</td>
+<td>0,36</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,92</td><td>21</td>
+<td><span class="chip">Sellable &lt; 0,50</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69441388" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69441388</a><div class="host">chantal.tielemans@hotmail.com</div></td>
+<td>NA</td><td>Naomi</td><td>13/07</td>
+<td>0,24</td><td>AbnB · B.com</td><td>1,00</td><td>0,15</td><td>0,69</td><td>—</td>
+<td><span class="chip">Sellable &lt; 0,50</span><span class="chip">Flexibilité &lt; 0,75</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69441389" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69441389</a><div class="host">chantal.tielemans@hotmail.com</div></td>
+<td>NA</td><td>Naomi</td><td>13/07</td>
+<td>0,13</td><td>AbnB · B.com</td><td>1,00</td><td>0,14</td><td>0,69</td><td>—</td>
+<td><span class="chip">Sellable &lt; 0,50</span><span class="chip">Flexibilité &lt; 0,75</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69148365" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69148365</a><div class="host">audrey@domaine-de-jassenove.fr</div></td>
+<td>NA</td><td>Gauthier</td><td>13/07</td>
+<td>0,89</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,71</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69346510" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69346510</a><div class="host">florence.leveneur@gmail.com</div></td>
+<td>NA</td><td>Jade</td><td>16/07</td>
+<td>0,77</td><td>AbnB · B.com</td><td>0,81</td><td>1,00</td><td>0,66</td><td>11</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69349085" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69349085</a><div class="host">info@domainedebellac.com</div></td>
+<td>NA</td><td>Gauthier</td><td>14/07</td>
+<td>0,50</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,92</td><td>7</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69370395" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69370395</a><div class="host">info@domainedebellac.com</div></td>
+<td>NA</td><td>Gauthier</td><td>14/07</td>
+<td>0,58</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,96</td><td>7</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69482694" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69482694</a><div class="host">marionaudigay@gmail.com</div></td>
+<td>NA</td><td>Jonathan</td><td>15/07</td>
+<td>0,83</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>1,00</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr></tbody></table></div><div class="panel" id="am_1" style="display:none;">
+<div class="psub">Mariana Braz — 21 publiées · <span class="rd">6 à corriger</span> · <span class="gr">15 clean</span></div>
+<table><thead><tr><th>Propriété · Host</th><th>Zone</th><th>SM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead><tbody><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/67879265" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">67879265</a><div class="host">papapenseatout@outlook.fr</div></td>
+<td>NA</td><td>Jade</td><td>17/07</td>
+<td>0,38</td><td>AbnB · B.com</td><td>0,81</td><td>1,00</td><td>0,21</td><td>96</td>
+<td><span class="chip">Sellable &lt; 0,50</span><span class="chip">Compétitivité &lt; 0,60</span><span class="chip">iCal &gt; 90 j</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69225602" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69225602</a><div class="host">gitesdelhommee@gmail.com</div></td>
+<td>Other</td><td>Melanie</td><td>16/07</td>
+<td>0,70</td><td>B.com</td><td>0,61</td><td>1,00</td><td>0,92</td><td>7</td>
+<td><span class="chip">Canal manquant</span><span class="chip">Distribution &lt; 0,70</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69225603" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69225603</a><div class="host">gitesdelhommee@gmail.com</div></td>
+<td>Other</td><td>Melanie</td><td>16/07</td>
+<td>0,52</td><td>B.com</td><td>0,61</td><td>0,80</td><td>0,74</td><td>14</td>
+<td><span class="chip">Canal manquant</span><span class="chip">Distribution &lt; 0,70</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69482778" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69482778</a><div class="host">willemseangeli@gmail.com</div></td>
+<td>NA</td><td>Arthur</td><td>17/07</td>
+<td>0,36</td><td>AbnB · B.com</td><td>1,00</td><td>0,14</td><td>0,59</td><td>—</td>
+<td><span class="chip">Sellable &lt; 0,50</span><span class="chip">Flexibilité &lt; 0,75</span><span class="chip">Compétitivité &lt; 0,60</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69489177" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69489177</a><div class="host">gitesdelhommee@gmail.com</div></td>
+<td>Other</td><td>Melanie</td><td>16/07</td>
+<td>0,67</td><td>B.com</td><td>0,61</td><td>0,91</td><td>0,92</td><td>8</td>
+<td><span class="chip">Canal manquant</span><span class="chip">Distribution &lt; 0,70</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69532942" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69532942</a><div class="host">sophie.favatier@gmail.com</div></td>
+<td>NA</td><td>Gauthier</td><td>16/07</td>
+<td>0,55</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,58</td><td>—</td>
+<td><span class="chip">Compétitivité &lt; 0,60</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/54491698" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">54491698</a><div class="host">lalhambravierzon@gmail.com</div></td>
+<td>Other</td><td>Loic</td><td>16/07</td>
+<td>0,61</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,73</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/68415793" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">68415793</a><div class="host">rosesdessableslajarrie@gmail.com</div></td>
+<td>NA</td><td>Jade</td><td>15/07</td>
+<td>0,85</td><td>AbnB · B.com</td><td>1,00</td><td>0,86</td><td>0,69</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/68769193" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">68769193</a><div class="host">ricbourg.j+bernard@gmail.com</div></td>
+<td>NA</td><td>Jade</td><td>17/07</td>
+<td>0,79</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,90</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69066302" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69066302</a><div class="host">gitesdegravillot@orange.fr</div></td>
+<td>Other</td><td>Melanie</td><td>17/07</td>
+<td>0,94</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,81</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69066303" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69066303</a><div class="host">gitesdegravillot@orange.fr</div></td>
+<td>Other</td><td>Melanie</td><td>17/07</td>
+<td>0,90</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,81</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69328723" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69328723</a><div class="host">la-grange@hotmail.fr</div></td>
+<td>Other</td><td>Sophie</td><td>17/07</td>
+<td>0,87</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,67</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69328724" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69328724</a><div class="host">la-grange@hotmail.fr</div></td>
+<td>Other</td><td>Sophie</td><td>17/07</td>
+<td>0,88</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,67</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69328726" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69328726</a><div class="host">la-grange@hotmail.fr</div></td>
+<td>Other</td><td>Sophie</td><td>17/07</td>
+<td>0,81</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,67</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69329929" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69329929</a><div class="host">alain-lasseville@orange.fr</div></td>
+<td>NA</td><td>Naomi</td><td>16/07</td>
+<td>0,87</td><td>AbnB · B.com</td><td>1,00</td><td>0,87</td><td>0,65</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69329930" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69329930</a><div class="host">alain-lasseville@orange.fr</div></td>
+<td>NA</td><td>Naomi</td><td>16/07</td>
+<td>0,77</td><td>AbnB · B.com</td><td>1,00</td><td>0,89</td><td>0,65</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69329931" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69329931</a><div class="host">alain-lasseville@orange.fr</div></td>
+<td>NA</td><td>Naomi</td><td>16/07</td>
+<td>0,93</td><td>AbnB · B.com</td><td>1,00</td><td>0,87</td><td>0,65</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69370392" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69370392</a><div class="host">willemseangeli@gmail.com</div></td>
+<td>NA</td><td>Arthur</td><td>17/07</td>
+<td>0,82</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,70</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69482428" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69482428</a><div class="host">les.bruchels@orange.fr</div></td>
+<td>Other</td><td>Naomi</td><td>17/07</td>
+<td>0,82</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,71</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69482429" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69482429</a><div class="host">les.bruchels@orange.fr</div></td>
+<td>Other</td><td>Naomi</td><td>17/07</td>
+<td>0,84</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,71</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69483138" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69483138</a><div class="host">lesgitescharentais@gmail.com</div></td>
+<td>NA</td><td>Naomi</td><td>17/07</td>
+<td>0,65</td><td>AbnB · B.com</td><td>1,00</td><td>0,93</td><td>0,63</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr></tbody></table></div><div class="panel" id="am_2" style="display:none;">
+<div class="psub">Remi Clemenceau — 7 publiées · <span class="rd">3 à corriger</span> · <span class="gr">4 clean</span></div>
+<table><thead><tr><th>Propriété · Host</th><th>Zone</th><th>SM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead><tbody><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69229527" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69229527</a><div class="host">claudeblanchard33@hotmail.fr</div></td>
+<td>NA</td><td>Naomi</td><td>14/07</td>
+<td>0,90</td><td>AbnB</td><td>0,61</td><td>1,00</td><td>0,56</td><td>—</td>
+<td><span class="chip">Canal manquant</span><span class="chip">Distribution &lt; 0,70</span><span class="chip">Compétitivité &lt; 0,60</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69229528" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69229528</a><div class="host">claudeblanchard33@hotmail.fr</div></td>
+<td>NA</td><td>Naomi</td><td>14/07</td>
+<td>0,92</td><td>AbnB</td><td>0,61</td><td>1,00</td><td>0,56</td><td>—</td>
+<td><span class="chip">Canal manquant</span><span class="chip">Distribution &lt; 0,70</span><span class="chip">Compétitivité &lt; 0,60</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69229530" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69229530</a><div class="host">claudeblanchard33@hotmail.fr</div></td>
+<td>NA</td><td>Naomi</td><td>14/07</td>
+<td>0,92</td><td>AbnB</td><td>0,61</td><td>1,00</td><td>0,56</td><td>—</td>
+<td><span class="chip">Canal manquant</span><span class="chip">Distribution &lt; 0,70</span><span class="chip">Compétitivité &lt; 0,60</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69086150" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69086150</a><div class="host">claudeblanchard33@hotmail.fr</div></td>
+<td>NA</td><td>Naomi</td><td>14/07</td>
+<td>0,86</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,81</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69328924" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69328924</a><div class="host">nicolehenryf@sfr.fr</div></td>
+<td>NA</td><td>Naomi</td><td>17/07</td>
+<td>0,96</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,77</td><td>3</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69698724" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69698724</a><div class="host">paulheijmering@gmail.com</div></td>
+<td>NA</td><td>Arthur</td><td>17/07</td>
+<td>0,96</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,92</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69699758" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69699758</a><div class="host">paulheijmering@gmail.com</div></td>
+<td>NA</td><td>Arthur</td><td>17/07</td>
+<td>0,84</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,92</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr></tbody></table></div><div class="panel" id="am_3" style="display:none;">
+<div class="psub">Laetitia Millan — 3 publiées · <span class="rd">0 à corriger</span> · <span class="gr">3 clean</span></div>
+<table><thead><tr><th>Propriété · Host</th><th>Zone</th><th>SM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead><tbody><tr>
+<td><a href="https://www.holidu.com/d/68988077" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">68988077</a><div class="host">baules.christian@gmail.com</div></td>
+<td>NA</td><td>Loic</td><td>13/07</td>
+<td>0,79</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,73</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69233143" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69233143</a><div class="host">baules.christian@gmail.com</div></td>
+<td>NA</td><td>Loic</td><td>13/07</td>
+<td>0,79</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,83</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69328787" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69328787</a><div class="host">locabaz65@gmail.com</div></td>
+<td>NA</td><td>Naomi</td><td>16/07</td>
+<td>0,80</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,71</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr></tbody></table></div></div>
+<div id="view_sm" style="display:none;"><div class="pbtns"><button class="pbtn active" onclick="showPanel('sm','sm_0')">Gauthier <span class="badge">6</span></button><button class="pbtn" onclick="showPanel('sm','sm_1')">Naomi <span class="badge">5</span></button><button class="pbtn" onclick="showPanel('sm','sm_2')">Melanie <span class="badge">3</span></button><button class="pbtn" onclick="showPanel('sm','sm_3')">Arthur <span class="badge">1</span></button><button class="pbtn" onclick="showPanel('sm','sm_4')">Jade <span class="badge">1</span></button><button class="pbtn" onclick="showPanel('sm','sm_5')">Loic <span class="badge">0</span></button><button class="pbtn" onclick="showPanel('sm','sm_6')">Sophie <span class="badge">0</span></button><button class="pbtn" onclick="showPanel('sm','sm_7')">Jonathan <span class="badge">0</span></button></div><div class="panel" id="sm_0" style="display:block;">
+<div class="psub">Gauthier Sibrac — 9 publiées · <span class="rd">6 à corriger</span> · <span class="gr">3 clean</span></div>
+<table><thead><tr><th>Propriété · Host</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead><tbody><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69114548" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69114548</a><div class="host">info@domainedebellac.com</div></td>
+<td>NA</td><td>Amandine</td><td>14/07</td>
+<td>0,47</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,96</td><td>7</td>
+<td><span class="chip">Sellable &lt; 0,50</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69117641" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69117641</a><div class="host">daphne.mahler@gmail.com</div></td>
+<td>NA</td><td>Amandine</td><td>14/07</td>
+<td>0,46</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,96</td><td>7</td>
+<td><span class="chip">Sellable &lt; 0,50</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69369699" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69369699</a><div class="host">info@domainedebellac.com</div></td>
+<td>NA</td><td>Amandine</td><td>14/07</td>
+<td>0,45</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,96</td><td>7</td>
+<td><span class="chip">Sellable &lt; 0,50</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69370373" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69370373</a><div class="host">info@domainedebellac.com</div></td>
+<td>NA</td><td>Amandine</td><td>14/07</td>
+<td>0,46</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,96</td><td>7</td>
+<td><span class="chip">Sellable &lt; 0,50</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69384357" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69384357</a><div class="host">info@domainedebellac.com</div></td>
+<td>NA</td><td>Amandine</td><td>14/07</td>
+<td>0,36</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,92</td><td>21</td>
+<td><span class="chip">Sellable &lt; 0,50</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69532942" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69532942</a><div class="host">sophie.favatier@gmail.com</div></td>
+<td>NA</td><td>Mariana</td><td>16/07</td>
+<td>0,55</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,58</td><td>—</td>
+<td><span class="chip">Compétitivité &lt; 0,60</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69148365" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69148365</a><div class="host">audrey@domaine-de-jassenove.fr</div></td>
+<td>NA</td><td>Amandine</td><td>13/07</td>
+<td>0,89</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,71</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69349085" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69349085</a><div class="host">info@domainedebellac.com</div></td>
+<td>NA</td><td>Amandine</td><td>14/07</td>
+<td>0,50</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,92</td><td>7</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69370395" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69370395</a><div class="host">info@domainedebellac.com</div></td>
+<td>NA</td><td>Amandine</td><td>14/07</td>
+<td>0,58</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,96</td><td>7</td>
+<td><span class="ok">✓ clean</span></td></tr></tbody></table></div><div class="panel" id="sm_1" style="display:none;">
+<div class="psub">Naomi Sellier — 14 publiées · <span class="rd">5 à corriger</span> · <span class="gr">9 clean</span></div>
+<table><thead><tr><th>Propriété · Host</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead><tbody><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69229527" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69229527</a><div class="host">claudeblanchard33@hotmail.fr</div></td>
+<td>NA</td><td>Remi</td><td>14/07</td>
+<td>0,90</td><td>AbnB</td><td>0,61</td><td>1,00</td><td>0,56</td><td>—</td>
+<td><span class="chip">Canal manquant</span><span class="chip">Distribution &lt; 0,70</span><span class="chip">Compétitivité &lt; 0,60</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69229528" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69229528</a><div class="host">claudeblanchard33@hotmail.fr</div></td>
+<td>NA</td><td>Remi</td><td>14/07</td>
+<td>0,92</td><td>AbnB</td><td>0,61</td><td>1,00</td><td>0,56</td><td>—</td>
+<td><span class="chip">Canal manquant</span><span class="chip">Distribution &lt; 0,70</span><span class="chip">Compétitivité &lt; 0,60</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69229530" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69229530</a><div class="host">claudeblanchard33@hotmail.fr</div></td>
+<td>NA</td><td>Remi</td><td>14/07</td>
+<td>0,92</td><td>AbnB</td><td>0,61</td><td>1,00</td><td>0,56</td><td>—</td>
+<td><span class="chip">Canal manquant</span><span class="chip">Distribution &lt; 0,70</span><span class="chip">Compétitivité &lt; 0,60</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69441388" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69441388</a><div class="host">chantal.tielemans@hotmail.com</div></td>
+<td>NA</td><td>Amandine</td><td>13/07</td>
+<td>0,24</td><td>AbnB · B.com</td><td>1,00</td><td>0,15</td><td>0,69</td><td>—</td>
+<td><span class="chip">Sellable &lt; 0,50</span><span class="chip">Flexibilité &lt; 0,75</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69441389" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69441389</a><div class="host">chantal.tielemans@hotmail.com</div></td>
+<td>NA</td><td>Amandine</td><td>13/07</td>
+<td>0,13</td><td>AbnB · B.com</td><td>1,00</td><td>0,14</td><td>0,69</td><td>—</td>
+<td><span class="chip">Sellable &lt; 0,50</span><span class="chip">Flexibilité &lt; 0,75</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69086150" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69086150</a><div class="host">claudeblanchard33@hotmail.fr</div></td>
+<td>NA</td><td>Remi</td><td>14/07</td>
+<td>0,86</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,81</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69328787" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69328787</a><div class="host">locabaz65@gmail.com</div></td>
+<td>NA</td><td>Laetitia</td><td>16/07</td>
+<td>0,80</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,71</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69328924" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69328924</a><div class="host">nicolehenryf@sfr.fr</div></td>
+<td>NA</td><td>Remi</td><td>17/07</td>
+<td>0,96</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,77</td><td>3</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69329929" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69329929</a><div class="host">alain-lasseville@orange.fr</div></td>
+<td>NA</td><td>Mariana</td><td>16/07</td>
+<td>0,87</td><td>AbnB · B.com</td><td>1,00</td><td>0,87</td><td>0,65</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69329930" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69329930</a><div class="host">alain-lasseville@orange.fr</div></td>
+<td>NA</td><td>Mariana</td><td>16/07</td>
+<td>0,77</td><td>AbnB · B.com</td><td>1,00</td><td>0,89</td><td>0,65</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69329931" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69329931</a><div class="host">alain-lasseville@orange.fr</div></td>
+<td>NA</td><td>Mariana</td><td>16/07</td>
+<td>0,93</td><td>AbnB · B.com</td><td>1,00</td><td>0,87</td><td>0,65</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69482428" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69482428</a><div class="host">les.bruchels@orange.fr</div></td>
+<td>Other</td><td>Mariana</td><td>17/07</td>
+<td>0,82</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,71</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69482429" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69482429</a><div class="host">les.bruchels@orange.fr</div></td>
+<td>Other</td><td>Mariana</td><td>17/07</td>
+<td>0,84</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,71</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69483138" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69483138</a><div class="host">lesgitescharentais@gmail.com</div></td>
+<td>NA</td><td>Mariana</td><td>17/07</td>
+<td>0,65</td><td>AbnB · B.com</td><td>1,00</td><td>0,93</td><td>0,63</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr></tbody></table></div><div class="panel" id="sm_2" style="display:none;">
+<div class="psub">Melanie Gachon — 5 publiées · <span class="rd">3 à corriger</span> · <span class="gr">2 clean</span></div>
+<table><thead><tr><th>Propriété · Host</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead><tbody><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69225602" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69225602</a><div class="host">gitesdelhommee@gmail.com</div></td>
+<td>Other</td><td>Mariana</td><td>16/07</td>
+<td>0,70</td><td>B.com</td><td>0,61</td><td>1,00</td><td>0,92</td><td>7</td>
+<td><span class="chip">Canal manquant</span><span class="chip">Distribution &lt; 0,70</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69225603" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69225603</a><div class="host">gitesdelhommee@gmail.com</div></td>
+<td>Other</td><td>Mariana</td><td>16/07</td>
+<td>0,52</td><td>B.com</td><td>0,61</td><td>0,80</td><td>0,74</td><td>14</td>
+<td><span class="chip">Canal manquant</span><span class="chip">Distribution &lt; 0,70</span></td></tr><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69489177" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69489177</a><div class="host">gitesdelhommee@gmail.com</div></td>
+<td>Other</td><td>Mariana</td><td>16/07</td>
+<td>0,67</td><td>B.com</td><td>0,61</td><td>0,91</td><td>0,92</td><td>8</td>
+<td><span class="chip">Canal manquant</span><span class="chip">Distribution &lt; 0,70</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69066302" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69066302</a><div class="host">gitesdegravillot@orange.fr</div></td>
+<td>Other</td><td>Mariana</td><td>17/07</td>
+<td>0,94</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,81</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69066303" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69066303</a><div class="host">gitesdegravillot@orange.fr</div></td>
+<td>Other</td><td>Mariana</td><td>17/07</td>
+<td>0,90</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,81</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr></tbody></table></div><div class="panel" id="sm_3" style="display:none;">
+<div class="psub">Arthur Monnier — 4 publiées · <span class="rd">1 à corriger</span> · <span class="gr">3 clean</span></div>
+<table><thead><tr><th>Propriété · Host</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead><tbody><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/69482778" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69482778</a><div class="host">willemseangeli@gmail.com</div></td>
+<td>NA</td><td>Mariana</td><td>17/07</td>
+<td>0,36</td><td>AbnB · B.com</td><td>1,00</td><td>0,14</td><td>0,59</td><td>—</td>
+<td><span class="chip">Sellable &lt; 0,50</span><span class="chip">Flexibilité &lt; 0,75</span><span class="chip">Compétitivité &lt; 0,60</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69370392" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69370392</a><div class="host">willemseangeli@gmail.com</div></td>
+<td>NA</td><td>Mariana</td><td>17/07</td>
+<td>0,82</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,70</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69698724" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69698724</a><div class="host">paulheijmering@gmail.com</div></td>
+<td>NA</td><td>Remi</td><td>17/07</td>
+<td>0,96</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,92</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69699758" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69699758</a><div class="host">paulheijmering@gmail.com</div></td>
+<td>NA</td><td>Remi</td><td>17/07</td>
+<td>0,84</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,92</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr></tbody></table></div><div class="panel" id="sm_4" style="display:none;">
+<div class="psub">Jade Ricbourg — 4 publiées · <span class="rd">1 à corriger</span> · <span class="gr">3 clean</span></div>
+<table><thead><tr><th>Propriété · Host</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead><tbody><tr style="background:#FFF6F3;">
+<td><a href="https://www.holidu.com/d/67879265" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">67879265</a><div class="host">papapenseatout@outlook.fr</div></td>
+<td>NA</td><td>Mariana</td><td>17/07</td>
+<td>0,38</td><td>AbnB · B.com</td><td>0,81</td><td>1,00</td><td>0,21</td><td>96</td>
+<td><span class="chip">Sellable &lt; 0,50</span><span class="chip">Compétitivité &lt; 0,60</span><span class="chip">iCal &gt; 90 j</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/68415793" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">68415793</a><div class="host">rosesdessableslajarrie@gmail.com</div></td>
+<td>NA</td><td>Mariana</td><td>15/07</td>
+<td>0,85</td><td>AbnB · B.com</td><td>1,00</td><td>0,86</td><td>0,69</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/68769193" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">68769193</a><div class="host">ricbourg.j+bernard@gmail.com</div></td>
+<td>NA</td><td>Mariana</td><td>17/07</td>
+<td>0,79</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,90</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69346510" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69346510</a><div class="host">florence.leveneur@gmail.com</div></td>
+<td>NA</td><td>Amandine</td><td>16/07</td>
+<td>0,77</td><td>AbnB · B.com</td><td>0,81</td><td>1,00</td><td>0,66</td><td>11</td>
+<td><span class="ok">✓ clean</span></td></tr></tbody></table></div><div class="panel" id="sm_5" style="display:none;">
+<div class="psub">Loic Kouame — 3 publiées · <span class="rd">0 à corriger</span> · <span class="gr">3 clean</span></div>
+<table><thead><tr><th>Propriété · Host</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead><tbody><tr>
+<td><a href="https://www.holidu.com/d/54491698" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">54491698</a><div class="host">lalhambravierzon@gmail.com</div></td>
+<td>Other</td><td>Mariana</td><td>16/07</td>
+<td>0,61</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,73</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/68988077" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">68988077</a><div class="host">baules.christian@gmail.com</div></td>
+<td>NA</td><td>Laetitia</td><td>13/07</td>
+<td>0,79</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,73</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69233143" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69233143</a><div class="host">baules.christian@gmail.com</div></td>
+<td>NA</td><td>Laetitia</td><td>13/07</td>
+<td>0,79</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,83</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr></tbody></table></div><div class="panel" id="sm_6" style="display:none;">
+<div class="psub">Sophie Viallon — 3 publiées · <span class="rd">0 à corriger</span> · <span class="gr">3 clean</span></div>
+<table><thead><tr><th>Propriété · Host</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead><tbody><tr>
+<td><a href="https://www.holidu.com/d/69328723" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69328723</a><div class="host">la-grange@hotmail.fr</div></td>
+<td>Other</td><td>Mariana</td><td>17/07</td>
+<td>0,87</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,67</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69328724" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69328724</a><div class="host">la-grange@hotmail.fr</div></td>
+<td>Other</td><td>Mariana</td><td>17/07</td>
+<td>0,88</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,67</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr><tr>
+<td><a href="https://www.holidu.com/d/69328726" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69328726</a><div class="host">la-grange@hotmail.fr</div></td>
+<td>Other</td><td>Mariana</td><td>17/07</td>
+<td>0,81</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>0,67</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr></tbody></table></div><div class="panel" id="sm_7" style="display:none;">
+<div class="psub">Jonathan Bouchereau — 1 publiées · <span class="rd">0 à corriger</span> · <span class="gr">1 clean</span></div>
+<table><thead><tr><th>Propriété · Host</th><th>Zone</th><th>AM</th><th>Pub</th><th>Sellable</th><th>Canal</th><th>Distrib</th><th>Flex</th><th>Compét</th><th>iCal</th><th>À corriger</th></tr></thead><tbody><tr>
+<td><a href="https://www.holidu.com/d/69482694" target="_blank" style="color:#00809D;font-weight:600;text-decoration:none;">69482694</a><div class="host">marionaudigay@gmail.com</div></td>
+<td>NA</td><td>Amandine</td><td>15/07</td>
+<td>0,83</td><td>AbnB · B.com</td><td>1,00</td><td>1,00</td><td>1,00</td><td>—</td>
+<td><span class="ok">✓ clean</span></td></tr></tbody></table></div></div>
+<div class="footer">Source : Athena holidu_homes · Scores qualité (version active, dernier daydate) · © Holidu GmbH | Confidential</div>
 </div>
 <script>
 function showView(v){
-  document.getElementById('view_am_name').style.display = v==='am_name'?'block':'none';
-  document.getElementById('view_sm_name').style.display = v==='sm_name'?'block':'none';
-  document.getElementById('btnAM').classList.toggle('active', v==='am_name');
-  document.getElementById('btnSM').classList.toggle('active', v==='sm_name');
+  document.getElementById('view_am').style.display = v==='am'?'block':'none';
+  document.getElementById('view_sm').style.display = v==='sm'?'block':'none';
+  document.getElementById('tb_am').classList.toggle('active', v==='am');
+  document.getElementById('tb_sm').classList.toggle('active', v==='sm');
 }
-function showGroup(view,name){
-  var id=(view+'_'+name).replace(/ /g,'_');
-  var container=document.getElementById('view_'+view);
-  container.querySelectorAll('.tblwrap').forEach(function(t){t.style.display='none';});
-  var el=document.getElementById('grp_'+id); if(el) el.style.display='block';
-  container.querySelectorAll('.tab').forEach(function(b){b.classList.remove('active');});
-  event.target.closest('.tab').classList.add('active');
+function showPanel(view, pid){
+  var container = document.getElementById('view_'+view);
+  container.querySelectorAll('.panel').forEach(function(p){p.style.display='none';});
+  container.querySelectorAll('.pbtn').forEach(function(b){b.classList.remove('active');});
+  document.getElementById(pid).style.display='block';
+  event.target.classList.add('active');
 }
 </script>
 </body></html>
