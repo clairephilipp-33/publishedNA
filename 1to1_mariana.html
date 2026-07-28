@@ -651,11 +651,88 @@ function loadChurnDetail() {
 
 // ─── STATIC ATHENA DATA — 23/07/2026 ──────────────────────────────────────
 // Refresh: demander à Claude de relancer les requêtes Athena
-let CHURN_DETAIL = [];
-let CHANNEL_ERRORS_DATA = [];
+let CHURN_DETAIL = [
+  ['57046838','—','Focus Region Charente-Maritime','—','2026-06-30','false'],
+  ['65982296','—','OOF-Region FR Nièvre','—','2026-06-30','false'],
+  ['62500426','—','Focus Region Pyrenees-Atlantiques','—','2026-06-30','false'],
+  ['64123419','—','Focus Region Pyrenees-Atlantiques','—','2026-06-30','false'],
+  ['68248818','—','OOF-Region FR Eure-et-Loir','—','2026-06-30','false'],
+  ['65151945','—','Focus Region Pyrenees-Atlantiques','—','2026-06-30','false'],
+  ['68225639','—','OOF-Region FR Yonne','—','2026-06-30','false'],
+  ['67895945','—','OOF-Region FR Indre','—','2026-06-30','false'],
+  ['61859947','—','Focus Region Charente-Maritime','—','2026-06-30','false'],
+  ['64709788','—','Focus Region Charente-Maritime','—','2026-06-30','false'],
+  ['63756970','—','Focus Region Pyrenees-Atlantiques','—','2026-06-30','false'],
+  ['57552616','—','Focus Region Charente-Maritime','—','2026-06-30','false'],
+  ['57552623','—','Focus Region Charente-Maritime','—','2026-06-30','false'],
+  ['68182490','—','OOF-Region FR Cher','—','2026-06-30','false'],
+  ['68248817','—','OOF-Region FR Eure-et-Loir','—','2026-06-30','false']
+];
+let CHANNEL_ERRORS_DATA = [
+  ['63745186','AIRBNB','—','—','—','Vérifier Looker Channel Manager','2026-07-09','false'],
+  ['66183853','AIRBNB','—','—','—','Vérifier Looker Channel Manager','2026-07-12','false'],
+  ['66756489','AIRBNB','—','—','—','Vérifier Looker Channel Manager','2026-07-17','false'],
+  ['68768871','BOOKINGCOM','—','—','—','Vérifier Looker Channel Manager','2026-06-17','false'],
+  ['66763015','BOOKINGCOM','—','—','—','Vérifier Looker Channel Manager','2026-07-13','false'],
+  ['57077069','BOOKINGCOM','—','—','—','Vérifier Looker Channel Manager','2026-07-15','false'],
+  ['64877632','HOMEAWAY','—','—','—','Vérifier Looker Channel Manager','2026-07-28','false'],
+  ['65301920','HOMEAWAY','—','—','—','Vérifier Looker Channel Manager','2026-07-28','false'],
+  ['56856544','HOMEAWAY','—','—','—','Vérifier Looker Channel Manager','2026-07-28','false']
+];
 // Zombie listing (Athena/Pipedrive 23/07/2026)
 // [apartment_id, on_hold, reason, notes, prio]
-let ZOMBIE_LIST = [];
+let ZOMBIE_LIST = [
+  ['49375726','false','UNDER_RENOVATION','—','false'],
+  ['51233766','false','UNDER_RENOVATION','—','false'],
+  ['51776839','false','UNDER_RENOVATION','—','false'],
+  ['51914154','false','UNDER_RENOVATION','—','false'],
+  ['51943741','false','UNDER_RENOVATION','—','false'],
+  ['51975020','false','ZOMBIE','—','false'],
+  ['52517816','false','ZOMBIE','—','false'],
+  ['52538112','false','ZOMBIE','—','false'],
+  ['52963452','false','ZOMBIE','—','false'],
+  ['54306275','false','COMMISSION_TOO_HIGH','—','false'],
+  ['54774346','false','ZOMBIE','—','false'],
+  ['54987225','false','ZOMBIE','—','false'],
+  ['55305249','false','UNDER_RENOVATION','—','false'],
+  ['55527964','false','ZOMBIE','—','false'],
+  ['55528288','false','ZOMBIE','—','false'],
+  ['55953599','false','ZOMBIE','—','false'],
+  ['56131067','false','UNDER_RENOVATION','—','false'],
+  ['56168960','false','ZOMBIE','—','false'],
+  ['56610616','false','ZOMBIE','—','false'],
+  ['56739933','false','ZOMBIE','—','false'],
+  ['56779733','false','ZOMBIE','—','false'],
+  ['56833188','false','UNDER_RENOVATION','—','false'],
+  ['56925814','false','ZOMBIE','—','false'],
+  ['57031209','false','ZOMBIE','—','false'],
+  ['57046732','false','ZOMBIE','—','false'],
+  ['57046838','false','ZOMBIE','—','false'],
+  ['57552623','false','ZOMBIE','—','false'],
+  ['57680021','false','ZOMBIE','—','false'],
+  ['60724987','false','ZOMBIE','—','false'],
+  ['60806696','false','UNDER_RENOVATION','—','false'],
+  ['60806703','false','ZOMBIE','—','false'],
+  ['61143036','false','ZOMBIE','—','false'],
+  ['61199737','false','UNDER_RENOVATION','—','false'],
+  ['61199927','false','UNDER_RENOVATION','—','false'],
+  ['61199930','false','UNDER_RENOVATION','—','false'],
+  ['61581402','false','ZOMBIE','—','false'],
+  ['63575327','false','UNDER_RENOVATION','—','false'],
+  ['63756970','false','ZOMBIE','—','false'],
+  ['64068459','false','ZOMBIE','—','false'],
+  ['64285449','false','ZOMBIE','—','false'],
+  ['64314757','false','ZOMBIE','—','false'],
+  ['64314758','false','ZOMBIE','—','false'],
+  ['64358848','false','ZOMBIE','—','false'],
+  ['64609768','false','ZOMBIE','—','false'],
+  ['64664477','false','UNDER_RENOVATION','—','false'],
+  ['65056619','false','ZOMBIE','—','false'],
+  ['65056620','false','ZOMBIE','—','false'],
+  ['65056621','false','ZOMBIE','—','false'],
+  ['65136347','false','ZOMBIE','—','false'],
+  ['65151945','false','ZOMBIE','—','false']
+];
 // Pace négatif top 20 Mariana (108 en négatif, Looker · NA · 28/07) [id, egmv_2026, egmv_2025, delta, email]
 let PACE_NEG = [
   ['55860871',8617,19305,-10688,'julienlacall@gmail.com'],
@@ -686,7 +763,7 @@ let BOOKING_16D = [
   ['laetitia.millan@holidu.com','Laetitia',757,268,35.4],
   ['remi.clemenceau@holidu.com','Rémi',769,246,32.0],
 ];
-let ATHENA_DATE = '24/07/2026';
+let ATHENA_DATE = '28/07/2026';
 
 // ─── CHANNEL ERRORS ───────────────────────────────────────────────────────
 function loadChannelErrors() {
