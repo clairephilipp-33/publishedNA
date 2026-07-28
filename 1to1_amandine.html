@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1-to-1 Laetitia — Holidu NA</title>
+<title>1-to-1 Amandine — Holidu NA</title>
 <style>
 :root {
   --primary: #00809D; --dark: #024251; --coral: #FD937B;
@@ -83,7 +83,7 @@ iframe.pdrive { width: 100%; height: 580px; border: none; }
 
 <div class="header">
   <div>
-    <div class="header-title">1-to-1 · Laetitia</div>
+    <div class="header-title">1-to-1 · Amandine</div>
     <div style="font-size:11px;opacity:0.6;margin-top:2px;">Holidu — Nouvelle-Aquitaine</div>
   </div>
   <div class="header-meta" id="header-date"></div>
@@ -225,16 +225,16 @@ const WEEKS_DATA = {
   ['58415094','true','','','false'],
 ],
     paceNeg: [
-  ['50004170',4213,14316,-10103],['56060823',2317,11519,-9202],
-  ['60780230',0,8976,-8976],['54126945',0,8079,-8079],
-  ['55080496',1492,9555,-8063],['57046296',2112,9632,-7520],
-  ['16841163',8601,14982,-6381],['62290635',6033,12376,-6343],
-  ['56689507',4870,10950,-6080],['56895399',2770,7570,-4800],
-  ['56956946',1550,6139,-4589],['56239727',220,4653,-4433],
-  ['53301806',1678,6087,-4409],['54379745',2705,7087,-4382],
-  ['51240258',14850,18969,-4119],['48037039',8495,12363,-3868],
-  ['61608199',1598,5242,-3644],['55309958',2137,5745,-3608],
-  ['56604268',5910,9441,-3531],['53718646',7515,10956,-3441],
+  ['56728928',427,12653,-12226],['56788117',0,9392,-9392],
+  ['61067377',3184,11941,-8757],['55317864',2913,10734,-7821],
+  ['51960513',21853,28507,-6654],['63168042',2393,8882,-6489],
+  ['56728815',711,7117,-6406],['57550945',1380,7515,-6135],
+  ['56013329',5608,11588,-5980],['52549767',501,6456,-5955],
+  ['50188857',3799,9643,-5844],['54006450',0,5153,-5153],
+  ['50627709',3704,8629,-4925],['61348269',1680,6003,-4323],
+  ['62948485',3043,7266,-4223],['57058775',601,4711,-4110],
+  ['57147579',7567,11563,-3996],['51194501',5160,9094,-3934],
+  ['61172758',0,3423,-3423],['55028718',2044,5466,-3422],
 ],
     booking16d: [
   ['mariana.braz@holidu.com','Mariana',1074,446,41.5],
@@ -353,8 +353,8 @@ function loadWeekData(key) {
 }
 
 // ─── CONFIG ────────────────────────────────────────────────────────────────
-const AM_EMAIL = 'laetitia.millan@holidu.com';
-const AM_DISPLAY = 'Laetitia';
+const AM_EMAIL = 'amandine.dicharry@holidu.com';
+const AM_DISPLAY = 'Amandine';
 let LOOKER_DATE = '24/07/2026';
 const BI = 'mcp__1f6bc2a1-d73e-49ba-a4db-57ea23311314__run_query';
 const HX = 'mcp__fd607012-6f11-4886-abdc-d8ccec20c6a0__get-host-account-details';
@@ -458,9 +458,7 @@ let OB_DUR = {
   'remi.clemenceau@holidu.com':2.4,'maxime.concaret@holidu.com':1.9,
   'mariana.braz@holidu.com':1.9,
 };
-let OB_OVERDUE_LIST = [
-  {am:'Laetitia',aptId:'69328787',dueDate:'2026-07-21',email:'locabaz65@gmail.com'},
-];
+let OB_OVERDUE_LIST = [];
 
 // ─── HELPERS ───────────────────────────────────────────────────────────────
 async function waitCowork(ms=5000) {
@@ -601,79 +599,33 @@ function loadChurnDetail() {
 
 // ─── STATIC ATHENA DATA — 23/07/2026 ──────────────────────────────────────
 // Refresh: demander à Claude de relancer les requêtes Athena
-let CHURN_DETAIL = [
-  // [apartment_id, owner_email, focus_region, ctype, dt, priority_service]
-  ['65340178','fcbvm@laposte.net','OOF-Region Nouvelle-Aquitaine Others','Old Live Lost','2026-07-22','true'],
-  ['68994909','christinerouch0@gmail.com','OOF-Region Nouvelle-Aquitaine Others','Old Live Lost','2026-07-21','true'],
-  ['68994908','christinerouch0@gmail.com','OOF-Region Nouvelle-Aquitaine Others','Old Live Lost','2026-07-21','true'],
-  ['68994910','christinerouch0@gmail.com','OOF-Region Nouvelle-Aquitaine Others','Old Live Lost','2026-07-21','true'],
-  ['64326875','valerieboisseau34@gmail.com','OOF-Region Nouvelle-Aquitaine Others','Old Live Lost','2026-07-13','true'],
-  ['68247966','phanynou@gmail.com','Focus Region Hautes-Pyrenees','Old Live Lost','2026-07-05','false'],
-  ['69228885','jpaul-messu@wanadoo.fr','Focus Region Landes','New Live Lost','2026-07-03','false'],
-  ['65888525','contact@boisdesnauzes-cabane.com','OOF-Region Nouvelle-Aquitaine Others','Old Live Lost','2026-07-02','false'],
-];
-let CHANNEL_ERRORS_DATA = [
-  // [apartment_id, channel, owner_email, issue_type, responsibility, solution_short, reporting_date, priority_service]
-  ['63831249','HOMEAWAY','marie-claude.bordessoule@orange.fr','—','PROVIDER','Numéro de licence manquant requis par VRBO','2026-07-23','true'],
-  ['56956946','AIRBNB','durand.arlette@wanadoo.fr','UN_PUBLICATION','HOST','Propriété suspendue Airbnb — vérifier avec CHT','2026-07-22','false'],
-  ['65308695','BOOKINGCOM','contact@la-conciergeriekieger.fr','TICKET','PROVIDER','Tech error Booking.com — ticket HXPPS-155 en cours','2026-07-22','true'],
-  ['67895777','BOOKINGCOM','contact@lagrangeaubois.fr','TICKET','PROVIDER','Tech error Booking.com — ticket HXPPS-155 en cours','2026-07-22','false'],
-  ['52369262','AIRBNB','sosstom@gmail.com','UN_PUBLICATION','HOST','Listing Airbnb supprimé — appel possible via CHT','2026-07-18','true'],
-];
+let CHURN_DETAIL = [];
+let CHANNEL_ERRORS_DATA = [];
 // Zombie listing (Athena/Pipedrive 23/07/2026)
 // [apartment_id, on_hold, reason, notes, prio]
-let ZOMBIE_LIST = [
-  ['48488188','true','UNDER_RENOVATION','','true'],
-  ['55720763','true','HOST_DECISION_OR_NEGOTIATION_PENDING','','true'],
-  ['64119148','true','TECHNICAL_PROBLEM','pb tuyauterie','false'],
-  ['48488176','false','PROPERTY_FOR_SALE','','true'],
-  ['48488192','false','UNDER_RENOVATION','','true'],
-  ['48488195','false','UNDER_RENOVATION','','true'],
-  ['48488197','false','UNDER_RENOVATION','','true'],
-  ['48488266','false','UNDER_RENOVATION','','true'],
-  ['48488295','false','NO_LONGER_FOR_RENT','','true'],
-  ['49041529','false','UNDER_RENOVATION','','false'],
-  ['53054950','false','AWAITING_SETUP_BY_HOST','','true'],
-  ['53170187','false','UNDER_RENOVATION','','false'],
-  ['53282199','false','UNDER_RENOVATION','','false'],
-  ['53301806','false','AWAITING_SETUP_BY_HOST','','false'],
-  ['55253253','false','DEATH_OR_ILLNESS','','false'],
-  ['57046790','false','UNDER_RENOVATION','','false'],
-  ['61205948','false','UNDER_RENOVATION','','true'],
-  ['61896218','false','UNDER_RENOVATION','','true'],
-  ['62346242','false','COMMISSION_TOO_HIGH','','false'],
-  ['62664453','false','AWAITING_SETUP_BY_HOST','','true'],
-  ['62764026','false','PROPERTY_FOR_SALE','','true'],
-  ['63513848','false','AWAITING_SETUP_BY_HOST','','true'],
-  ['63575424','false','NO_LONGER_FOR_RENT','','true'],
-  ['64470944','false','AWAITING_SETUP_BY_HOST','','false'],
-  ['68557514','false','AWAITING_SETUP_BY_HOST','','true'],
-  ['68890828','false','AWAITING_SETUP_BY_HOST','','true'],
-  ['69032236','false','AWAITING_SETUP_BY_HOST','','true'],
-  ['69217940','false','AWAITING_SETUP_BY_HOST','','true'],
-];
-// Pace négatif top 20 Laetitia (98 en négatif, Looker · NA · 28/07) [id, egmv_2026, egmv_2025, delta, email]
+let ZOMBIE_LIST = [];
+// Pace négatif top 20 Amandine (113 en négatif, Looker · NA · 28/07) [id, egmv_2026, egmv_2025, delta, email]
 let PACE_NEG = [
-  ['50004170',4213,14316,-10103,'philippe-balague@balague-expertise.fr'],
-  ['56060823',2317,11519,-9202,'dordogne@welcomease.com'],
-  ['60780230',0,8976,-8976,'jean.marc.camet@orange.fr'],
-  ['54126945',0,8079,-8079,'homesweethomemoliets@gmail.com'],
-  ['55080496',1492,9555,-8063,'virginiemouly1@gmail.com'],
-  ['57046296',2112,9632,-7520,'villapio40@gmail.com'],
-  ['16841163',8601,14982,-6381,'coline@domainegrandmayne.com'],
-  ['62290635',6033,12376,-6343,'locationsudlandes@gmail.com'],
-  ['56689507',4870,10950,-6080,'emilie.cesar@outlook.com'],
-  ['56895399',2770,7570,-4800,'dordogne@welcomease.com'],
-  ['56956946',1550,6139,-4589,'durand.arlette@wanadoo.fr'],
-  ['56239727',220,4653,-4433,'alonso.chantal@orange.fr'],
-  ['53301806',1678,6087,-4409,'direction@leschenesdeleon.com'],
-  ['54379745',2705,7087,-4382,'philippe.delhoume@sfr.fr'],
-  ['51240258',14850,18969,-4119,'francis.etche@yahoo.fr'],
-  ['48037039',8495,12363,-3868,'mc.rodt@gmail.com'],
-  ['61608199',1598,5242,-3644,'latomatesurfeuse@orange.fr'],
-  ['55309958',2137,5745,-3608,'maryline.dubarry@orange.fr'],
-  ['56604268',5910,9441,-3531,'fonteyraud.f@wanadoo.fr'],
-  ['53718646',7515,10956,-3441,'ichthus40@sfr.fr'],
+  ['56728928',427,12653,-12226,'emiliavivas922@gmail.com'],
+  ['56788117',0,9392,-9392,'gourdainp@free.fr'],
+  ['61067377',3184,11941,-8757,'sylviesanz2@gmail.com'],
+  ['55317864',2913,10734,-7821,'raphaelle.chauveau@orange.fr'],
+  ['51960513',21853,28507,-6654,'ab.intendance.conciergerie@gmail.com'],
+  ['63168042',2393,8882,-6489,'locationsarcachon@gmail.com'],
+  ['56728815',711,7117,-6406,'emiliavivas922@gmail.com'],
+  ['57550945',1380,7515,-6135,'laurence.valeille@hotmail.com'],
+  ['56013329',5608,11588,-5980,'pygmees33@yahoo.fr'],
+  ['52549767',501,6456,-5955,'mireille.miteau@orange.fr'],
+  ['50188857',3799,9643,-5844,'vaness.mo12@gmail.com'],
+  ['54006450',0,5153,-5153,'reservations@location-vacances-lacanau.fr'],
+  ['50627709',3704,8629,-4925,'mariegressier1@yahoo.fr'],
+  ['61348269',1680,6003,-4323,'helgafonken63@gmail.com'],
+  ['62948485',3043,7266,-4223,'adeilaide.lopes@gmail.com'],
+  ['57058775',601,4711,-4110,'mariechristine.fourcaud@laposte.net'],
+  ['57147579',7567,11563,-3996,'beyne.romain@orange.fr'],
+  ['51194501',5160,9094,-3934,'angelo.dimech@gmail.com'],
+  ['61172758',0,3423,-3423,'arenoulat@free.fr'],
+  ['55028718',2044,5466,-3422,'leschalets5153@gmail.com'],
 ];
 // 16-days booking (rolling 45j, Athena 23/07) [am_email, am_name, total, booked16d, pct]
 let BOOKING_16D = [
@@ -758,7 +710,7 @@ function renderPace() {
   });
   h += `</tbody></table>
   <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;">
-    <div style="font-size:10px;color:#aaa;">Top 20 sur 98 propriétés en négatif (portfolio Laetitia) · Looker · J${dayOfYear} · 28/07</div>
+    <div style="font-size:10px;color:#aaa;">Top 20 sur 113 propriétés en négatif (portfolio Amandine) · Looker · J${dayOfYear} · 28/07</div>
     <a href="${PACE_LOOKER_URL}" target="_blank" style="font-size:11px;color:var(--primary);font-weight:600;">↗ Voir les 397 propriétés dans Looker</a>
   </div>`;
   el.innerHTML = h;
