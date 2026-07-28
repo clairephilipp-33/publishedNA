@@ -350,6 +350,58 @@ function loadWeekData(key) {
   if (w.compRows)      { const el=document.getElementById('comp-table-body');  if(el) el.innerHTML=w.compRows; }
 
   applyHeatmap();
+  fixAmHighlights();
+  updateDynDates();
+}
+
+// ─── FIX AM-SPECIFIC LABELS & LINKS ────────────────────────────────────────
+function fixAmHighlights() {
+  const nameMap = {
+    'laetitia.millan@holidu.com': 'L. Millan',
+    'remi.clemenceau@holidu.com': 'R. Clemenceau',
+    'mariana.braz@holidu.com': 'M. Braz',
+    'amandine.dicharry@holidu.com': 'A. Dicharry',
+  };
+  const myLabel = nameMap[AM_EMAIL];
+  // Re-highlight correct AM row in target tables
+  ['tgt-exist-body','tgt-nlp-body','tgt-nlpp-body'].forEach(id => {
+    const tbody = document.getElementById(id);
+    if (!tbody) return;
+    tbody.querySelectorAll('tr').forEach(tr => {
+      tr.classList.remove('am-row');
+      if (myLabel && tr.cells[0]?.textContent.trim() === myLabel) tr.classList.add('am-row');
+    });
+  });
+  // Update PACE Looker dashboard link
+  const pl = document.getElementById('pace-looker-link');
+  if (pl) pl.href = `https://holidu.cloud.looker.com/dashboards/5778?Account+Manager+Latest=${encodeURIComponent(AM_EMAIL)}`;
+  // Update Zombie Looker link
+  const zl = document.getElementById('zombie-looker-link');
+  if (zl) zl.href = `https://holidu.cloud.looker.com/dashboards/3791?Account+Manager=${encodeURIComponent(AM_EMAIL)}&Apartment+Focus+Area=Focus+Area+FR+Nouvelle-Aquitaine&Apartment+Country+Name=France`;
+  // Feedback label & placeholder
+  const fbl = document.getElementById('feedback-am-label');
+  if (fbl) fbl.textContent = `By ${AM_DISPLAY}`;
+  const fbt = document.getElementById('feedback-am-textarea');
+  if (fbt) fbt.placeholder = `Feedback de ${AM_DISPLAY} sur le 1-to-1, le support reçu, les outils…`;
+}
+
+function updateDynDates() {
+  // Update all Looker date badges
+  document.querySelectorAll('.dyn-looker-date').forEach(el => el.textContent = LOOKER_DATE);
+  // PACE header: count per AM + date
+  const ph = document.getElementById('pace-neg-header');
+  if (ph) {
+    const negCount = {
+      'laetitia.millan@holidu.com': 98,
+      'remi.clemenceau@holidu.com': 74,
+      'mariana.braz@holidu.com': 108,
+      'amandine.dicharry@holidu.com': 113,
+    }[AM_EMAIL] || PACE_NEG.length;
+    ph.innerHTML = `eGMV 2026 − eGMV 2025 · <strong style="color:#e74c3c;">${negCount} propriétés en négatif</strong> · top 20 affichées · Looker ${LOOKER_DATE}`;
+  }
+  // Zombie header date
+  const zh = document.getElementById('zombie-header-date');
+  if (zh) zh.textContent = `${AM_DISPLAY} — ${LOOKER_DATE}`;
 }
 
 // ─── CONFIG ────────────────────────────────────────────────────────────────
@@ -1049,11 +1101,11 @@ function getWeek(d) {
 
   <!-- Churn count -->
   <div class="card">
-    <div class="card-title">Churn Q3 — France <span class="src-badge">📊 Looker · 22/07/2026</span></div>
+    <div class="card-title">Churn Q3 — France <span class="src-badge">📊 Looker · <span class="dyn-looker-date">22/07/2026</span></span></div>
     <div class="kpi-row">
       <div class="kpi-box">
         <span class="kpi-v" id="kpi-churn-q">—</span>
-        <span class="kpi-l">Churn Laetitia Q3</span>
+        <span class="kpi-l">Churn Q3</span>
         <span class="kpi-r" id="kpi-churn-q-r"></span>
       </div>
     </div>
@@ -1062,7 +1114,7 @@ function getWeek(d) {
 
   <!-- Churn detail -->
   <div class="card">
-    <div class="card-title">Churn Laetitia — Détail Q3 <span class="src-badge">📊 <a href="https://holidu.cloud.looker.com/explore/holidu_homes/holidu_homes_apartment_history?qid=IEnlGYoBGbF2K6pnJ3stWa&origin_space=1870&toggle=vis" target="_blank" style="color:var(--grey);text-decoration:none;">Looker · live</a></span></div>
+    <div class="card-title">Churn — Détail Q3 <span class="src-badge">📊 <a href="https://holidu.cloud.looker.com/explore/holidu_homes/holidu_homes_apartment_history?qid=IEnlGYoBGbF2K6pnJ3stWa&origin_space=1870&toggle=vis" target="_blank" style="color:var(--grey);text-decoration:none;">Looker · live</a></span></div>
     <div id="d-churn-detail"><div class="loading">Chargement…</div></div>
   </div>
 </div>
@@ -1072,7 +1124,7 @@ function getWeek(d) {
   <div class="section-title">2 — Tracking Portfolio</div>
 
   <div class="card">
-    <div class="card-title">Bilan NLP / Churn / Republish — Q3 <span class="src-badge">📊 Looker · 22/07/2026</span></div>
+    <div class="card-title">Bilan NLP / Churn / Republish — Q3 <span class="src-badge">📊 Looker · <span class="dyn-looker-date">22/07/2026</span></span></div>
     <div class="kpi-row">
       <div class="kpi-box">
         <span class="kpi-v" id="kpi-nlp">—</span>
@@ -1101,7 +1153,7 @@ function getWeek(d) {
 
   <!-- CHT -->
   <div class="card">
-    <div class="card-title">CHT Efficiency — France <span class="src-badge">📊 Looker · 22/07/2026</span></div>
+    <div class="card-title">CHT Efficiency — France <span class="src-badge">📊 Looker · <span class="dyn-looker-date">22/07/2026</span></span></div>
     <div class="kpi-row">
       <div class="kpi-box">
         <span class="kpi-v" id="kpi-cht-t">—</span>
@@ -1121,11 +1173,11 @@ function getWeek(d) {
 
   <!-- OB 1st call -->
   <div class="card">
-    <div class="card-title">OB 1st Call — Durée <span class="src-badge">📊 Looker · 22/07/2026</span></div>
+    <div class="card-title">OB 1st Call — Durée <span class="src-badge">📊 Looker · <span class="dyn-looker-date">22/07/2026</span></span></div>
     <div class="kpi-row">
       <div class="kpi-box">
         <span class="kpi-v" id="kpi-ob-d">—</span>
-        <span class="kpi-l">Moy. jours (Laetitia)</span>
+        <span class="kpi-l">Moy. jours</span>
         <span class="kpi-r" id="kpi-ob-r"></span>
       </div>
     </div>
@@ -1134,7 +1186,7 @@ function getWeek(d) {
 
   <!-- OB Overdue -->
   <div class="card">
-    <div class="card-title">OB 1st Call — Overdue <span class="src-badge">📊 Looker · 22/07/2026</span></div>
+    <div class="card-title">OB 1st Call — Overdue <span class="src-badge">📊 Looker · <span class="dyn-looker-date">22/07/2026</span></span></div>
     <div id="d-ob-overdue"><div class="loading">Chargement…</div></div>
   </div>
 
@@ -1336,7 +1388,7 @@ function getWeek(d) {
 
   <!-- Pace eGMV négatif -->
   <div class="card">
-    <div class="card-title">📉 Pace eGMV — Propriétés en retard <span class="src-badge">📊 <a href="https://holidu.cloud.looker.com/dashboards/5778?Account+Manager+Latest=laetitia.millan%40holidu.com" target="_blank" style="color:var(--grey);text-decoration:none;">Looker 5778 · Laetitia</a></span></div>
+    <div class="card-title">📉 Pace eGMV — Propriétés en retard <span class="src-badge">📊 <a id="pace-looker-link" href="https://holidu.cloud.looker.com/dashboards/5778?Account+Manager+Latest=laetitia.millan%40holidu.com" target="_blank" style="color:var(--grey);text-decoration:none;">Looker 5778</a></span></div>
     <div style="font-size:11px;color:var(--grey);margin-bottom:8px;">eGMV 2026 − eGMV 2025 · <strong style="color:#e74c3c;">147 propriétés en négatif</strong> · top 20 affichées · Athena 23/07/2026</div>
     <div id="d-pace-neg"><div class="loading">Chargement…</div></div>
   </div>
@@ -1522,7 +1574,7 @@ function getWeek(d) {
     <div class="card-title">✅ Follow-up</div>
     <div style="font-size:11px;font-weight:600;color:var(--primary);margin-bottom:4px;">By Claire</div>
     <textarea rows="2" placeholder="Actions Claire : engagements pris, points à suivre, escalades…" style="margin-bottom:10px;"></textarea>
-    <div style="font-size:11px;font-weight:600;color:var(--grey);margin-bottom:4px;">By Laetitia</div>
+    <div style="font-size:11px;font-weight:600;color:var(--grey);margin-bottom:4px;" id="feedback-am-label">By —</div>
     <textarea rows="2" placeholder="Actions Laetitia : engagements pris, prochaines échéances…"></textarea>
   </div>
 
@@ -1538,8 +1590,8 @@ function getWeek(d) {
     <textarea id="feedback-tips" rows="4" placeholder="Tips — focus sur le pace et les sellable nights…"></textarea>
     <div style="margin-top:6px;font-size:10px;color:#aaa;">Brouillon auto-généré · à personnaliser avant de partager</div>
     <div style="margin-top:10px;border-top:1px solid var(--border);padding-top:10px;">
-      <div style="font-size:11px;font-weight:600;color:var(--grey);margin-bottom:4px;">By Laetitia</div>
-      <textarea rows="2" placeholder="Feedback de Laetitia sur le 1-to-1, le support reçu, les outils…"></textarea>
+      <div style="font-size:11px;font-weight:600;color:var(--grey);margin-bottom:4px;" id="feedback-am-label">By —</div>
+      <textarea rows="2" id="feedback-am-textarea" placeholder="Feedback sur le 1-to-1, le support reçu, les outils…"></textarea>
     </div>
   </div>
 
