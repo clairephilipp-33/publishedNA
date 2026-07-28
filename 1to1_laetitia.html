@@ -225,16 +225,16 @@ const WEEKS_DATA = {
   ['58415094','true','','','false'],
 ],
     paceNeg: [
-  ['56231021',3261,22524,-19263],['57046296',0,18803,-18803],
-  ['56980481',0,13818,-13818],['51617404',0,12282,-12282],
-  ['62346242',0,10261,-10261],['62290635',2482,12125,-9643],
-  ['56438666',0,9407,-9407],['56169104',0,9121,-9121],
-  ['62076696',0,8630,-8630],['48777232',0,8204,-8204],
-  ['55557357',0,8075,-8075],['60780230',4428,11601,-7172],
-  ['50004170',3528,10409,-6881],['55253253',0,6727,-6727],
-  ['60905806',0,6342,-6342],['56833212',0,6083,-6083],
-  ['61288840',0,6010,-6010],['56060823',3153,9050,-5897],
-  ['63898457',0,5716,-5716],['62706117',0,5241,-5241],
+  ['55860871',8617,19305,-10688],['61067377',3184,11941,-8757],
+  ['61680595',2199,10876,-8677],['57397718',12955,21231,-8276],
+  ['56728815',711,7117,-6406],['50188857',3799,9643,-5844],
+  ['57003488',3415,8946,-5531],['57397499',10289,15671,-5382],
+  ['56895399',2770,7570,-4800],['57851531',5250,9872,-4622],
+  ['62948485',3043,7266,-4223],['57058775',601,4711,-4110],
+  ['57147579',7567,11563,-3996],['55675549',8588,12327,-3739],
+  ['55305099',5911,9614,-3703],['55591889',1804,5496,-3692],
+  ['61581495',3045,6464,-3419],['62631297',4482,7870,-3388],
+  ['60873051',6794,10173,-3379],['54983060',2172,5234,-3062],
 ],
     booking16d: [
   ['mariana.braz@holidu.com','Mariana',1074,446,41.5],
@@ -652,15 +652,28 @@ let ZOMBIE_LIST = [
   ['69032236','false','AWAITING_SETUP_BY_HOST','','true'],
   ['69217940','false','AWAITING_SETUP_BY_HOST','','true'],
 ];
-// Pace négatif top 20 (147 total, Athena 23/07) [id, egmv_2026, egmv_2025, delta]
+// Pace négatif top 20 (2473 total, Looker live · NA · 28/07) [id, egmv_2026, egmv_2025, delta, email]
 let PACE_NEG = [
-  ['57046296',0,25108,-25108],['56438666',0,12088,-12088],['48777232',0,6421,-6421],
-  ['54379745',816,7087,-6271],['56980481',0,6193,-6193],['53085863',0,5840,-5840],
-  ['56169104',0,5690,-5690],['56231021',8506,13722,-5216],['60780230',5249,9989,-4740],
-  ['56833212',0,4699,-4699],['53364989',0,4675,-4675],['49041529',0,4481,-4481],
-  ['55557357',0,4264,-4264],['52162531',0,4092,-4092],['62290635',2625,6715,-4090],
-  ['55309958',2469,6403,-3934],['56604268',4840,8653,-3813],['53301806',0,3675,-3675],
-  ['51359293',0,3530,-3530],['56895399',1741,5228,-3487],
+  ['55860871',8617,19305,-10688,'julienlacall@gmail.com'],
+  ['61067377',3184,11941,-8757,'sylviesanz2@gmail.com'],
+  ['61680595',2199,10876,-8677,'franck.duclou@orange.fr'],
+  ['57397718',12955,21231,-8276,'pascalfrancois@live.fr'],
+  ['56728815',711,7117,-6406,'emiliavivas922@gmail.com'],
+  ['50188857',3799,9643,-5844,'vaness.mo12@gmail.com'],
+  ['57003488',3415,8946,-5531,''],
+  ['57397499',10289,15671,-5382,'mhp64@outlook.fr'],
+  ['56895399',2770,7570,-4800,'dordogne@welcomease.com'],
+  ['57851531',5250,9872,-4622,'sophie.barateig@sfr.fr'],
+  ['62948485',3043,7266,-4223,'adeilaide.lopes@gmail.com'],
+  ['57058775',601,4711,-4110,'mariechristine.fourcaud@laposte.net'],
+  ['57147579',7567,11563,-3996,'beyne.romain@orange.fr'],
+  ['55675549',8588,12327,-3739,'contact.ac1687@gmail.com'],
+  ['55305099',5911,9614,-3703,'meric.bruno@laposte.net'],
+  ['55591889',1804,5496,-3692,'philippe.bonneteaud21@orange.fr'],
+  ['61581495',3045,6464,-3419,'nathalie.tugaye65@orange.fr'],
+  ['62631297',4482,7870,-3388,'sebastien.tpx@gmail.com'],
+  ['60873051',6794,10173,-3379,'patriciamonribot@gmail.com'],
+  ['54983060',2172,5234,-3062,'didierfays@neuf.fr'],
 ];
 // 16-days booking (rolling 45j, Athena 23/07) [am_email, am_name, total, booked16d, pct]
 let BOOKING_16D = [
@@ -729,7 +742,9 @@ function renderZombieList() {
 function renderPace() {
   const el = document.getElementById('d-pace-neg');
   if (!el) return;
-  const PACE_LOOKER_URL = 'https://holidu.eu.looker.com/dashboards/'; // TODO: remplacer par URL Looker complète
+  const now = new Date();
+  const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000);
+  const PACE_LOOKER_URL = `https://holidu.cloud.looker.com/explore/holidu_homes/holidu_homes_apartment_history?qid=pR5J6JRQUp7yY5Wx2VxSKg&origin_space=1986&toggle=fil,vis`;
   let h = `<table><thead><tr><th>ID Property</th><th>Email owner</th><th class="n">eGMV 2026</th><th class="n">eGMV 2025</th><th class="n">Δ</th></tr></thead><tbody>`;
   PACE_NEG.forEach(r => {
     const email = r[4] || '—';
@@ -743,8 +758,8 @@ function renderPace() {
   });
   h += `</tbody></table>
   <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;">
-    <div style="font-size:10px;color:#aaa;">Top 20 sur 147 propriétés en négatif · Athena · ${ATHENA_DATE}</div>
-    <a href="https://holidu.eu.looker.com/dashboards/egmv_pace_negative" target="_blank" style="font-size:11px;color:var(--primary);font-weight:600;">↗ Voir les 147 propriétés</a>
+    <div style="font-size:10px;color:#aaa;">Top 20 sur ~2473 propriétés en négatif · Looker live · NA · J${dayOfYear}</div>
+    <a href="${PACE_LOOKER_URL}" target="_blank" style="font-size:11px;color:var(--primary);font-weight:600;">↗ Voir toutes les propriétés dans Looker</a>
   </div>`;
   el.innerHTML = h;
 }
