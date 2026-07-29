@@ -587,7 +587,7 @@ function fixAmHighlights() {
 function updateDynDates() {
   // Update all Looker date badges
   document.querySelectorAll('.dyn-looker-date').forEach(el => el.textContent = LOOKER_DATE);
-  document.getElementById('lu-optim')?.textContent = LOOKER_DATE;
+  const luOptEl = document.getElementById('lu-optim'); if (luOptEl) luOptEl.textContent = LOOKER_DATE;
   // PACE header: count per AM + date
   const ph = document.getElementById('pace-neg-header');
   if (ph) {
