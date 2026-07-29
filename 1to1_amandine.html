@@ -1145,11 +1145,12 @@ function renderEfficiency() {
 
   // OB overdue
   const ovEl = document.getElementById('d-ob-overdue');
-  if (!OB_OVERDUE_LIST.length) {
+  const MY_OVERDUE = OB_OVERDUE_LIST.filter(r => r.am === AM_DISPLAY);
+  if (!MY_OVERDUE.length) {
     ovEl.innerHTML = '<div style="color:var(--green);font-size:12px;">✅ Aucun overdue</div>';
   } else {
     let ovH = `<table><thead><tr><th>AM</th><th>ID Apt</th><th>Due</th><th>Email host</th></tr></thead><tbody>`;
-    OB_OVERDUE_LIST.forEach(row => {
+    MY_OVERDUE.forEach(row => {
       ovH += `<tr>
         <td>${row.am}</td>
         <td><a href="https://admin.holidu.com/apartments/${row.aptId}" target="_blank" style="color:var(--primary);">${row.aptId}</a></td>
