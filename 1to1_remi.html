@@ -728,7 +728,7 @@ function renderLeaderboardRow(items, amEmail) {
 
 // ─── SECTION 1: TRACKING ACTIVITIES ───────────────────────────────────────
 function renderActivities() {
-  // KPIs Laetitia
+  // KPIs Rémi
   const optM = OPTIMS_MONTH[AM_EMAIL]||0;
   const optW = OPTIMS_WEEK[AM_EMAIL]||0;
   const churnQ = CHURN_Q[AM_EMAIL]||0;
@@ -1030,7 +1030,7 @@ function renderPortfolio() {
     return {e, n: AM_MAP[e], nlp, churn, rep, net: nlp - churn + rep};
   }).sort((a,b) => b.net - a.net);
 
-  // KPIs Laetitia
+  // KPIs Rémi
   const lae = sorted.find(i=>i.e===AM_EMAIL)||{};
   document.getElementById('kpi-nlp').textContent = lae.nlp||0;
   document.getElementById('kpi-churn2').textContent = lae.churn||0;
@@ -1586,7 +1586,7 @@ function getWeek(d) {
 
   <!-- Pace eGMV négatif -->
   <div class="card">
-    <div class="card-title">📉 Pace eGMV — Propriétés en retard <span class="src-badge">📊 <a id="pace-looker-link" href="https://holidu.cloud.looker.com/dashboards/5778?Account+Manager+Latest=laetitia.millan%40holidu.com" target="_blank" style="color:var(--grey);text-decoration:none;">Looker 5778</a></span></div>
+    <div class="card-title">📉 Pace eGMV — Propriétés en retard <span class="src-badge">📊 <a id="pace-looker-link" href="https://holidu.cloud.looker.com/dashboards/5778?Account+Manager+Latest=remi.clemenceau%40holidu.com" target="_blank" style="color:var(--grey);text-decoration:none;">Looker 5778</a></span></div>
     <div style="font-size:11px;color:var(--grey);margin-bottom:8px;">eGMV 2026 − eGMV 2025 · <strong style="color:#e74c3c;">147 propriétés en négatif</strong> · top 20 affichées · Athena 23/07/2026</div>
     <div id="d-pace-neg"><div class="loading">Chargement…</div></div>
   </div>
@@ -1686,7 +1686,7 @@ function getWeek(d) {
   <!-- Channel Errors -->
   <div class="card">
     <div class="card-title">Channel Errors — Critical
-      <span class="src-badge">📊 <a href="https://holidu.cloud.looker.com/explore/holidu_homes/holidu_homes_apartment_history?qid=IEOUXB0Pdz48OT1MsCyRME&origin_space=500&toggle=fil,vis" target="_blank" style="color:var(--grey);text-decoration:none;">Looker · Channel Errors Laetitia</a></span>
+      <span class="src-badge">📊 <a href="https://holidu.cloud.looker.com/explore/holidu_homes/holidu_homes_apartment_history?qid=IEOUXB0Pdz48OT1MsCyRME&origin_space=500&toggle=fil,vis" target="_blank" style="color:var(--grey);text-decoration:none;">Looker · Channel Errors Rémi</a></span>
     </div>
     <div id="d-channel-errors"><div class="loading">Chargement channel errors…</div></div>
   </div>
@@ -1694,7 +1694,7 @@ function getWeek(d) {
   <!-- Zombie Properties -->
   <div class="card">
     <div class="card-title">Zombie Properties
-      <span class="src-badge">📊 <a href="https://holidu.cloud.looker.com/dashboards/3791?Account+Manager=laetitia.millan%40holidu.com&Custom+Zombie+on+Hold=&Email=&Priority+Service+%28Yes+%2F+No%29=&Custom+Zombie+Notes=&Custom+Zombie+Reasons=&Apartment+Focus+Area+=Focus+Area+FR+Nouvelle-Aquitaine&Apartment+ID=&Apartment+Country+Name=France&Service+Tier=" target="_blank" style="color:var(--grey);text-decoration:none;">Looker dashboard 3791 · Laetitia</a></span>
+      <span class="src-badge">📊 <a href="https://holidu.cloud.looker.com/dashboards/3791?Account+Manager=remi.clemenceau%40holidu.com&Custom+Zombie+on+Hold=&Email=&Priority+Service+%28Yes+%2F+No%29=&Custom+Zombie+Notes=&Custom+Zombie+Reasons=&Apartment+Focus+Area+=Focus+Area+FR+Nouvelle-Aquitaine&Apartment+ID=&Apartment+Country+Name=France&Service+Tier=" target="_blank" style="color:var(--grey);text-decoration:none;">Looker dashboard 3791 · Rémi</a></span>
     </div>
     <div style="display:flex;gap:16px;margin-bottom:12px;">
       <div class="kpi-box" style="flex:1;text-align:center;padding:8px 12px;background:#fff3f3;border-radius:6px;border:1px solid #f5c6c6;">
@@ -1711,8 +1711,8 @@ function getWeek(d) {
       </div>
     </div>
     <div style="font-size:11px;color:var(--grey);margin-bottom:8px;">
-      ⓘ Chiffres Nouvelle-Aquitaine · Laetitia Millan — 23/07/2026. IDs détaillés :
-      <a href="https://holidu.cloud.looker.com/dashboards/3791?Account+Manager=laetitia.millan%40holidu.com&Custom+Zombie+on+Hold=&Email=&Priority+Service+%28Yes+%2F+No%29=&Custom+Zombie+Notes=&Custom+Zombie+Reasons=&Apartment+Focus+Area+=Focus+Area+FR+Nouvelle-Aquitaine&Apartment+ID=&Apartment+Country+Name=France&Service+Tier=" target="_blank" style="color:var(--primary);">voir section "property level" dans Looker →</a>
+      ⓘ Chiffres Nouvelle-Aquitaine · Rémi Clemenceau — 29/07/2026. IDs détaillés :
+      <a href="https://holidu.cloud.looker.com/dashboards/3791?Account+Manager=remi.clemenceau%40holidu.com&Custom+Zombie+on+Hold=&Email=&Priority+Service+%28Yes+%2F+No%29=&Custom+Zombie+Notes=&Custom+Zombie+Reasons=&Apartment+Focus+Area+=Focus+Area+FR+Nouvelle-Aquitaine&Apartment+ID=&Apartment+Country+Name=France&Service+Tier=" target="_blank" style="color:var(--primary);">voir section "property level" dans Looker →</a>
     </div>
     <div id="d-zombie-list"><div class="loading">Chargement…</div></div>
   </div>
@@ -1731,8 +1731,8 @@ function getWeek(d) {
     <button id="btn-autoanalyse" class="btn btn-p" style="margin-bottom:8px;">🔍 Analyser les données</button>
     <div id="autoanalyse-out"></div>
     <div style="margin-top:12px;border-top:1px solid var(--border);padding-top:10px;">
-      <div style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px;">🎯 Mon focus de la semaine — Laetitia</div>
-      <textarea id="laetitia-focus" rows="3" placeholder="Ex : cette semaine je me concentre sur les 3 propriétés en négatif eGMV + activer les Sellable Nights sur mes 10 dernières publis…"></textarea>
+      <div style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px;">🎯 Mon focus de la semaine — Rémi</div>
+      <textarea id="remi-focus" rows="3" placeholder="Ex : cette semaine je me concentre sur les 3 propriétés en négatif eGMV + activer les Sellable Nights sur mes 10 dernières publis…"></textarea>
     </div>
   </div>
 
@@ -1773,7 +1773,7 @@ function getWeek(d) {
     <div style="font-size:11px;font-weight:600;color:var(--primary);margin-bottom:4px;">By Claire</div>
     <textarea rows="2" placeholder="Actions Claire : engagements pris, points à suivre, escalades…" style="margin-bottom:10px;"></textarea>
     <div style="font-size:11px;font-weight:600;color:var(--grey);margin-bottom:4px;" id="feedback-am-label">By —</div>
-    <textarea rows="2" placeholder="Actions Laetitia : engagements pris, prochaines échéances…"></textarea>
+    <textarea rows="2" placeholder="Actions Rémi : engagements pris, prochaines échéances…"></textarea>
   </div>
 
   <!-- Feedback -->
