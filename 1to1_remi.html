@@ -938,6 +938,13 @@ function renderZombieList() {
   });
   h += `</tbody></table><div style="font-size:10px;color:#aaa;margin-top:4px;">Athena/Pipedrive · ${ATHENA_DATE}</div>`;
   el.innerHTML = h;
+  // Update KPI boxes dynamically
+  const zombieActive = ZOMBIE_LIST.filter(r => r[1] !== 'true').length;
+  const zombieOnHold = ZOMBIE_LIST.filter(r => r[1] === 'true').length;
+  const zombieNonPrio = ZOMBIE_LIST.filter(r => r[1] !== 'true' && r[4] !== 'true').length;
+  const cZ = document.getElementById('zombie-count');       if (cZ) cZ.textContent = zombieActive;
+  const cR = document.getElementById('zombie-risk-count');  if (cR) cR.textContent = zombieNonPrio;
+  const cH = document.getElementById('zombie-onhold-count');if (cH) cH.textContent = zombieOnHold;
 }
 
 // ─── PACE eGMV ───────────────────────────────────────────────────────────────
