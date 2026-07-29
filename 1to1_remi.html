@@ -545,10 +545,10 @@ function updateDynDates() {
   const ph = document.getElementById('pace-neg-header');
   if (ph) {
     const negCount = {
-      'laetitia.millan@holidu.com': 98,
-      'remi.clemenceau@holidu.com': 74,
-      'mariana.braz@holidu.com': 108,
-      'amandine.dicharry@holidu.com': 113,
+      'laetitia.millan@holidu.com': 219,
+      'remi.clemenceau@holidu.com': 146,
+      'mariana.braz@holidu.com': 317,
+      'amandine.dicharry@holidu.com': 191,
     }[AM_EMAIL] || PACE_NEG.length;
     ph.innerHTML = `eGMV 2026 − eGMV 2025 · <strong style="color:#e74c3c;">${negCount} propriétés en négatif</strong> · top 20 affichées · Looker ${LOOKER_DATE}`;
   }
@@ -960,7 +960,7 @@ function renderPace() {
   });
   h += `</tbody></table>
   <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;">
-    <div style="font-size:10px;color:#aaa;">Top 20 sur 74 propriétés en négatif (portfolio Rémi) · Looker · J${dayOfYear} · 28/07</div>
+    <div style="font-size:10px;color:#aaa;">Top 20 sur 146 propriétés en négatif (portfolio Rémi) · Looker · J${dayOfYear} · 28/07</div>
     <a href="${PACE_LOOKER_URL}" target="_blank" style="font-size:11px;color:var(--primary);font-weight:600;">↗ Voir les 397 propriétés dans Looker</a>
   </div>`;
   el.innerHTML = h;
@@ -1588,7 +1588,7 @@ function getWeek(d) {
   <!-- Pace eGMV négatif -->
   <div class="card">
     <div class="card-title">📉 Pace eGMV — Propriétés en retard <span class="src-badge">📊 <a id="pace-looker-link" href="https://holidu.cloud.looker.com/dashboards/5778?Account+Manager+Latest=remi.clemenceau%40holidu.com" target="_blank" style="color:var(--grey);text-decoration:none;">Looker 5778</a></span></div>
-    <div style="font-size:11px;color:var(--grey);margin-bottom:8px;">eGMV 2026 − eGMV 2025 · <strong style="color:#e74c3c;">147 propriétés en négatif</strong> · top 20 affichées · Athena 23/07/2026</div>
+    <div id="pace-neg-header" style="font-size:11px;color:var(--grey);margin-bottom:8px;">eGMV 2026 − eGMV 2025 · <strong style="color:#e74c3c;">147 propriétés en négatif</strong> · top 20 affichées · Looker —</div>
     <div id="d-pace-neg"><div class="loading">Chargement…</div></div>
   </div>
 
