@@ -1899,7 +1899,7 @@ function getWeek(d) {
     if(s){ s.textContent = obj ? ('💾 Feedback figé · enregistré le '+obj.t) : ''; s.style.color='var(--grey)'; }
   }
   window.__fbSave=save; window.__fbRestore=restore;
-  document.addEventListener('DOMContentLoaded', function(){
+  function fbInit(){
     // Petit bouton 💾 sur chaque carte à saisie manuelle (Partie 2)
     var seenCards=new Set();
     document.querySelectorAll('textarea').forEach(function(ta){
@@ -1917,7 +1917,8 @@ function getWeek(d) {
     });
     setTimeout(restore, 400);
     document.querySelectorAll('.week-btn').forEach(function(b){ b.addEventListener('click', function(){ setTimeout(restore,150); }); });
-  });
+  }
+  if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', fbInit); } else { setTimeout(fbInit,0); }
 })();
 </script>
 
