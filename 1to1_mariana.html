@@ -1900,17 +1900,21 @@ function getWeek(d) {
   }
   window.__fbSave=save; window.__fbRestore=restore;
   document.addEventListener('DOMContentLoaded', function(){
-    var gen=document.getElementById('btn-feedback');
-    var card = gen ? gen.closest('.card') : null;
-    if(gen && card){
-      var wrap=document.createElement('div');
-      wrap.style.cssText='margin:8px 0 6px;';
-      wrap.innerHTML='<button id="btn-fb-save" class="btn btn-p" style="background:var(--green);border:none;">💾 Enregistrer / figer le feedback</button>'+
-                     '<span id="fb-save-status" style="font-size:11px;color:var(--grey);margin-left:10px;"></span>'+
-                     '<div style="font-size:10px;color:#aaa;margin-top:4px;">Enregistre TOUTES les cases · 1 version par semaine · restaurée auto au rechargement (local à ce navigateur).</div>';
-      gen.insertAdjacentElement('afterend', wrap);
-      document.getElementById('btn-fb-save').addEventListener('click', save);
-    }
+    // Petit bouton 💾 sur chaque carte à saisie manuelle (Partie 2)
+    var seenCards=new Set();
+    document.querySelectorAll('textarea').forEach(function(ta){
+      var card=ta.closest('.card'); if(!card||seenCards.has(card)) return; seenCards.add(card);
+      var title=card.querySelector('.card-title');
+      var btn=document.createElement('button');
+      btn.type='button'; btn.className='fb-save-mini';
+      btn.title='Enregistrer / figer cette section (toutes les cases, 1 version par semaine)';
+      btn.textContent='💾';
+      btn.style.cssText='float:right;border:none;background:var(--green);color:#fff;border-radius:8px;padding:2px 10px;font-size:14px;cursor:pointer;line-height:1.5;margin-left:8px;';
+      btn.addEventListener('click', function(e){ e.preventDefault(); save();
+        btn.textContent='✓'; btn.style.background='var(--primary)';
+        setTimeout(function(){ btn.textContent='💾'; btn.style.background='var(--green)'; },1400); });
+      if(title){ title.appendChild(btn); } else { card.insertBefore(btn, card.firstChild); }
+    });
     setTimeout(restore, 400);
     document.querySelectorAll('.week-btn').forEach(function(b){ b.addEventListener('click', function(){ setTimeout(restore,150); }); });
   });
