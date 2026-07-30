@@ -1863,18 +1863,16 @@ function getWeek(d) {
   }
   window.__fbSave=save; window.__fbRestore=restore;
   document.addEventListener('DOMContentLoaded', function(){
-    var k=document.getElementById('feedback-kudos');
-    if(k){
-      var card=k.closest('.card');
-      if(card){
-        var wrap=document.createElement('div');
-        wrap.style.cssText='margin-top:12px;border-top:1px solid var(--border);padding-top:10px;';
-        wrap.innerHTML='<button id="btn-fb-save" class="btn btn-p" style="background:var(--green);border:none;">💾 Enregistrer le feedback (figer)</button>'+
-                       '<span id="fb-save-status" style="font-size:11px;color:var(--grey);margin-left:10px;"></span>'+
-                       '<div style="font-size:10px;color:#aaa;margin-top:6px;">Sauvegarde locale (ce navigateur) · une version par semaine · restaurée automatiquement.</div>';
-        card.appendChild(wrap);
-        document.getElementById('btn-fb-save').addEventListener('click', save);
-      }
+    var gen=document.getElementById('btn-feedback');
+    var card = gen ? gen.closest('.card') : null;
+    if(gen && card){
+      var wrap=document.createElement('div');
+      wrap.style.cssText='margin:8px 0 6px;';
+      wrap.innerHTML='<button id="btn-fb-save" class="btn btn-p" style="background:var(--green);border:none;">💾 Enregistrer / figer le feedback</button>'+
+                     '<span id="fb-save-status" style="font-size:11px;color:var(--grey);margin-left:10px;"></span>'+
+                     '<div style="font-size:10px;color:#aaa;margin-top:4px;">Enregistre TOUTES les cases · 1 version par semaine · restaurée auto au rechargement (local à ce navigateur).</div>';
+      gen.insertAdjacentElement('afterend', wrap);
+      document.getElementById('btn-fb-save').addEventListener('click', save);
     }
     setTimeout(restore, 400);
     document.querySelectorAll('.week-btn').forEach(function(b){ b.addEventListener('click', function(){ setTimeout(restore,150); }); });
