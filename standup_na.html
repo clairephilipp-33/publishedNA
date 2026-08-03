@@ -77,6 +77,8 @@
   table.matrix td.nacol.na-good{background:#CDEFDE}
   table.matrix td.nacol.na-bad{background:#FADCD3}
   table.matrix td.nacol.na-mid{background:#FDECC8}
+  table.matrix td.rk{text-align:center;font-weight:700;font-size:11px}
+  table.matrix td.rk.g,table.matrix td.rk.y,table.matrix td.rk.r{background:transparent;color:var(--dark)}
   .chip{display:inline-block;padding:1px 8px;border-radius:10px;font-size:10px;margin:0 1px}
   .chip.best{background:#CDEFDE;color:#1e6b45}.chip.good{background:#E6F6ED;color:#2f855a}
   .chip.mid{background:#FBECE6;color:#a85a3e}.chip.low{background:#FADCD3;color:#b23b1e}
@@ -148,7 +150,7 @@
 
   <div class="header">
     <div class="header-title">Stand-up Nouvelle Aquitaine <small>Centre France · DOM TOM</small></div>
-    <div class="header-meta">📅 <b contenteditable="true">mardi 4 août 2026</b> · Sem. <b contenteditable="true">32</b> · <b contenteditable="true">Q3</b> · <b contenteditable="true">2026</b><br>Animé par <b contenteditable="true">Claire</b></div>
+    <div class="header-meta">📅 <b id="hdrDate" contenteditable="true" data-mardi="mardi 4 août 2026" data-jeudi="jeudi 6 août 2026">mardi 4 août 2026</b> · Sem. <b contenteditable="true">32</b> · <b contenteditable="true">Q3</b> · <b contenteditable="true">2026</b><br>Animé par <b id="hdrHost" contenteditable="true" data-mardi="Claire" data-jeudi="l'équipe">Claire</b></div>
   </div>
 
   <div class="toolbar">
@@ -161,8 +163,8 @@
 
   <!-- Intro -->
   <div class="section">
-    <div class="card"><div class="card-title">🔮 L'astro de la semaine</div>
-      <div contenteditable="true"><b>Saison du Lion ☀️ + trine Soleil–Saturne vendredi 7/08</b> : l'enthousiasme rencontre la discipline. <span style="color:var(--grey)">Traduction NA : de l'ambition (Lion) ET de la rigueur d'exécution (Saturne) = le combo parfait pour tenir la cadence Q3. C'est le calme avant l'éclipse solaire en Lion : on pose des bases carrées cette semaine, pas de timidité sur les prix. 🦁</span></div>
+    <div class="card"><div class="card-title">🔮 Le mot du jour</div>
+      <div contenteditable="true"><b>Saison du Lion ☀️</b> (Soleil en Lion jusqu'au 22/08) : énergie, visibilité et confiance au max. <span style="color:var(--grey)">Traduction NA : on assume nos ambitions Q3 et on ose les optims audacieuses. 🦁 Cette semaine, pas de timidité sur les prix.</span></div>
     </div>
   </div>
 
@@ -187,7 +189,7 @@
   </div>
 
   <!-- Vue d'ensemble NA — tableau de suivi (mardi + jeudi) -->
-  <div class="section">
+  <div class="section only-mardi">
     <div class="section-title">📊 Vue d'ensemble NA</div>
     <div class="card">
       <div class="twrap">
@@ -232,21 +234,22 @@
       <div class="twrap">
       <table class="matrix">
         <thead><tr>
-          <th>KPI</th><th>Bretagne + North</th><th>PACA &amp; Corse</th><th>AURA</th><th>Grand Est</th><th class="nacol">Nouvelle-Aquitaine ◆</th>
+          <th>KPI</th><th>Bretagne + North</th><th>PACA &amp; Corse</th><th>AURA</th><th>Grand Est</th><th class="nacol">Nouvelle-Aquitaine ◆</th><th>Rang NA</th>
         </tr></thead>
         <tbody>
-          <tr><td>NLP</td><td contenteditable="true">194</td><td contenteditable="true">183</td><td contenteditable="true">145</td><td contenteditable="true">47</td><td class="nacol na-bad" contenteditable="true">125</td></tr>
-          <tr><td>Churn <span style="color:var(--grey)">(bas = mieux)</span></td><td contenteditable="true">52</td><td contenteditable="true">76</td><td contenteditable="true">59</td><td contenteditable="true">6</td><td class="nacol na-good" contenteditable="true">37</td></tr>
-          <tr><td>Republish</td><td contenteditable="true">11</td><td contenteditable="true">9</td><td contenteditable="true">13</td><td contenteditable="true">2</td><td class="nacol na-good" contenteditable="true">11</td></tr>
-          <tr><td>Net increase</td><td contenteditable="true">153</td><td contenteditable="true">116</td><td contenteditable="true">99</td><td contenteditable="true">43</td><td class="nacol na-mid" contenteditable="true">99</td></tr>
-          <tr><td>eGMV net 12m</td><td contenteditable="true">14,4 M€</td><td contenteditable="true">12,5 M€</td><td contenteditable="true">15,2 M€</td><td contenteditable="true">2,1 M€</td><td class="nacol na-mid" contenteditable="true">12,3 M€</td></tr>
-          <tr><td>0% booking <span style="color:var(--grey)">(bas = mieux)</span></td><td contenteditable="true">7,6%</td><td contenteditable="true">13,7%</td><td contenteditable="true">8,0%</td><td contenteditable="true">8,5%</td><td class="nacol na-mid" contenteditable="true">8,7%</td></tr>
-          <tr><td>16j ratio</td><td contenteditable="true">48,8%</td><td contenteditable="true">30,4%</td><td contenteditable="true">42,3%</td><td contenteditable="true">55,2%</td><td class="nacol na-bad" contenteditable="true">39,6%</td></tr>
-          <tr><td>90j ratio</td><td contenteditable="true">86,6%</td><td contenteditable="true">75,2%</td><td contenteditable="true">85,7%</td><td contenteditable="true">90,1%</td><td class="nacol na-bad" contenteditable="true">81,6%</td></tr>
-          <tr><td>Dynamic pricing <span style="color:var(--grey)">(BI · wizard complété)</span></td><td contenteditable="true">9,3%</td><td contenteditable="true">15,8%</td><td contenteditable="true">10,4%</td><td contenteditable="true">21,0%</td><td class="nacol na-bad" contenteditable="true">9,6%</td></tr>        </tbody>
+          <tr><td>NLP</td><td contenteditable="true">194</td><td contenteditable="true">183</td><td contenteditable="true">145</td><td contenteditable="true">47</td><td class="nacol na-bad" contenteditable="true">125</td><td class="rk r" contenteditable="true">4e/5</td></tr>
+          <tr><td>Churn <span style="color:var(--grey)">(bas = mieux)</span></td><td contenteditable="true">52</td><td contenteditable="true">76</td><td contenteditable="true">59</td><td contenteditable="true">6</td><td class="nacol na-good" contenteditable="true">37</td><td class="rk g" contenteditable="true">2e/5</td></tr>
+          <tr><td>Republish</td><td contenteditable="true">11</td><td contenteditable="true">9</td><td contenteditable="true">13</td><td contenteditable="true">2</td><td class="nacol na-good" contenteditable="true">11</td><td class="rk g" contenteditable="true">2e/5</td></tr>
+          <tr><td>Net increase</td><td contenteditable="true">153</td><td contenteditable="true">116</td><td contenteditable="true">99</td><td contenteditable="true">43</td><td class="nacol na-mid" contenteditable="true">99</td><td class="rk y" contenteditable="true">3e/5</td></tr>
+          <tr><td>eGMV this year</td><td contenteditable="true">11,7 M€</td><td contenteditable="true">9,9 M€</td><td contenteditable="true">10,1 M€</td><td contenteditable="true">1,6 M€</td><td class="nacol na-mid" contenteditable="true">9,7 M€</td><td class="rk y" contenteditable="true">4e/5</td></tr>
+          <tr><td>eGMV / property</td><td contenteditable="true">4 171 €</td><td contenteditable="true">3 716 €</td><td contenteditable="true">3 960 €</td><td contenteditable="true">3 466 €</td><td class="nacol na-bad" contenteditable="true">3 576 €</td><td class="rk r" contenteditable="true">4e/5</td></tr>
+          <tr><td>0% booking <span style="color:var(--grey)">(bas = mieux)</span></td><td contenteditable="true">7,6%</td><td contenteditable="true">13,7%</td><td contenteditable="true">8,0%</td><td contenteditable="true">8,5%</td><td class="nacol na-mid" contenteditable="true">8,7%</td><td class="rk y" contenteditable="true">4e/5</td></tr>
+          <tr><td>16j ratio</td><td contenteditable="true">48,8%</td><td contenteditable="true">30,4%</td><td contenteditable="true">42,3%</td><td contenteditable="true">55,2%</td><td class="nacol na-bad" contenteditable="true">39,6%</td><td class="rk r" contenteditable="true">4e/5</td></tr>
+          <tr><td>90j ratio</td><td contenteditable="true">86,6%</td><td contenteditable="true">75,2%</td><td contenteditable="true">85,7%</td><td contenteditable="true">90,1%</td><td class="nacol na-bad" contenteditable="true">81,6%</td><td class="rk r" contenteditable="true">4e/5</td></tr>
+          <tr><td>Dynamic pricing <span style="color:var(--grey)">(BI · wizard complété)</span></td><td contenteditable="true">9,3%</td><td contenteditable="true">15,8%</td><td contenteditable="true">10,4%</td><td contenteditable="true">21,0%</td><td class="nacol na-bad" contenteditable="true">9,6%</td><td class="rk r" contenteditable="true">4e/5</td></tr>        </tbody>
       </table>
       </div>
-      <div class="src" contenteditable="true">Lecture : NA = <b>meilleur Quality Score (75,4%)</b> et churn Q3 maîtrisé (2e). Mais <b>4e sur l'eGMV net</b> (12,3 M€) malgré le plus gros parc → l'<b>eGMV/logement</b> est l'enjeu. Booking early à muscler (16j 39,6%, 90j 81,6% = le plus bas). Dynamic pricing (wizard) à 9,6%, 4e/5 : à pousser (feature lancée le 28/07).</div>
+      <div class="src" contenteditable="true">Lecture : NA = <b>meilleur Quality Score (75,4%)</b> et churn Q3 maîtrisé (2e). Mais <b>4e sur l'eGMV/logement</b> (3 576 €, devant seulement Grand Est) malgré le plus gros parc → c'est l'<b>enjeu n°1</b>. Booking early à muscler (16j 39,6%, 90j 81,6% = le plus bas). Dynamic pricing (wizard) à 9,6%, 4e/5 : à pousser (feature lancée le 28/07).</div>
     </div>
   </div>
 
@@ -286,20 +289,42 @@
     </div>
   </div>
 
-  <!-- Zone équipe (jeudi) -->
+  <!-- JEUDI : KPI du jour + Thématique -->
   <div class="section only-jeudi">
-    <div class="section-title">🔧 Zone équipe — jeudi</div>
-    <div class="src" style="margin:0 0 8px">La data ci-dessus reste auto. Le reste est tenu par l'équipe (animateur libre).</div>
-    <div class="kpi-grid" style="grid-template-columns:1fr 1fr">
-      <div class="card"><div class="card-title">🔧 Terrain — bugs, fixes, produit</div><div class="editbox" contenteditable="true" data-ph="Remontées terrain, bugs, fixes attendus…"></div></div>
-      <div class="card"><div class="card-title">🔁 Follow-up des sujets du mardi</div><div class="editbox" contenteditable="true" data-ph="Où en sont les next steps ?"></div></div>
-      <div class="card"><div class="card-title">🏆 Kudos express</div><div class="editbox" contenteditable="true" data-ph="Un bravo à qui ?"></div></div>
-      <div class="card"><div class="card-title">🎯 Devinette libre</div><div class="editbox" contenteditable="true" data-ph="Devinette de l'animateur (optionnel)…"></div></div>
+    <div class="section-title">📊 KPI du jour</div>
+    <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr)">
+      <div class="kpi"><div class="lab">NLP</div><div class="val" contenteditable="true">125</div><div class="sub" contenteditable="true">Q3 · cible 357</div></div>
+      <div class="kpi"><div class="lab">Churn</div><div class="val" contenteditable="true">37</div><div class="sub" contenteditable="true">Q3 · max 171</div></div>
+      <div class="kpi"><div class="lab">Republish</div><div class="val" contenteditable="true">11</div><div class="sub" contenteditable="true">Q3 · cible 15</div></div>
+      <div class="kpi"><div class="lab">eGMV net</div><div class="val" contenteditable="true">2,05 M€</div><div class="sub" contenteditable="true">Q3 · 45%</div></div>
     </div>
+  </div>
+  <div class="section only-jeudi">
+    <div class="section-title">📈 Tendance de la semaine</div>
+    <div class="card">
+      <div style="font-size:12.5px;margin-bottom:8px">🧭 <b>Focus demande des voyageurs</b> — dates les plus recherchées (2 dernières semaines) &amp; durée moyenne de séjour, par département NA. Petit check rapide. <span style="color:var(--grey)">Source : BI · Travel Configuration Pattern.</span></div>
+      <div class="twrap">
+      <table class="track" style="min-width:520px">
+        <thead><tr><th>Département</th><th>Dates les + recherchées (2 sem.)</th><th>Durée moy. séjour</th></tr></thead>
+        <tbody>
+          <tr><td>Gironde</td><td contenteditable="true">—</td><td contenteditable="true">—</td></tr>
+          <tr><td>Landes</td><td contenteditable="true">—</td><td contenteditable="true">—</td></tr>
+          <tr><td>Charente-Maritime</td><td contenteditable="true">—</td><td contenteditable="true">—</td></tr>
+          <tr><td>Dordogne</td><td contenteditable="true">—</td><td contenteditable="true">—</td></tr>
+          <tr><td>Pyrénées-Atlantiques</td><td contenteditable="true">—</td><td contenteditable="true">—</td></tr>
+          <tr><td>Lot-et-Garonne</td><td contenteditable="true">—</td><td contenteditable="true">—</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+  <div class="section only-jeudi">
+    <div class="section-title">🎯 Zone libre — owner</div>
+    <div class="card"><div class="editbox usersave" contenteditable="true" data-ph="Zone libre — l'owner ajoute ses sujets ici (et peut en ajouter). Sauvegardé dans ton navigateur…" style="min-height:200px"></div></div>
   </div>
 
   <!-- Tour de table -->
-  <div class="section">
+  <div class="section only-mardi">
     <div class="section-title">🗣️ Tour de table</div>
     <div class="card"><div class="card-title">Le partage de la semaine</div>
       <div contenteditable="true">Cette semaine : <b>une bonne pratique / astuce que tu as testée et qui a marché</b>. <span style="color:var(--grey)">1 min/pers · rotation chaque semaine : bonne pratique → moment client marquant → un obstacle levé (et comment) → ton énergie de la semaine en 1 mot 🎲</span></div>
@@ -308,7 +333,7 @@
   </div>
 
   <!-- Infos & sujets de la semaine -->
-  <div class="section">
+  <div class="section only-mardi">
     <div class="section-title">📌 Infos &amp; sujets de la semaine</div>
 
     <div class="card"><div class="card-title">🔥 1 · Update Wildfire</div>
@@ -331,7 +356,7 @@
       <div contenteditable="true">Rejoignez : <b>slido.com · #1277 921</b><br>• <b>Q1 (partage d'expertise « one team »)</b> : dans le 360 feedback, on demande à beaucoup de partager leur expertise — allons plus loin : <b>qui est expert de quoi ?</b> Associons une expertise à chacun.<br>• <b>Q2 (le PARI)</b> : 33 net properties à signer — <b>quand est-ce qu'on l'atteint ?</b></div>
     </div>
 
-    <div class="card"><div class="card-title">➕ Autres sujets</div><div class="editbox" contenteditable="true" data-ph="Cliquer pour ajouter un sujet libre…"></div></div>
+    <div class="card"><div class="card-title">➕ Autres sujets</div><div class="editbox usersave" contenteditable="true" data-ph="Cliquer pour ajouter un sujet libre…"></div></div>
   </div>
 
   <div class="foot">© Holidu GmbH | Confidential</div>
@@ -344,6 +369,7 @@
     document.body.className=d;
     document.getElementById('bMar').classList.toggle('on',d==='mardi');
     document.getElementById('bJeu').classList.toggle('on',d==='jeudi');
+    ['hdrDate','hdrHost'].forEach(function(id){var el=document.getElementById(id);if(el&&el.dataset[d])el.textContent=el.dataset[d];});
   }
   function downloadDeck(){
     var el=document.querySelector('.header-meta b');
@@ -394,15 +420,17 @@
 
   // Avatars-personnages sauvegardés par AM/SM (stables par prénom)
   var AV_BASE='https://api.dicebear.com/9.x/adventurer/svg?seed=';
-  var AV_BG={Laetitia:'b6e3f4',Mariana:'c0aede','Rémi':'d1d4f9',Jade:'74cfa9',Naomi:'ffd5dc',Jonathan:'ffdfbf',Gauthier:'b6e3f4',Arthur:'ffd5dc','Loïc':'c0aede',Eva:'d1d4f9',Magalie:'74cfa9'};
-  function avatarUrl(nom){nom=(nom||'').trim();var bg=AV_BG[nom]||'e8f4f7';return AV_BASE+encodeURIComponent(nom||'NA')+'&backgroundColor='+bg;}
+  var AV_BG={Laetitia:'b6e3f4',Mariana:'c0aede','Rémi':'d1d4f9',Amandine:'ffdfbf',Jade:'74cfa9',Naomi:'ffd5dc',Jonathan:'ffdfbf',Gauthier:'b6e3f4',Arthur:'ffd5dc','Loïc':'c0aede',Eva:'d1d4f9',Magalie:'74cfa9'};
+  // Couleur de peau (DiceBear adventurer) : clair par défaut ; Mariana bronzé ; Magalie & Loïc foncé
+  var AV_SKIN={Mariana:'edb98a','Loïc':'763900',Magalie:'763900'};
+  function avatarUrl(nom){nom=(nom||'').trim();var bg=AV_BG[nom]||'e8f4f7';var sk=AV_SKIN[nom]||'f2d3b1';return AV_BASE+encodeURIComponent(nom||'NA')+'&backgroundColor='+bg+'&skinColor='+sk;}
   function applyAvatars(){document.querySelectorAll('.champ').forEach(function(c){var n=c.querySelector('.nom'),img=c.querySelector('img.ph');if(n&&img)img.src=avatarUrl(n.textContent);});}
   applyAvatars();
   document.addEventListener('input',function(e){if(e.target.classList&&e.target.classList.contains('nom'))applyAvatars();});
 
   // Tour de table — roster NA (avatars + ligne de partage)
-  var TEAM=[{n:'Laetitia',r:'AM'},{n:'Mariana',r:'AM'},{n:'Rémi',r:'AM'},{n:'Jade',r:'SM'},{n:'Naomi',r:'SM'},{n:'Jonathan',r:'SM'},{n:'Gauthier',r:'SM'},{n:'Arthur',r:'SM'},{n:'Loïc',r:'SM'}];
-  (function(){var el=document.getElementById('ttable');if(!el)return;var h='';TEAM.forEach(function(m){h+='<div class="tt-card"><img src="'+avatarUrl(m.n)+'" alt="'+m.n+'"><div><div class="tt-name">'+m.n+'</div><div class="tt-role">'+m.r+'</div><div class="tt-note" contenteditable="true"></div></div></div>';});el.innerHTML=h;})();
+  var TEAM=[{n:'Laetitia',r:'AM'},{n:'Mariana',r:'AM'},{n:'Rémi',r:'AM'},{n:'Amandine',r:'AM'},{n:'Jade',r:'SM'},{n:'Naomi',r:'SM'},{n:'Jonathan',r:'SM'},{n:'Gauthier',r:'SM'},{n:'Arthur',r:'SM'},{n:'Loïc',r:'SM'},{n:'Eva',r:'Intern'},{n:'Magalie',r:'Intern'}];
+  (function(){var el=document.getElementById('ttable');if(!el)return;var h='';TEAM.forEach(function(m){h+='<div class="tt-card"><img src="'+avatarUrl(m.n)+'" alt="'+m.n+'"><div><div class="tt-name">'+m.n+'</div><div class="tt-role">'+m.r+'</div><div class="tt-note usersave" contenteditable="true"></div></div></div>';});el.innerHTML=h;})();
 
   var current=null,fi=document.getElementById('fileIn');
   function pick(el){current=el;fi.click();}
@@ -410,6 +438,20 @@
     if(!fi.files[0]||!current)return;var r=new FileReader();
     r.onload=function(){current.innerHTML='<img src="'+r.result+'">';};r.readAsDataURL(fi.files[0]);
   });
+
+  // Sauvegarde locale des zones manuelles (persiste dans TON navigateur, par semaine)
+  (function(){
+    var d=document.getElementById('hdrDate');
+    var WK=((d&&d.dataset.mardi)||'wk').replace(/[^a-z0-9]+/gi,'_');
+    function els(){return [].slice.call(document.querySelectorAll('.usersave'));}
+    var list=els();
+    list.forEach(function(el,i){var v=localStorage.getItem('sna_'+WK+'_'+i);if(v!==null)el.innerHTML=v;});
+    document.addEventListener('input',function(e){
+      var el=e.target.closest('.usersave');if(!el)return;
+      var i=list.indexOf(el);if(i<0){list=els();i=list.indexOf(el);}
+      if(i>=0){try{localStorage.setItem('sna_'+WK+'_'+i,el.innerHTML);}catch(err){}}
+    });
+  })();
 </script>
 </body>
 </html>
