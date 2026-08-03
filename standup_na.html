@@ -76,6 +76,7 @@
   table.matrix td.nacol,table.matrix th.nacol{background:var(--am-bg);font-weight:600;color:var(--dark)}
   table.matrix td.nacol.na-good{background:#CDEFDE}
   table.matrix td.nacol.na-bad{background:#FADCD3}
+  table.matrix td.nacol.na-mid{background:#FDECC8}
   .chip{display:inline-block;padding:1px 8px;border-radius:10px;font-size:10px;margin:0 1px}
   .chip.best{background:#CDEFDE;color:#1e6b45}.chip.good{background:#E6F6ED;color:#2f855a}
   .chip.mid{background:#FBECE6;color:#a85a3e}.chip.low{background:#FADCD3;color:#b23b1e}
@@ -109,6 +110,13 @@
   body.jeudi .only-jeudi{display:block}
 
   .foot{text-align:center;color:var(--grey);font-size:10px;margin:24px 0 18px}
+  .ttable{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}
+  .tt-card{display:flex;gap:10px;align-items:flex-start;background:var(--card-bg);border-radius:8px;padding:10px 12px;box-shadow:rgba(0,0,0,.07) 0 1px 3px}
+  .tt-card img{width:40px;height:40px;flex:none;border-radius:50%;background:var(--am-bg);border:2px solid var(--primary)}
+  .tt-name{font-weight:700;color:var(--dark);font-size:12px}
+  .tt-role{font-size:10px;color:var(--grey);text-transform:uppercase}
+  .tt-note{font-size:12px;margin-top:3px;min-height:20px}
+  .tt-note:empty::before{content:"…";color:#c2cad2}
   .app{display:flex;align-items:stretch;min-height:100vh}
   .week-nav{width:150px;flex:0 0 150px;background:#012E39;color:#fff;padding:12px 8px;overflow-y:auto}
   .week-nav .wn-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#7fb9c4;padding:4px 8px 8px}
@@ -175,6 +183,7 @@
         <div><div class="nom" contenteditable="true">Arthur</div><div class="role" contenteditable="true">🏡 SM · top publications</div><div class="why" contenteditable="true">8 publications, pile sur la cible</div></div>
       </div>
     </div>
+    <div class="panel panel-info" style="margin-top:4px">💎 <b>Plus grosse résa de la semaine</b> : <b contenteditable="true">14 879 €</b> <span contenteditable="true">— Landes (Airbnb · 7 nuits, 1–8 août) · SM <b>Naomi</b> · AM <b>Laetitia</b> 🎉</span></div>
   </div>
 
   <!-- Vue d'ensemble NA — tableau de suivi (mardi + jeudi) -->
@@ -206,7 +215,7 @@
           <tr data-mode="ratio"><td><b>Egmv</b> <span style="font-weight:400;color:var(--grey)">(net)</span></td><td class="tgt" contenteditable="true">4 559 011 €</td><td class="wk" contenteditable="true">2 054 337 €</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
 
           <tr class="band"><td colspan="8">Annuel — 2026</td></tr>
-          <tr data-mode="ratio"><td><b>Net increase</b></td><td class="tgt" contenteditable="true">739</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+          <tr data-mode="ratio"><td><b>Net increase</b></td><td class="tgt" contenteditable="true">739</td><td class="wk" contenteditable="true">808</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
           <tr data-mode="ratio"><td><b>Egmv</b> <span style="font-weight:400;color:var(--grey)">(net)</span></td><td class="tgt" contenteditable="true">16 162 288 €</td><td class="wk" contenteditable="true">9 870 265 €</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
         </tbody>
       </table>
@@ -229,9 +238,9 @@
           <tr><td>NLP</td><td contenteditable="true">194</td><td contenteditable="true">183</td><td contenteditable="true">145</td><td contenteditable="true">47</td><td class="nacol na-bad" contenteditable="true">125</td></tr>
           <tr><td>Churn <span style="color:var(--grey)">(bas = mieux)</span></td><td contenteditable="true">52</td><td contenteditable="true">76</td><td contenteditable="true">59</td><td contenteditable="true">6</td><td class="nacol na-good" contenteditable="true">37</td></tr>
           <tr><td>Republish</td><td contenteditable="true">11</td><td contenteditable="true">9</td><td contenteditable="true">13</td><td contenteditable="true">2</td><td class="nacol na-good" contenteditable="true">11</td></tr>
-          <tr><td>Net increase</td><td contenteditable="true">153</td><td contenteditable="true">116</td><td contenteditable="true">99</td><td contenteditable="true">43</td><td class="nacol" contenteditable="true">99</td></tr>
-          <tr><td>eGMV net 12m</td><td contenteditable="true">14,4 M€</td><td contenteditable="true">12,5 M€</td><td contenteditable="true">15,2 M€</td><td contenteditable="true">2,1 M€</td><td class="nacol na-bad" contenteditable="true">12,3 M€</td></tr>
-          <tr><td>0% booking <span style="color:var(--grey)">(bas = mieux)</span></td><td contenteditable="true">7,6%</td><td contenteditable="true">13,7%</td><td contenteditable="true">8,0%</td><td contenteditable="true">8,5%</td><td class="nacol na-bad" contenteditable="true">8,7%</td></tr>
+          <tr><td>Net increase</td><td contenteditable="true">153</td><td contenteditable="true">116</td><td contenteditable="true">99</td><td contenteditable="true">43</td><td class="nacol na-mid" contenteditable="true">99</td></tr>
+          <tr><td>eGMV net 12m</td><td contenteditable="true">14,4 M€</td><td contenteditable="true">12,5 M€</td><td contenteditable="true">15,2 M€</td><td contenteditable="true">2,1 M€</td><td class="nacol na-mid" contenteditable="true">12,3 M€</td></tr>
+          <tr><td>0% booking <span style="color:var(--grey)">(bas = mieux)</span></td><td contenteditable="true">7,6%</td><td contenteditable="true">13,7%</td><td contenteditable="true">8,0%</td><td contenteditable="true">8,5%</td><td class="nacol na-mid" contenteditable="true">8,7%</td></tr>
           <tr><td>16j ratio</td><td contenteditable="true">48,8%</td><td contenteditable="true">30,4%</td><td contenteditable="true">42,3%</td><td contenteditable="true">55,2%</td><td class="nacol na-bad" contenteditable="true">39,6%</td></tr>
           <tr><td>90j ratio</td><td contenteditable="true">86,6%</td><td contenteditable="true">75,2%</td><td contenteditable="true">85,7%</td><td contenteditable="true">90,1%</td><td class="nacol na-bad" contenteditable="true">81,6%</td></tr>
           <tr><td>Dynamic pricing <span style="color:var(--grey)">(BI · wizard complété)</span></td><td contenteditable="true">9,3%</td><td contenteditable="true">15,8%</td><td contenteditable="true">10,4%</td><td contenteditable="true">21,0%</td><td class="nacol na-bad" contenteditable="true">9,6%</td></tr>        </tbody>
@@ -246,18 +255,18 @@
     <div class="section-title">🎯 La devinette</div>
     <div class="card">
       <div class="qcm">
-        <div class="q" contenteditable="true">1. Combien de logements live en Nouvelle-Aquitaine aujourd'hui ?</div>
-        <button class="opt" data-correct="0" contenteditable="true">2 400</button>
-        <button class="opt" data-correct="1" contenteditable="true">2 712</button>
-        <button class="opt" data-correct="0" contenteditable="true">2 950</button>
-        <button class="opt" data-correct="0" contenteditable="true">3 100</button>
+        <div class="q" contenteditable="true">1. 🦁 Quel signe astro est à l'honneur cette semaine ?</div>
+        <button class="opt" data-correct="0" contenteditable="true">Le Cancer</button>
+        <button class="opt" data-correct="1" contenteditable="true">Le Lion</button>
+        <button class="opt" data-correct="0" contenteditable="true">La Vierge</button>
+        <button class="opt" data-correct="0" contenteditable="true">La Balance</button>
       </div>
       <div class="qcm">
-        <div class="q" contenteditable="true">2. NA est n°1 des 5 areas France cette semaine sur quel KPI ?</div>
-        <button class="opt" data-correct="1" contenteditable="true">Quality Score (75,4%)</button>
-        <button class="opt" data-correct="0" contenteditable="true">NLP</button>
-        <button class="opt" data-correct="0" contenteditable="true">16j ratio</button>
-        <button class="opt" data-correct="0" contenteditable="true">eGMV</button>
+        <div class="q" contenteditable="true">2. Quelle semaine est historiquement le pic Net eGMV de toute la France ?</div>
+        <button class="opt" data-correct="0" contenteditable="true">Semaine 25</button>
+        <button class="opt" data-correct="1" contenteditable="true">Semaine 31</button>
+        <button class="opt" data-correct="0" contenteditable="true">Semaine 40</button>
+        <button class="opt" data-correct="0" contenteditable="true">Semaine 52</button>
       </div>
     </div>
   </div>
@@ -289,15 +298,40 @@
     </div>
   </div>
 
-  <!-- Sujets libres -->
+  <!-- Tour de table -->
   <div class="section">
-    <div class="section-title">📝 Sujets libres</div>
-    <div class="kpi-grid" style="grid-template-columns:1fr 1fr">
-      <div class="card"><div class="card-title">Sujet 1</div><div class="editbox" contenteditable="true" data-ph="Cliquer pour écrire…"></div></div>
-      <div class="card"><div class="card-title">Sujet 2</div><div class="editbox" contenteditable="true" data-ph="Cliquer pour écrire…"></div></div>
-      <div class="card"><div class="card-title">Sujet 3</div><div class="editbox" contenteditable="true" data-ph="Cliquer pour écrire…"></div></div>
-      <div class="card"><div class="card-title">Sujet 4</div><div class="editbox" contenteditable="true" data-ph="Cliquer pour écrire…"></div></div>
+    <div class="section-title">🗣️ Tour de table</div>
+    <div class="card"><div class="card-title">Le partage de la semaine</div>
+      <div contenteditable="true">Cette semaine : <b>une bonne pratique / astuce que tu as testée et qui a marché</b>. <span style="color:var(--grey)">1 min/pers · rotation chaque semaine : bonne pratique → moment client marquant → un obstacle levé (et comment) → ton énergie de la semaine en 1 mot 🎲</span></div>
     </div>
+    <div class="ttable" id="ttable"></div>
+  </div>
+
+  <!-- Infos & sujets de la semaine -->
+  <div class="section">
+    <div class="section-title">📌 Infos &amp; sujets de la semaine</div>
+
+    <div class="card"><div class="card-title">🔥 1 · Update Wildfire</div>
+      <div contenteditable="true">Point sur les incendies : des questions ? Tour de table éclair — <b>qui a bien compris la politique d'annulation</b> ? On s'assure que tout le monde maîtrise le process.</div>
+    </div>
+
+    <div class="card"><div class="card-title">🎧 2 · Artefact Demodesk de Julien — SM Call Quality Review</div>
+      <div contenteditable="true">Julien partage son artefact d'<b>analyse qualité des calls SM</b> (exemple sur les derniers calls de Nao — beaucoup d'anglais via Gyoza, d'où quelques tics de langage). Accessible en lecture/exécution à toute l'org Cowork <b>« Holidu G5 (Sales &amp; AM DACH, FR, GR, Central) »</b> : chacun lance l'analyse dans son propre Cowork (utilise ses propres connecteurs Demodesk). ⚠️ Prérequis : avoir le <b>connecteur Demodesk</b> connecté, sinon le lien seul ne suffit pas. <span style="color:var(--grey)">[lien artefact à coller]</span></div>
+    </div>
+
+    <div class="card"><div class="card-title">👥 3 · RH — Mid-Year Review vs Entretien professionnel</div>
+      <div contenteditable="true">Des questions sur la distinction ?<br>• <b>Mid-Year Review</b> = performance, objectifs, feedback.<br>• <b>Entretien professionnel</b> = 100% tourné vers <b>vous</b> : aspirations, évolution de carrière, compétences à développer, besoins en formation. Une réunion avec vous et <b>POUR</b> vous (pas sur vous). Vous êtes acteur de votre parcours ; mon rôle = accompagner, challenger, construire le plan avec vous.</div>
+    </div>
+
+    <div class="card"><div class="card-title">⚡ 4 · Power Hour mercredi — focus optim</div>
+      <div contenteditable="true">Cette semaine on affine le <b>listing</b> (suite à l'intégration) pour <b>vérifier l'éligibilité au bonus</b> et compléter les infos. Listing construit au niveau France avec Aimie (qui a dressé Claude pour le sortir). 👉 <a href="https://docs.google.com/spreadsheets/d/12xqFCIAH1W3DJwriNZERfdxDyF7hxiJI7mGD5sasQqc/edit?gid=1794268794#gid=1794268794" target="_blank">Le listing France</a></div>
+    </div>
+
+    <div class="card"><div class="card-title">🗳️ 5 · Slido — 2 questions</div>
+      <div contenteditable="true">Rejoignez : <b>slido.com · #1277 921</b><br>• <b>Q1 (partage d'expertise « one team »)</b> : dans le 360 feedback, on demande à beaucoup de partager leur expertise — allons plus loin : <b>qui est expert de quoi ?</b> Associons une expertise à chacun.<br>• <b>Q2 (le PARI)</b> : 33 net properties à signer — <b>quand est-ce qu'on l'atteint ?</b></div>
+    </div>
+
+    <div class="card"><div class="card-title">➕ Autres sujets</div><div class="editbox" contenteditable="true" data-ph="Cliquer pour ajouter un sujet libre…"></div></div>
   </div>
 
   <div class="foot">© Holidu GmbH | Confidential</div>
@@ -365,6 +399,10 @@
   function applyAvatars(){document.querySelectorAll('.champ').forEach(function(c){var n=c.querySelector('.nom'),img=c.querySelector('img.ph');if(n&&img)img.src=avatarUrl(n.textContent);});}
   applyAvatars();
   document.addEventListener('input',function(e){if(e.target.classList&&e.target.classList.contains('nom'))applyAvatars();});
+
+  // Tour de table — roster NA (avatars + ligne de partage)
+  var TEAM=[{n:'Laetitia',r:'AM'},{n:'Mariana',r:'AM'},{n:'Rémi',r:'AM'},{n:'Jade',r:'SM'},{n:'Naomi',r:'SM'},{n:'Jonathan',r:'SM'},{n:'Gauthier',r:'SM'},{n:'Arthur',r:'SM'},{n:'Loïc',r:'SM'}];
+  (function(){var el=document.getElementById('ttable');if(!el)return;var h='';TEAM.forEach(function(m){h+='<div class="tt-card"><img src="'+avatarUrl(m.n)+'" alt="'+m.n+'"><div><div class="tt-name">'+m.n+'</div><div class="tt-role">'+m.r+'</div><div class="tt-note" contenteditable="true"></div></div></div>';});el.innerHTML=h;})();
 
   var current=null,fi=document.getElementById('fileIn');
   function pick(el){current=el;fi.click();}
