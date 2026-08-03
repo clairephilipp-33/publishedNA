@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stand-up NA — Nouvelle-Aquitaine</title>
+<style>
+  :root{
+    --primary:#00809D;--dark:#024251;--coral:#FD937B;--green:#74CFA9;
+    --bg:#FAF9F8;--card-bg:#FFFFFF;--grey:#8C9196;--border:#E8E6E3;--text:#1A1A1A;--am-bg:#E8F4F7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);font-size:13px;line-height:1.5}
+  .wrap{max-width:1040px;margin:0 auto;background:var(--bg)}
+
+  .header{background:var(--dark);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+  .header-title{font-size:17px;font-weight:700}
+  .header-title small{display:block;font-size:11px;font-weight:400;opacity:.75;margin-top:2px}
+  .header-meta{font-size:11px;opacity:.85;text-align:right}
+  .header-meta b{font-weight:700}
+
+  .toolbar{position:sticky;top:0;z-index:5;background:#012E39;display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:9px 18px}
+  .btn{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:6px;border:none;cursor:pointer;font-size:12px;font-weight:600;font-family:inherit;transition:.15s}
+  .btn-day{background:transparent;color:#fff;border:1px solid #ffffff44}
+  .btn-day.on{background:#fff;color:var(--dark)}
+  .btn-p{background:var(--primary);color:#fff}
+  .btn-s{background:#fff;color:var(--primary)}
+
+  .section{margin:16px 18px}
+  .section-title{font-size:13px;font-weight:700;color:var(--dark);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;padding-bottom:5px;border-bottom:2px solid var(--primary);display:flex;align-items:center;gap:8px}
+  .tag{font-size:9px;font-weight:700;letter-spacing:.04em;padding:2px 7px;border-radius:20px;text-transform:uppercase;margin-left:auto}
+  .tag-auto{background:var(--am-bg);color:var(--primary)}
+  .tag-man{background:#FDECE6;color:#c85a3e}
+
+  .card{background:var(--card-bg);border-radius:8px;padding:12px 14px;margin-bottom:10px;box-shadow:rgba(0,0,0,.07) 0 1px 3px}
+  .card-title{font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+  .src{font-size:11px;color:var(--grey);margin-top:6px}
+
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  th{text-align:left;padding:5px 7px;font-weight:600;color:var(--dark);background:var(--am-bg)}
+  td{padding:4px 7px;border-bottom:1px solid var(--border)}
+
+  [contenteditable]{outline:none;border-radius:4px}
+  [contenteditable]:hover{background:#FBFBF3}
+  [contenteditable]:focus{background:var(--am-bg);box-shadow:inset 0 0 0 2px var(--primary)}
+  [data-ph]:empty::before{content:attr(data-ph);color:#c2cad2}
+
+  /* KPI cards */
+  .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .kpi{background:var(--card-bg);border-radius:8px;padding:12px 14px;box-shadow:rgba(0,0,0,.07) 0 1px 3px}
+  .kpi.big{background:linear-gradient(135deg,var(--primary),var(--dark));color:#fff}
+  .kpi .lab{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--grey)}
+  .kpi.big .lab{color:#cfeef4}
+  .kpi .val{font-size:22px;font-weight:700;color:var(--dark);margin:3px 0 1px}
+  .kpi.big .val{color:#fff}
+  .kpi .sub{font-size:11px;color:var(--grey)}
+  .kpi.big .sub{color:#e6f5f7}
+
+  /* KUDOS */
+  .bravo{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,var(--green),var(--primary));color:#fff;border-radius:8px;padding:14px 16px;margin-bottom:10px}
+  .bravo-badge{font-size:12px;font-weight:700;letter-spacing:.04em;background:rgba(255,255,255,.22);border-radius:20px;padding:7px 13px;white-space:nowrap}
+  .champs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px}
+  .champ{display:flex;gap:12px;align-items:center;background:var(--card-bg);border-radius:8px;padding:12px;box-shadow:rgba(0,0,0,.07) 0 1px 3px}
+  .champ .ph{width:64px;height:64px;flex:none;border-radius:50%;background:var(--am-bg);border:3px solid var(--primary);display:flex;align-items:center;justify-content:center;color:var(--grey);font-size:9px;text-align:center;overflow:hidden;cursor:pointer}
+  .champ .ph img{width:100%;height:100%;object-fit:cover}
+  .champ .nom{font-weight:700;color:var(--dark)}
+  .champ .role{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;color:#fff;background:var(--primary);border-radius:10px;padding:1px 9px;margin:3px 0}
+  .champ .why{font-size:11px;color:var(--grey)}
+
+  /* matrix */
+  .twrap{overflow-x:auto}
+  table.matrix{font-size:12px;min-width:760px}
+  table.matrix th,table.matrix td{text-align:center;white-space:nowrap}
+  table.matrix td:first-child,table.matrix th:first-child{text-align:left;position:sticky;left:0;background:var(--card-bg)}
+  table.matrix td.nacol,table.matrix th.nacol{background:var(--am-bg);font-weight:600;color:var(--dark)}
+  .chip{display:inline-block;padding:1px 8px;border-radius:10px;font-size:10px;margin:0 1px}
+  .chip.best{background:#CDEFDE;color:#1e6b45}.chip.good{background:#E6F6ED;color:#2f855a}
+  .chip.mid{background:#FBECE6;color:#a85a3e}.chip.low{background:#FADCD3;color:#b23b1e}
+  td.c-best{background:#CDEFDE}td.c-good{background:#E6F6ED}td.c-mid{background:#FBECE6}td.c-low{background:#FADCD3}
+  /* tableau de suivi */
+  table.track{font-size:12px;min-width:720px}
+  table.track th,table.track td{text-align:center;padding:4px 7px;border-bottom:1px solid var(--border);white-space:nowrap}
+  table.track th{background:var(--dark);color:#fff;font-weight:600}
+  table.track td:first-child,table.track th:first-child{text-align:left}
+  table.track tr.band td{background:#F4E1E4;color:#9B4A57;font-weight:700;text-transform:uppercase;letter-spacing:.5px;font-size:10px;text-align:left}
+  table.track td.tgt{font-weight:600;background:#FAFAFA}
+  table.track td.comp{font-weight:700}
+  table.track td.grey{background:#EDEDED;color:var(--grey)}
+
+  /* quiz */
+  .qcm{margin:10px 0}
+  .qcm .q{font-weight:700;margin-bottom:8px}
+  .opt{display:block;width:100%;text-align:left;padding:8px 12px;margin:5px 0;border:1px solid var(--border);border-radius:6px;background:#fff;cursor:pointer;font-size:13px;font-family:inherit}
+  .opt:hover{background:var(--am-bg)}
+  .opt.good{background:#E6F6ED;border-color:var(--green);font-weight:700}
+  .opt.bad{background:#FADCD3;border-color:var(--coral)}
+
+  /* panels */
+  .panel{border-radius:8px;padding:12px 14px;font-size:12.5px}
+  .panel-info{background:var(--am-bg);border-left:4px solid var(--primary)}
+  .editbox{border:1px dashed var(--border);border-radius:8px;padding:10px 12px;min-height:52px;margin-top:6px}
+
+  /* day visibility */
+  .only-mardi,.only-jeudi{display:none}
+  body.mardi .only-mardi{display:block}
+  body.jeudi .only-jeudi{display:block}
+
+  .foot{text-align:center;color:var(--grey);font-size:10px;margin:24px 0 18px}
+  .app{display:flex;align-items:stretch;min-height:100vh}
+  .week-nav{width:150px;flex:0 0 150px;background:#012E39;color:#fff;padding:12px 8px;overflow-y:auto}
+  .week-nav .wn-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#7fb9c4;padding:4px 8px 8px}
+  .week-nav .wk-item{display:block;color:#cfe6ea;text-decoration:none;font-size:12px;padding:7px 9px;border-radius:6px;margin-bottom:2px}
+  .week-nav .wk-item:hover{background:#0a4553}
+  .week-nav .wk-item.on{background:var(--primary);color:#fff;font-weight:700}
+  .wrap{flex:1;min-width:0;max-width:none}
+  @media print{.toolbar,.week-nav{display:none}.wrap{max-width:none}.twrap{overflow:visible}table.matrix{min-width:0}}
+</style>
+</head>
+<body class="mardi">
+<div class="app">
+  <aside class="week-nav">
+    <div class="wn-title">Q3 2026</div>
+    <a class="wk-item" href="#">Sem. 30 · 21 juil.</a>
+    <a class="wk-item" href="#">Sem. 31 · 28 juil.</a>
+    <a class="wk-item on" href="#">Sem. 32 · 4 août</a>
+    <a class="wk-item" href="#">Sem. 33 · 11 août</a>
+    <a class="wk-item" href="#">Sem. 34 · 18 août</a>
+    <a class="wk-item" href="#">Sem. 35 · 25 août</a>
+    <a class="wk-item" href="#">Sem. 36 · 1 sept.</a>
+    <a class="wk-item" href="#">Sem. 37 · 8 sept.</a>
+    <a class="wk-item" href="#">Sem. 38 · 15 sept.</a>
+    <a class="wk-item" href="#">Sem. 39 · 22 sept.</a>
+  </aside>
+  <div class="wrap">
+
+  <div class="header">
+    <div class="header-title">Stand-up Nouvelle Aquitaine <small>Centre France · DOM TOM</small></div>
+    <div class="header-meta">📅 <b contenteditable="true">mardi 4 août 2026</b> · Sem. <b contenteditable="true">32</b> · <b contenteditable="true">Q3</b> · <b contenteditable="true">2026</b><br>Animé par <b contenteditable="true">Claire</b></div>
+  </div>
+
+  <div class="toolbar">
+    <button class="btn btn-day on" id="bMar" onclick="setDay('mardi')">Mardi</button>
+    <button class="btn btn-day" id="bJeu" onclick="setDay('jeudi')">Jeudi</button>
+    <span style="flex:1"></span>
+    <button class="btn btn-s" onclick="downloadDeck()">💾 Enregistrer une copie</button>
+    <button class="btn btn-s" onclick="window.print()">Imprimer / PDF</button>
+  </div>
+
+  <!-- Intro -->
+  <div class="section">
+    <div class="card"><div class="card-title">Le mot de la semaine <span class="tag tag-auto">Auto · analyse des chiffres</span></div>
+      <div contenteditable="true" data-ph="Synthèse auto des chiffres de la semaine, éditable.">—</div>
+    </div>
+  </div>
+
+  <!-- KUDOS (mardi) -->
+  <div class="section only-mardi">
+    <div class="section-title">🍬 Kudos de la semaine <span class="tag tag-auto">Auto · tu valides</span></div>
+    <div class="bravo">
+      <div class="bravo-badge" contenteditable="true">🌟 MENTION DE LA SEMAINE</div>
+      <div><b contenteditable="true">Naomi</b> — <span contenteditable="true">elle prend enfin des congés pour la première fois depuis son arrivée : on embrasse le leadership « take holidays » 🌴 bravo ! (exemple)</span></div>
+    </div>
+    <div class="champs">
+      <div class="champ">
+        <div class="ph" onclick="pick(this)">+ photo</div>
+        <div><div class="nom" contenteditable="true">Mariana</div><div class="role" contenteditable="true">🥇 AM · top optims</div><div class="why" contenteditable="true">49 optims cette semaine — +21% vs sa moyenne 4 sem. (exemple)</div></div>
+      </div>
+      <div class="champ">
+        <div class="ph" onclick="pick(this)">+ photo</div>
+        <div><div class="nom" contenteditable="true">Arthur</div><div class="role" contenteditable="true">🏡 SM · top publications</div><div class="why" contenteditable="true">8 publications, pile sur la cible (exemple)</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vue d'ensemble NA — tableau de suivi (mardi + jeudi) -->
+  <div class="section">
+    <div class="section-title">📊 Vue d'ensemble NA <span class="tag tag-auto">Auto · BI/Athena</span></div>
+    <div class="card">
+      <div class="twrap">
+      <table class="track">
+        <thead><tr>
+          <th>KPI</th><th>Target</th>
+          <th contenteditable="true">au 03/08</th><th contenteditable="true">11/08</th><th contenteditable="true">18/08</th><th contenteditable="true">25/08</th>
+          <th>Complétion %</th><th>Time&nbsp;compl.&nbsp;%</th>
+        </tr></thead>
+        <tbody>
+          <tr class="band"><td colspan="8">Mensuel — Août</td></tr>
+          <tr data-mode="ratio"><td>NLP</td><td class="tgt" contenteditable="true">100</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+          <tr data-mode="ratio"><td>Churn <span style="font-weight:400;color:var(--grey)">(max)</span></td><td class="tgt" contenteditable="true">49</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+          <tr data-mode="ratio"><td>Republished</td><td class="tgt" contenteditable="true">3</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+          <tr data-mode="ratio"><td><b>Net increase</b></td><td class="tgt" contenteditable="true">54</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+          <tr data-mode="none"><td>TLP</td><td class="tgt" contenteditable="true">2500</td><td class="wk" contenteditable="true">2712</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp grey">108%</td><td class="tc" contenteditable="true">—</td></tr>
+          <tr data-mode="ratio"><td>Conversion rate</td><td class="tgt" contenteditable="true">—</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+          <tr data-mode="ratio"><td>Conversion rate Galactica</td><td class="tgt" contenteditable="true">—</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+          <tr data-mode="ratio"><td>Go-live score</td><td class="tgt" contenteditable="true">—</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+          <tr data-mode="ratio"><td><b>Egmv</b> <span style="font-weight:400;color:var(--grey)">(net)</span></td><td class="tgt" contenteditable="true">1 549 360 €</td><td class="wk" contenteditable="true">112 787 €</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+          <tr data-mode="none"><td>QS Score</td><td class="tgt" contenteditable="true">—</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp grey">—</td><td class="tc" contenteditable="true">—</td></tr>
+
+          <tr class="band"><td colspan="8">Trimestriel — Q3</td></tr>
+          <tr data-mode="ratio"><td><b>Net increase</b></td><td class="tgt" contenteditable="true">201</td><td class="wk" contenteditable="true">99</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+          <tr data-mode="ratio"><td><b>Egmv</b> <span style="font-weight:400;color:var(--grey)">(net)</span></td><td class="tgt" contenteditable="true">4 559 011 €</td><td class="wk" contenteditable="true">2 054 337 €</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+
+          <tr class="band"><td colspan="8">Annuel — 2026</td></tr>
+          <tr data-mode="ratio"><td><b>Net increase</b></td><td class="tgt" contenteditable="true">739</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+          <tr data-mode="ratio"><td><b>Egmv</b> <span style="font-weight:400;color:var(--grey)">(net)</span></td><td class="tgt" contenteditable="true">16 162 288 €</td><td class="wk" contenteditable="true">9 870 265 €</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="src"><b>Targets réels</b> (Goals sheet 2026). <b>Réel Athena au 02/08</b> (`apartment_history`, focus area NA, flags événementiels — pas de double-comptage) : TLP live <b>2 712</b> (108% cible) · Q3 NLP <b>125</b> · Republish <b>11</b> · Churn <b>37</b> · <b>Net increase +99</b> (= NLP + Republish − Churn ; 49% de la cible Q3 201). <b>eGMV net réel (Looker, Business Review)</b> : août 112 787 € (7% — mois qui démarre) · Q3 2 054 337 € (45%) · année 9 870 265 € (61%). Conversion / go-live / QS : à tirer de Looker (auto). <b>Complétion %</b> = dernier relevé / target, recalcul auto à l'édition.</div>
+    </div>
+  </div>
+
+  <!-- Analyse portefeuille 5 areas (mardi) -->
+  <div class="section only-mardi">
+    <div class="section-title">🗺️ Analyse de portefeuille — 5 areas France <span class="tag tag-auto">Auto · BI/Athena + Pipedrive</span></div>
+    <div class="card">
+      <div class="src" style="margin:0 0 8px">Colonne <b>Nouvelle-Aquitaine</b> surlignée. Couleur = rang dans la ligne : <span class="chip best">meilleur</span> <span class="chip low">à surveiller</span>. <b>Flux Q3-to-date réels</b> (Athena, au 02/08). eGMV / 0% booking / 16j / 90j / Dyn. pricing / optim : à compléter via Looker (auto).</div>
+      <div class="twrap">
+      <table class="matrix">
+        <thead><tr>
+          <th>KPI</th><th>Bretagne + North</th><th>PACA &amp; Corse</th><th>AURA</th><th>Grand Est</th><th class="nacol">Nouvelle-Aquitaine ◆</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>NLP</td><td class="c-best" contenteditable="true">194</td><td contenteditable="true">183</td><td contenteditable="true">145</td><td class="c-low" contenteditable="true">47</td><td class="nacol" contenteditable="true">125</td></tr>
+          <tr><td>Churn <span style="color:var(--grey)">(bas = mieux)</span></td><td contenteditable="true">52</td><td class="c-low" contenteditable="true">76</td><td contenteditable="true">59</td><td class="c-best" contenteditable="true">6</td><td class="nacol" contenteditable="true">37</td></tr>
+          <tr><td>Republish</td><td contenteditable="true">11</td><td contenteditable="true">9</td><td class="c-best" contenteditable="true">13</td><td class="c-low" contenteditable="true">2</td><td class="nacol" contenteditable="true">11</td></tr>
+          <tr><td>Net increase</td><td class="c-best" contenteditable="true">153</td><td contenteditable="true">116</td><td contenteditable="true">99</td><td class="c-low" contenteditable="true">43</td><td class="nacol" contenteditable="true">99</td></tr>
+          <tr><td>eGMV</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td class="nacol" contenteditable="true">—</td></tr>
+          <tr><td>0% booking</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td class="nacol" contenteditable="true">—</td></tr>
+          <tr><td>16j ratio</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td class="nacol" contenteditable="true">—</td></tr>
+          <tr><td>90j ratio</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td class="nacol" contenteditable="true">—</td></tr>
+          <tr><td>Dynamic pricing</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td class="nacol" contenteditable="true">—</td></tr>
+          <tr><td>Optim / area</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td class="nacol" contenteditable="true">—</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="src" contenteditable="true">Lecture (auto) : rang de NA sur chaque métrique + 1 phrase force / axe de progression.</div>
+    </div>
+  </div>
+
+  <!-- Devinette (mardi) -->
+  <div class="section only-mardi">
+    <div class="section-title">🎯 La devinette <span class="tag tag-auto">Auto · tu valides</span></div>
+    <div class="card">
+      <div class="qcm">
+        <div class="q" contenteditable="true">Combien de nouveaux logements live en NA cette semaine ? (exemple)</div>
+        <button class="opt" data-correct="0" contenteditable="true">—</button>
+        <button class="opt" data-correct="1" contenteditable="true">— (bonne réponse)</button>
+        <button class="opt" data-correct="0" contenteditable="true">—</button>
+        <button class="opt" data-correct="0" contenteditable="true">—</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- News of the Week (mardi) -->
+  <div class="section only-mardi">
+    <div class="section-title">🆕 News of the Week <span class="tag tag-auto">Auto · email Fernando</span></div>
+    <div class="panel panel-info" contenteditable="true">Résumé FR des points clés de la « News of the Week » de Fernando (email du vendredi précédent). Rempli auto, avec le lien. Actions requises signalées ⚠️.</div>
+  </div>
+
+  <!-- Zone équipe (jeudi) -->
+  <div class="section only-jeudi">
+    <div class="section-title">🔧 Zone équipe — jeudi <span class="tag tag-man">Manuel · l'équipe</span></div>
+    <div class="src" style="margin:0 0 8px">La data ci-dessus reste auto. Le reste est tenu par l'équipe (animateur libre).</div>
+    <div class="kpi-grid" style="grid-template-columns:1fr 1fr">
+      <div class="card"><div class="card-title">🔧 Terrain — bugs, fixes, produit</div><div class="editbox" contenteditable="true" data-ph="Remontées terrain, bugs, fixes attendus…"></div></div>
+      <div class="card"><div class="card-title">🔁 Follow-up des sujets du mardi</div><div class="editbox" contenteditable="true" data-ph="Où en sont les next steps ?"></div></div>
+      <div class="card"><div class="card-title">🏆 Kudos express</div><div class="editbox" contenteditable="true" data-ph="Un bravo à qui ?"></div></div>
+      <div class="card"><div class="card-title">🎯 Devinette libre</div><div class="editbox" contenteditable="true" data-ph="Devinette de l'animateur (optionnel)…"></div></div>
+    </div>
+  </div>
+
+  <!-- Sujets libres -->
+  <div class="section">
+    <div class="section-title">📝 Sujets libres <span class="tag tag-man">Manuel</span></div>
+    <div class="card">
+      <div class="editbox" contenteditable="true" data-ph="Cliquer pour ajouter un sujet…"></div>
+    </div>
+  </div>
+
+  <div class="foot">© Holidu GmbH | Confidential</div>
+  </div>
+</div>
+
+<input type="file" id="fileIn" accept="image/*" style="display:none">
+<script>
+  function setDay(d){
+    document.body.className=d;
+    document.getElementById('bMar').classList.toggle('on',d==='mardi');
+    document.getElementById('bJeu').classList.toggle('on',d==='jeudi');
+  }
+  function downloadDeck(){
+    var el=document.querySelector('.header-meta b');
+    var name=(el?el.textContent:'standup').trim().replace(/[^a-z0-9]+/gi,'-').replace(/^-+|-+$/g,'').toLowerCase()||'standup';
+    var html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
+    var blob=new Blob([html],{type:'text/html;charset=utf-8'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='standup-na-'+name+'.html';
+    document.body.appendChild(a);a.click();setTimeout(function(){a.remove();URL.revokeObjectURL(a.href);},0);
+  }
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('.qcm .opt');if(!b)return;
+    var q=b.closest('.qcm');
+    q.querySelectorAll('.opt').forEach(function(o){if(o.dataset.correct==='1')o.classList.add('good');});
+    if(b.dataset.correct!=='1')b.classList.add('bad');
+  });
+  // Complétion auto
+  function num(t){t=(t||'').replace(/[€%\s]/g,'').replace(',','.');var n=parseFloat(t);return isNaN(n)?null:n;}
+  function recalc(row){
+    if(row.dataset.mode==='none')return;
+    var tgtc=row.querySelector('.tgt');var comp=row.querySelector('.comp');if(!comp)return;
+    var tgt=num(tgtc?tgtc.textContent:'');var latest=null;
+    row.querySelectorAll('.wk').forEach(function(c){var v=num(c.textContent);if(v!==null)latest=v;});
+    if(tgt&&latest!==null&&tgt!==0){
+      var p=latest/tgt*100;
+      comp.textContent=p.toFixed(2).replace('.',',')+'%';
+      comp.className='comp '+(p>=100?'c-best':p>=80?'c-good':p>=50?'c-mid':'c-low');
+    }else{comp.textContent='';comp.className='comp';}
+  }
+  function recalcAll(){document.querySelectorAll('table.track tbody tr[data-mode]').forEach(recalc);}
+  document.addEventListener('input',function(e){var tr=e.target.closest('table.track tr[data-mode]');if(tr)recalc(tr);});
+  recalcAll();
+
+  var current=null,fi=document.getElementById('fileIn');
+  function pick(el){current=el;fi.click();}
+  fi.addEventListener('change',function(){
+    if(!fi.files[0]||!current)return;var r=new FileReader();
+    r.onload=function(){current.innerHTML='<img src="'+r.result+'">';};r.readAsDataURL(fi.files[0]);
+  });
+</script>
+</body>
+</html>
