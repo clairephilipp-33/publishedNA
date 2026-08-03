@@ -73,6 +73,8 @@
   table.matrix th,table.matrix td{text-align:center;white-space:nowrap}
   table.matrix td:first-child,table.matrix th:first-child{text-align:left;position:sticky;left:0;background:var(--card-bg)}
   table.matrix td.nacol,table.matrix th.nacol{background:var(--am-bg);font-weight:600;color:var(--dark)}
+  table.matrix td.nacol.na-good{background:#CDEFDE}
+  table.matrix td.nacol.na-bad{background:#FADCD3}
   .chip{display:inline-block;padding:1px 8px;border-radius:10px;font-size:10px;margin:0 1px}
   .chip.best{background:#CDEFDE;color:#1e6b45}.chip.good{background:#E6F6ED;color:#2f855a}
   .chip.mid{background:#FBECE6;color:#a85a3e}.chip.low{background:#FADCD3;color:#b23b1e}
@@ -160,16 +162,16 @@
     <div class="section-title">🍬 Kudos de la semaine <span class="tag tag-auto">Auto · tu valides</span></div>
     <div class="bravo">
       <div class="bravo-badge" contenteditable="true">🌟 MENTION DE LA SEMAINE</div>
-      <div><b contenteditable="true">Naomi</b> — <span contenteditable="true">elle prend enfin des congés pour la première fois depuis son arrivée : on embrasse le leadership « take holidays » 🌴 bravo ! (exemple)</span></div>
+      <div><b contenteditable="true">Naomi</b> — <span contenteditable="true">elle prend enfin des congés pour la première fois depuis son arrivée : on embrasse le leadership « take holidays » 🌴 bravo !</span></div>
     </div>
     <div class="champs">
       <div class="champ">
         <div class="ph" onclick="pick(this)">+ photo</div>
-        <div><div class="nom" contenteditable="true">Mariana</div><div class="role" contenteditable="true">🥇 AM · top optims</div><div class="why" contenteditable="true">49 optims cette semaine — +21% vs sa moyenne 4 sem. (exemple)</div></div>
+        <div><div class="nom" contenteditable="true">Mariana</div><div class="role" contenteditable="true">🥇 AM · top optims</div><div class="why" contenteditable="true">49 optims cette semaine — +21% vs sa moyenne 4 sem.</div></div>
       </div>
       <div class="champ">
         <div class="ph" onclick="pick(this)">+ photo</div>
-        <div><div class="nom" contenteditable="true">Arthur</div><div class="role" contenteditable="true">🏡 SM · top publications</div><div class="why" contenteditable="true">8 publications, pile sur la cible (exemple)</div></div>
+        <div><div class="nom" contenteditable="true">Arthur</div><div class="role" contenteditable="true">🏡 SM · top publications</div><div class="why" contenteditable="true">8 publications, pile sur la cible</div></div>
       </div>
     </div>
   </div>
@@ -187,10 +189,10 @@
         </tr></thead>
         <tbody>
           <tr class="band"><td colspan="8">Mensuel — Août</td></tr>
-          <tr data-mode="ratio"><td>NLP</td><td class="tgt" contenteditable="true">100</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
-          <tr data-mode="ratio"><td>Churn <span style="font-weight:400;color:var(--grey)">(max)</span></td><td class="tgt" contenteditable="true">49</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
-          <tr data-mode="ratio"><td>Republished</td><td class="tgt" contenteditable="true">3</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
-          <tr data-mode="ratio"><td><b>Net increase</b></td><td class="tgt" contenteditable="true">54</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+          <tr data-mode="ratio"><td>NLP</td><td class="tgt" contenteditable="true">100</td><td class="wk" contenteditable="true">0</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+          <tr data-mode="ratio"><td>Churn <span style="font-weight:400;color:var(--grey)">(max)</span></td><td class="tgt" contenteditable="true">49</td><td class="wk" contenteditable="true">0</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+          <tr data-mode="ratio"><td>Republished</td><td class="tgt" contenteditable="true">3</td><td class="wk" contenteditable="true">0</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+          <tr data-mode="ratio"><td><b>Net increase</b></td><td class="tgt" contenteditable="true">54</td><td class="wk" contenteditable="true">0</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
           <tr data-mode="none"><td>TLP</td><td class="tgt" contenteditable="true">2500</td><td class="wk" contenteditable="true">2712</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp grey">108%</td><td class="tc" contenteditable="true">—</td></tr>
           <tr data-mode="ratio"><td>Conversion rate</td><td class="tgt" contenteditable="true">—</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
           <tr data-mode="ratio"><td>Conversion rate Galactica</td><td class="tgt" contenteditable="true">—</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
@@ -208,7 +210,7 @@
         </tbody>
       </table>
       </div>
-      <div class="src"><b>Targets réels</b> (Goals sheet 2026). <b>Réel Athena au 02/08</b> (`apartment_history`, focus area NA, flags événementiels — pas de double-comptage) : TLP live <b>2 712</b> (108% cible) · Q3 NLP <b>125</b> · Republish <b>11</b> · Churn <b>37</b> · <b>Net increase +99</b> (= NLP + Republish − Churn ; 49% de la cible Q3 201). <b>eGMV net réel (Looker, Business Review)</b> : août 112 787 € (7% — mois qui démarre) · Q3 2 054 337 € (45%) · année 9 870 265 € (61%). Conversion / go-live / QS : à tirer de Looker (auto). <b>Complétion %</b> = dernier relevé / target, recalcul auto à l'édition.</div>
+      <div class="src"><b>Targets réels</b> (Goals sheet 2026). <b>Réel Athena au 02/08</b> (`apartment_history`, focus area NA, flags événementiels — pas de double-comptage) : TLP live <b>2 712</b> (108% cible) · Q3 NLP <b>125</b> · Republish <b>11</b> · Churn <b>37</b> · <b>Net increase +99</b> (= NLP + Republish − Churn ; 49% de la cible Q3 201). <b>eGMV net réel (Looker, Business Review)</b> : août 112 787 € (7% — mois qui démarre) · Q3 2 054 337 € (45%) · année 9 870 265 € (61%). QS Score 75,4% (Athena). Go-live août = ∅ (mois qui démarre ; juillet 74,5%, Looker). Conversion rate / Galactica = funnel onboarding — source à brancher (pas dans le BI accessible ici). <b>Complétion %</b> = dernier relevé / target, recalcul auto à l'édition.</div>
     </div>
   </div>
 
@@ -216,27 +218,27 @@
   <div class="section only-mardi">
     <div class="section-title">🗺️ Analyse de portefeuille — 5 areas France <span class="tag tag-auto">Auto · BI/Athena + Pipedrive</span></div>
     <div class="card">
-      <div class="src" style="margin:0 0 8px">Colonne <b>Nouvelle-Aquitaine</b> surlignée. Couleur = rang dans la ligne : <span class="chip best">meilleur</span> <span class="chip low">à surveiller</span>. <b>Réel Athena</b> (flux Q3 au 02/08 + qualité/booking). eGMV / Dyn. pricing / optim : à compléter (Looker / Pipedrive).</div>
+      <div class="src" style="margin:0 0 8px">On se compare aux autres areas — on ne les juge pas : seule <b>notre colonne NA</b> est colorée. <span class="chip best">vert</span> = NA bien placée · <span class="chip low">rouge</span> = NA à la traîne. <b>Tout en réel (BI/Athena)</b> · flux Q3 au 02/08. eGMV = net 12 mois glissants · Dynamic pricing = clause acceptée · optim = propriétés touchées sur 60j.</div>
       <div class="twrap">
       <table class="matrix">
         <thead><tr>
           <th>KPI</th><th>Bretagne + North</th><th>PACA &amp; Corse</th><th>AURA</th><th>Grand Est</th><th class="nacol">Nouvelle-Aquitaine ◆</th>
         </tr></thead>
         <tbody>
-          <tr><td>NLP</td><td class="c-best" contenteditable="true">194</td><td contenteditable="true">183</td><td contenteditable="true">145</td><td class="c-low" contenteditable="true">47</td><td class="nacol" contenteditable="true">125</td></tr>
-          <tr><td>Churn <span style="color:var(--grey)">(bas = mieux)</span></td><td contenteditable="true">52</td><td class="c-low" contenteditable="true">76</td><td contenteditable="true">59</td><td class="c-best" contenteditable="true">6</td><td class="nacol" contenteditable="true">37</td></tr>
-          <tr><td>Republish</td><td contenteditable="true">11</td><td contenteditable="true">9</td><td class="c-best" contenteditable="true">13</td><td class="c-low" contenteditable="true">2</td><td class="nacol" contenteditable="true">11</td></tr>
-          <tr><td>Net increase</td><td class="c-best" contenteditable="true">153</td><td contenteditable="true">116</td><td contenteditable="true">99</td><td class="c-low" contenteditable="true">43</td><td class="nacol" contenteditable="true">99</td></tr>
-          <tr><td>eGMV <span style="color:var(--grey)">(Looker)</span></td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td class="nacol" contenteditable="true">—</td></tr>
-          <tr><td>0% booking <span style="color:var(--grey)">(bas = mieux)</span></td><td class="c-best" contenteditable="true">7,6%</td><td class="c-low" contenteditable="true">13,7%</td><td contenteditable="true">8,0%</td><td contenteditable="true">8,5%</td><td class="nacol" contenteditable="true">8,7%</td></tr>
-          <tr><td>16j ratio</td><td contenteditable="true">48,8%</td><td class="c-low" contenteditable="true">30,4%</td><td contenteditable="true">42,3%</td><td class="c-best" contenteditable="true">55,2%</td><td class="nacol" contenteditable="true">39,6%</td></tr>
-          <tr><td>90j ratio</td><td contenteditable="true">86,6%</td><td class="c-low" contenteditable="true">75,2%</td><td contenteditable="true">85,7%</td><td class="c-best" contenteditable="true">90,1%</td><td class="nacol" contenteditable="true">81,6%</td></tr>
-          <tr><td>Dynamic pricing <span style="color:var(--grey)">(Looker)</span></td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td class="nacol" contenteditable="true">—</td></tr>
-          <tr><td>Optim / area <span style="color:var(--grey)">(Pipedrive)</span></td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td class="nacol" contenteditable="true">—</td></tr>
+          <tr><td>NLP</td><td contenteditable="true">194</td><td contenteditable="true">183</td><td contenteditable="true">145</td><td contenteditable="true">47</td><td class="nacol na-bad" contenteditable="true">125</td></tr>
+          <tr><td>Churn <span style="color:var(--grey)">(bas = mieux)</span></td><td contenteditable="true">52</td><td contenteditable="true">76</td><td contenteditable="true">59</td><td contenteditable="true">6</td><td class="nacol na-good" contenteditable="true">37</td></tr>
+          <tr><td>Republish</td><td contenteditable="true">11</td><td contenteditable="true">9</td><td contenteditable="true">13</td><td contenteditable="true">2</td><td class="nacol na-good" contenteditable="true">11</td></tr>
+          <tr><td>Net increase</td><td contenteditable="true">153</td><td contenteditable="true">116</td><td contenteditable="true">99</td><td contenteditable="true">43</td><td class="nacol" contenteditable="true">99</td></tr>
+          <tr><td>eGMV net 12m</td><td contenteditable="true">14,4 M€</td><td contenteditable="true">12,5 M€</td><td contenteditable="true">15,2 M€</td><td contenteditable="true">2,1 M€</td><td class="nacol na-bad" contenteditable="true">12,3 M€</td></tr>
+          <tr><td>0% booking <span style="color:var(--grey)">(bas = mieux)</span></td><td contenteditable="true">7,6%</td><td contenteditable="true">13,7%</td><td contenteditable="true">8,0%</td><td contenteditable="true">8,5%</td><td class="nacol na-bad" contenteditable="true">8,7%</td></tr>
+          <tr><td>16j ratio</td><td contenteditable="true">48,8%</td><td contenteditable="true">30,4%</td><td contenteditable="true">42,3%</td><td contenteditable="true">55,2%</td><td class="nacol na-bad" contenteditable="true">39,6%</td></tr>
+          <tr><td>90j ratio</td><td contenteditable="true">86,6%</td><td contenteditable="true">75,2%</td><td contenteditable="true">85,7%</td><td contenteditable="true">90,1%</td><td class="nacol na-bad" contenteditable="true">81,6%</td></tr>
+          <tr><td>Dynamic pricing <span style="color:var(--grey)">(BI · clause acceptée)</span></td><td contenteditable="true">3,2%</td><td contenteditable="true">5,9%</td><td contenteditable="true">3,0%</td><td contenteditable="true">4,8%</td><td class="nacol" contenteditable="true">3,5%</td></tr>
+          <tr><td>Optim / area <span style="color:var(--grey)">(props touchés 60j)</span></td><td contenteditable="true">786</td><td contenteditable="true">1072</td><td contenteditable="true">725</td><td contenteditable="true">160</td><td class="nacol na-good" contenteditable="true">1203</td></tr>
         </tbody>
       </table>
       </div>
-      <div class="src" contenteditable="true">Lecture : NA a le <b>meilleur Quality Score des 5 areas (75,4%)</b> et un churn Q3 maîtrisé (2e). Axes : <b>90j ratio 81,6%</b> (le plus bas) et <b>16j ratio 39,6%</b> (4e/5) — la conversion booking early est à travailler.</div>
+      <div class="src" contenteditable="true">Lecture : NA = <b>meilleur Quality Score (75,4%)</b>, churn Q3 maîtrisé (2e) et <b>n°1 sur l'optim</b> (1203 props touchées). Mais <b>4e sur l'eGMV net</b> (12,3 M€) malgré le plus gros parc → l'<b>eGMV/logement</b> est l'enjeu. Booking early à muscler (16j 39,6%, 90j 81,6% = le plus bas). Dynamic pricing à 3,5% : à pousser (feature lancée le 28/07).</div>
     </div>
   </div>
 
@@ -245,11 +247,18 @@
     <div class="section-title">🎯 La devinette <span class="tag tag-auto">Auto · tu valides</span></div>
     <div class="card">
       <div class="qcm">
-        <div class="q" contenteditable="true">Combien de nouveaux logements live en NA cette semaine ? (exemple)</div>
-        <button class="opt" data-correct="0" contenteditable="true">—</button>
-        <button class="opt" data-correct="1" contenteditable="true">— (bonne réponse)</button>
-        <button class="opt" data-correct="0" contenteditable="true">—</button>
-        <button class="opt" data-correct="0" contenteditable="true">—</button>
+        <div class="q" contenteditable="true">1. Combien de logements live en Nouvelle-Aquitaine aujourd'hui ?</div>
+        <button class="opt" data-correct="0" contenteditable="true">2 400</button>
+        <button class="opt" data-correct="1" contenteditable="true">2 712</button>
+        <button class="opt" data-correct="0" contenteditable="true">2 950</button>
+        <button class="opt" data-correct="0" contenteditable="true">3 100</button>
+      </div>
+      <div class="qcm">
+        <div class="q" contenteditable="true">2. NA est n°1 des 5 areas France cette semaine sur quel KPI ?</div>
+        <button class="opt" data-correct="1" contenteditable="true">Quality Score (75,4%)</button>
+        <button class="opt" data-correct="0" contenteditable="true">NLP</button>
+        <button class="opt" data-correct="0" contenteditable="true">16j ratio</button>
+        <button class="opt" data-correct="0" contenteditable="true">eGMV</button>
       </div>
     </div>
   </div>
@@ -257,7 +266,16 @@
   <!-- News of the Week (mardi) -->
   <div class="section only-mardi">
     <div class="section-title">🆕 News of the Week <span class="tag tag-auto">Auto · email Fernando</span></div>
-    <div class="panel panel-info" contenteditable="true">Résumé FR des points clés de la « News of the Week » de Fernando (email du vendredi précédent). Rempli auto, avec le lien. Actions requises signalées ⚠️.</div>
+    <div class="panel panel-info" contenteditable="true">
+      <div style="font-weight:700;margin-bottom:6px">News of the Week · 27–31 juil. 2026 <span style="font-weight:400;color:var(--grey)">(Fernando — <a href="https://holidu.atlassian.net/wiki/spaces/BSAM2/pages/7613383243/" target="_blank">source Confluence</a>)</span></div>
+      <div style="margin:5px 0">💸 <b>Dynamic Pricing en live depuis le 28/07</b> pour tous les hosts existants — <b>⚠️ ACTION : driver l'adoption</b>, (re)lire la <a href="https://holidu.atlassian.net/wiki/spaces/B2/pages/7087227193" target="_blank">PR FAQ</a> + le <a href="https://holidu.atlassian.net/wiki/spaces/PMKT/pages/7592050912" target="_blank">pitch deck</a>.</div>
+      <div style="margin:5px 0">🤖 <b>IA au quotidien</b> : ce qui est permis / interdit et à qui demander — <a href="https://holidu.atlassian.net/wiki/spaces/AG/pages/5961090759" target="_blank">guidelines légales IA</a>.</div>
+      <div style="margin:5px 0">🧾 <b>Split Price invoices</b> : les factures affichent désormais le détail complet de la commission (frais Holidu + commission canal, taux + montant €).</div>
+      <div style="margin:5px 0">✅ <b>Validation TVA en live</b> (e-agreement + Account Details) : feedback temps réel, la TVA invalide est bloquée à la source.</div>
+      <div style="margin:5px 0">📥 <b>Host Experience</b> : 2 releases — priorisation de l'inbox + activité email visible dans le Backoffice.</div>
+      <div style="margin:5px 0">📊 <b>Bonus Q3 run rates mis à jour</b> (SM / AM / Area Lead) — <a href="https://holidu.atlassian.net/wiki/spaces/SSO/pages/7347011646" target="_blank">calculateurs de pace</a>.</div>
+      <div style="margin:5px 0">🔧 <b>Fix Chekin.io</b> (cas de migration) : accès rétablis — <b>⚠️ vérifier la liste</b> des propriétés affectées et relancer les hosts.</div>
+    </div>
   </div>
 
   <!-- Zone équipe (jeudi) -->
@@ -275,8 +293,11 @@
   <!-- Sujets libres -->
   <div class="section">
     <div class="section-title">📝 Sujets libres <span class="tag tag-man">Manuel</span></div>
-    <div class="card">
-      <div class="editbox" contenteditable="true" data-ph="Cliquer pour ajouter un sujet…"></div>
+    <div class="kpi-grid" style="grid-template-columns:1fr 1fr">
+      <div class="card"><div class="card-title">Sujet 1</div><div class="editbox" contenteditable="true" data-ph="Cliquer pour écrire…"></div></div>
+      <div class="card"><div class="card-title">Sujet 2</div><div class="editbox" contenteditable="true" data-ph="Cliquer pour écrire…"></div></div>
+      <div class="card"><div class="card-title">Sujet 3</div><div class="editbox" contenteditable="true" data-ph="Cliquer pour écrire…"></div></div>
+      <div class="card"><div class="card-title">Sujet 4</div><div class="editbox" contenteditable="true" data-ph="Cliquer pour écrire…"></div></div>
     </div>
   </div>
 
