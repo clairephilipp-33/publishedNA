@@ -239,14 +239,15 @@
           <tr><td>Churn <span style="color:var(--grey)">(bas = mieux)</span></td><td contenteditable="true">52</td><td contenteditable="true">76</td><td contenteditable="true">59</td><td contenteditable="true">6</td><td class="nacol na-good" contenteditable="true">37</td></tr>
           <tr><td>Republish</td><td contenteditable="true">11</td><td contenteditable="true">9</td><td contenteditable="true">13</td><td contenteditable="true">2</td><td class="nacol na-good" contenteditable="true">11</td></tr>
           <tr><td>Net increase</td><td contenteditable="true">153</td><td contenteditable="true">116</td><td contenteditable="true">99</td><td contenteditable="true">43</td><td class="nacol na-mid" contenteditable="true">99</td></tr>
-          <tr><td>eGMV net 12m</td><td contenteditable="true">14,4 M€</td><td contenteditable="true">12,5 M€</td><td contenteditable="true">15,2 M€</td><td contenteditable="true">2,1 M€</td><td class="nacol na-mid" contenteditable="true">12,3 M€</td></tr>
+          <tr><td>eGMV this year</td><td contenteditable="true">11,7 M€</td><td contenteditable="true">9,9 M€</td><td contenteditable="true">10,1 M€</td><td contenteditable="true">1,6 M€</td><td class="nacol na-mid" contenteditable="true">9,7 M€</td></tr>
+          <tr><td>eGMV / TLP</td><td contenteditable="true">4 171 €</td><td contenteditable="true">3 716 €</td><td contenteditable="true">3 960 €</td><td contenteditable="true">3 466 €</td><td class="nacol na-bad" contenteditable="true">3 576 €</td></tr>
           <tr><td>0% booking <span style="color:var(--grey)">(bas = mieux)</span></td><td contenteditable="true">7,6%</td><td contenteditable="true">13,7%</td><td contenteditable="true">8,0%</td><td contenteditable="true">8,5%</td><td class="nacol na-mid" contenteditable="true">8,7%</td></tr>
           <tr><td>16j ratio</td><td contenteditable="true">48,8%</td><td contenteditable="true">30,4%</td><td contenteditable="true">42,3%</td><td contenteditable="true">55,2%</td><td class="nacol na-bad" contenteditable="true">39,6%</td></tr>
           <tr><td>90j ratio</td><td contenteditable="true">86,6%</td><td contenteditable="true">75,2%</td><td contenteditable="true">85,7%</td><td contenteditable="true">90,1%</td><td class="nacol na-bad" contenteditable="true">81,6%</td></tr>
           <tr><td>Dynamic pricing <span style="color:var(--grey)">(BI · wizard complété)</span></td><td contenteditable="true">9,3%</td><td contenteditable="true">15,8%</td><td contenteditable="true">10,4%</td><td contenteditable="true">21,0%</td><td class="nacol na-bad" contenteditable="true">9,6%</td></tr>        </tbody>
       </table>
       </div>
-      <div class="src" contenteditable="true">Lecture : NA = <b>meilleur Quality Score (75,4%)</b> et churn Q3 maîtrisé (2e). Mais <b>4e sur l'eGMV net</b> (12,3 M€) malgré le plus gros parc → l'<b>eGMV/logement</b> est l'enjeu. Booking early à muscler (16j 39,6%, 90j 81,6% = le plus bas). Dynamic pricing (wizard) à 9,6%, 4e/5 : à pousser (feature lancée le 28/07).</div>
+      <div class="src" contenteditable="true">Lecture : NA = <b>meilleur Quality Score (75,4%)</b> et churn Q3 maîtrisé (2e). Mais <b>4e sur l'eGMV/logement</b> (3 576 €, devant seulement Grand Est) malgré le plus gros parc → c'est l'<b>enjeu n°1</b>. Booking early à muscler (16j 39,6%, 90j 81,6% = le plus bas). Dynamic pricing (wizard) à 9,6%, 4e/5 : à pousser (feature lancée le 28/07).</div>
     </div>
   </div>
 
@@ -394,14 +395,16 @@
 
   // Avatars-personnages sauvegardés par AM/SM (stables par prénom)
   var AV_BASE='https://api.dicebear.com/9.x/adventurer/svg?seed=';
-  var AV_BG={Laetitia:'b6e3f4',Mariana:'c0aede','Rémi':'d1d4f9',Jade:'74cfa9',Naomi:'ffd5dc',Jonathan:'ffdfbf',Gauthier:'b6e3f4',Arthur:'ffd5dc','Loïc':'c0aede',Eva:'d1d4f9',Magalie:'74cfa9'};
-  function avatarUrl(nom){nom=(nom||'').trim();var bg=AV_BG[nom]||'e8f4f7';return AV_BASE+encodeURIComponent(nom||'NA')+'&backgroundColor='+bg;}
+  var AV_BG={Laetitia:'b6e3f4',Mariana:'c0aede','Rémi':'d1d4f9',Amandine:'ffdfbf',Jade:'74cfa9',Naomi:'ffd5dc',Jonathan:'ffdfbf',Gauthier:'b6e3f4',Arthur:'ffd5dc','Loïc':'c0aede',Eva:'d1d4f9',Magalie:'74cfa9'};
+  // Couleur de peau (DiceBear adventurer) : clair par défaut ; Mariana bronzé ; Magalie & Loïc foncé
+  var AV_SKIN={Mariana:'edb98a','Loïc':'763900',Magalie:'763900'};
+  function avatarUrl(nom){nom=(nom||'').trim();var bg=AV_BG[nom]||'e8f4f7';var sk=AV_SKIN[nom]||'f2d3b1';return AV_BASE+encodeURIComponent(nom||'NA')+'&backgroundColor='+bg+'&skinColor='+sk;}
   function applyAvatars(){document.querySelectorAll('.champ').forEach(function(c){var n=c.querySelector('.nom'),img=c.querySelector('img.ph');if(n&&img)img.src=avatarUrl(n.textContent);});}
   applyAvatars();
   document.addEventListener('input',function(e){if(e.target.classList&&e.target.classList.contains('nom'))applyAvatars();});
 
   // Tour de table — roster NA (avatars + ligne de partage)
-  var TEAM=[{n:'Laetitia',r:'AM'},{n:'Mariana',r:'AM'},{n:'Rémi',r:'AM'},{n:'Jade',r:'SM'},{n:'Naomi',r:'SM'},{n:'Jonathan',r:'SM'},{n:'Gauthier',r:'SM'},{n:'Arthur',r:'SM'},{n:'Loïc',r:'SM'}];
+  var TEAM=[{n:'Laetitia',r:'AM'},{n:'Mariana',r:'AM'},{n:'Rémi',r:'AM'},{n:'Amandine',r:'AM'},{n:'Jade',r:'SM'},{n:'Naomi',r:'SM'},{n:'Jonathan',r:'SM'},{n:'Gauthier',r:'SM'},{n:'Arthur',r:'SM'},{n:'Loïc',r:'SM'},{n:'Eva',r:'Intern'},{n:'Magalie',r:'Intern'}];
   (function(){var el=document.getElementById('ttable');if(!el)return;var h='';TEAM.forEach(function(m){h+='<div class="tt-card"><img src="'+avatarUrl(m.n)+'" alt="'+m.n+'"><div><div class="tt-name">'+m.n+'</div><div class="tt-role">'+m.r+'</div><div class="tt-note" contenteditable="true"></div></div></div>';});el.innerHTML=h;})();
 
   var current=null,fi=document.getElementById('fileIn');
