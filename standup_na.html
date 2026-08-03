@@ -362,7 +362,7 @@
       <div contenteditable="true">Rejoignez : <b>slido.com · #1277 921</b><br>• <b>Q1 (partage d'expertise « one team »)</b> : dans le 360 feedback, on demande à beaucoup de partager leur expertise — allons plus loin : <b>qui est expert de quoi ?</b> Associons une expertise à chacun.<br>• <b>Q2 (le PARI)</b> : 33 net properties à signer — <b>quand est-ce qu'on l'atteint ?</b></div>
     </div>
 
-    <div class="card"><div class="card-title">➕ Autres sujets</div><div class="editbox usersave" contenteditable="true" data-ph="Cliquer pour ajouter un sujet libre…"></div></div>
+    <div class="card" id="autresSujets"><div class="card-title">➕ Autres sujets</div><div class="editbox usersave" id="usersaveBox" contenteditable="true" data-ph="Écris un sujet puis clique Enregistrer…"></div><button class="btn btn-p" style="margin-top:8px;font-size:11px;padding:6px 12px" onclick="saveSujet()">💾 Enregistrer le sujet</button></div>
   </div>
 
   <div class="foot">© Holidu GmbH | Confidential</div>
@@ -460,6 +460,22 @@
       if(i>=0){try{localStorage.setItem('sna_'+WK+'_'+i,el.innerHTML);}catch(err){}}
     });
   })();
+
+  // Autres sujets : enregistrer -> carte verrouillée ajoutee au-dessus
+  function saveSujet(){
+    var box=document.getElementById('usersaveBox');
+    if(!box) return;
+    var plain=(box.textContent||'').trim();
+    if(!plain){ box.focus(); return; }
+    var html=box.innerHTML.trim();
+    var card=document.createElement('div');
+    card.className='card';
+    card.innerHTML='<div class="card-title">\uD83D\uDCCC Sujet ajout\u00e9</div><div>'+html+'</div>';
+    var anchor=document.getElementById('autresSujets');
+    anchor.parentNode.insertBefore(card, anchor);
+    box.innerHTML='';
+    box.focus();
+  }
 </script>
 </body>
 </html>
