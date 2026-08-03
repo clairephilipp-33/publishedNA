@@ -112,6 +112,9 @@
   .week-nav .wk-item{display:block;color:#cfe6ea;text-decoration:none;font-size:12px;padding:7px 9px;border-radius:6px;margin-bottom:2px}
   .week-nav .wk-item:hover{background:#0a4553}
   .week-nav .wk-item.on{background:var(--primary);color:#fff;font-weight:700}
+  .week-nav .wk-item.future{color:#6f97a0;opacity:.6;cursor:default}
+  .week-nav .wk-item.future:hover{background:transparent}
+  .week-nav .wn-note{font-size:10px;color:#7fb9c4;padding:12px 9px 4px;line-height:1.45}
   .wrap{flex:1;min-width:0;max-width:none}
   @media print{.toolbar,.week-nav{display:none}.wrap{max-width:none}.twrap{overflow:visible}table.matrix{min-width:0}}
 </style>
@@ -119,17 +122,16 @@
 <body class="mardi">
 <div class="app">
   <aside class="week-nav">
-    <div class="wn-title">Q3 2026</div>
-    <a class="wk-item" href="#">Sem. 30 · 21 juil.</a>
-    <a class="wk-item" href="#">Sem. 31 · 28 juil.</a>
-    <a class="wk-item on" href="#">Sem. 32 · 4 août</a>
-    <a class="wk-item" href="#">Sem. 33 · 11 août</a>
-    <a class="wk-item" href="#">Sem. 34 · 18 août</a>
-    <a class="wk-item" href="#">Sem. 35 · 25 août</a>
-    <a class="wk-item" href="#">Sem. 36 · 1 sept.</a>
-    <a class="wk-item" href="#">Sem. 37 · 8 sept.</a>
-    <a class="wk-item" href="#">Sem. 38 · 15 sept.</a>
-    <a class="wk-item" href="#">Sem. 39 · 22 sept.</a>
+    <div class="wn-title">Stand-ups Q3 2026</div>
+    <a class="wk-item on" href="standup_na.html">Sem. 32 · 4 août</a>
+    <span class="wk-item future">Sem. 33 · 11 août</span>
+    <span class="wk-item future">Sem. 34 · 18 août</span>
+    <span class="wk-item future">Sem. 35 · 25 août</span>
+    <span class="wk-item future">Sem. 36 · 1 sept.</span>
+    <span class="wk-item future">Sem. 37 · 8 sept.</span>
+    <span class="wk-item future">Sem. 38 · 15 sept.</span>
+    <span class="wk-item future">Sem. 39 · 22 sept.</span>
+    <div class="wn-note">Chaque semaine est figée dans sa propre page. Les semaines passées ne bougent plus ; l'automatisation ajoute la nouvelle semaine en haut chaque mardi.</div>
   </aside>
   <div class="wrap">
 
@@ -194,7 +196,7 @@
           <tr data-mode="ratio"><td>Conversion rate Galactica</td><td class="tgt" contenteditable="true">—</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
           <tr data-mode="ratio"><td>Go-live score</td><td class="tgt" contenteditable="true">—</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
           <tr data-mode="ratio"><td><b>Egmv</b> <span style="font-weight:400;color:var(--grey)">(net)</span></td><td class="tgt" contenteditable="true">1 549 360 €</td><td class="wk" contenteditable="true">112 787 €</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
-          <tr data-mode="none"><td>QS Score</td><td class="tgt" contenteditable="true">—</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp grey">—</td><td class="tc" contenteditable="true">—</td></tr>
+          <tr data-mode="none"><td>QS Score</td><td class="tgt" contenteditable="true">78%</td><td class="wk" contenteditable="true">75,4%</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp grey">—</td><td class="tc" contenteditable="true">—</td></tr>
 
           <tr class="band"><td colspan="8">Trimestriel — Q3</td></tr>
           <tr data-mode="ratio"><td><b>Net increase</b></td><td class="tgt" contenteditable="true">201</td><td class="wk" contenteditable="true">99</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
@@ -214,7 +216,7 @@
   <div class="section only-mardi">
     <div class="section-title">🗺️ Analyse de portefeuille — 5 areas France <span class="tag tag-auto">Auto · BI/Athena + Pipedrive</span></div>
     <div class="card">
-      <div class="src" style="margin:0 0 8px">Colonne <b>Nouvelle-Aquitaine</b> surlignée. Couleur = rang dans la ligne : <span class="chip best">meilleur</span> <span class="chip low">à surveiller</span>. <b>Flux Q3-to-date réels</b> (Athena, au 02/08). eGMV / 0% booking / 16j / 90j / Dyn. pricing / optim : à compléter via Looker (auto).</div>
+      <div class="src" style="margin:0 0 8px">Colonne <b>Nouvelle-Aquitaine</b> surlignée. Couleur = rang dans la ligne : <span class="chip best">meilleur</span> <span class="chip low">à surveiller</span>. <b>Réel Athena</b> (flux Q3 au 02/08 + qualité/booking). eGMV / Dyn. pricing / optim : à compléter (Looker / Pipedrive).</div>
       <div class="twrap">
       <table class="matrix">
         <thead><tr>
@@ -225,16 +227,16 @@
           <tr><td>Churn <span style="color:var(--grey)">(bas = mieux)</span></td><td contenteditable="true">52</td><td class="c-low" contenteditable="true">76</td><td contenteditable="true">59</td><td class="c-best" contenteditable="true">6</td><td class="nacol" contenteditable="true">37</td></tr>
           <tr><td>Republish</td><td contenteditable="true">11</td><td contenteditable="true">9</td><td class="c-best" contenteditable="true">13</td><td class="c-low" contenteditable="true">2</td><td class="nacol" contenteditable="true">11</td></tr>
           <tr><td>Net increase</td><td class="c-best" contenteditable="true">153</td><td contenteditable="true">116</td><td contenteditable="true">99</td><td class="c-low" contenteditable="true">43</td><td class="nacol" contenteditable="true">99</td></tr>
-          <tr><td>eGMV</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td class="nacol" contenteditable="true">—</td></tr>
-          <tr><td>0% booking</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td class="nacol" contenteditable="true">—</td></tr>
-          <tr><td>16j ratio</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td class="nacol" contenteditable="true">—</td></tr>
-          <tr><td>90j ratio</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td class="nacol" contenteditable="true">—</td></tr>
-          <tr><td>Dynamic pricing</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td class="nacol" contenteditable="true">—</td></tr>
-          <tr><td>Optim / area</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td class="nacol" contenteditable="true">—</td></tr>
+          <tr><td>eGMV <span style="color:var(--grey)">(Looker)</span></td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td class="nacol" contenteditable="true">—</td></tr>
+          <tr><td>0% booking <span style="color:var(--grey)">(bas = mieux)</span></td><td class="c-best" contenteditable="true">7,6%</td><td class="c-low" contenteditable="true">13,7%</td><td contenteditable="true">8,0%</td><td contenteditable="true">8,5%</td><td class="nacol" contenteditable="true">8,7%</td></tr>
+          <tr><td>16j ratio</td><td contenteditable="true">48,8%</td><td class="c-low" contenteditable="true">30,4%</td><td contenteditable="true">42,3%</td><td class="c-best" contenteditable="true">55,2%</td><td class="nacol" contenteditable="true">39,6%</td></tr>
+          <tr><td>90j ratio</td><td contenteditable="true">86,6%</td><td class="c-low" contenteditable="true">75,2%</td><td contenteditable="true">85,7%</td><td class="c-best" contenteditable="true">90,1%</td><td class="nacol" contenteditable="true">81,6%</td></tr>
+          <tr><td>Dynamic pricing <span style="color:var(--grey)">(Looker)</span></td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td class="nacol" contenteditable="true">—</td></tr>
+          <tr><td>Optim / area <span style="color:var(--grey)">(Pipedrive)</span></td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td contenteditable="true">—</td><td class="nacol" contenteditable="true">—</td></tr>
         </tbody>
       </table>
       </div>
-      <div class="src" contenteditable="true">Lecture (auto) : rang de NA sur chaque métrique + 1 phrase force / axe de progression.</div>
+      <div class="src" contenteditable="true">Lecture : NA a le <b>meilleur Quality Score des 5 areas (75,4%)</b> et un churn Q3 maîtrisé (2e). Axes : <b>90j ratio 81,6%</b> (le plus bas) et <b>16j ratio 39,6%</b> (4e/5) — la conversion booking early est à travailler.</div>
     </div>
   </div>
 
