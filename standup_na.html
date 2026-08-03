@@ -63,6 +63,7 @@
   .champ{display:flex;gap:12px;align-items:center;background:var(--card-bg);border-radius:8px;padding:12px;box-shadow:rgba(0,0,0,.07) 0 1px 3px}
   .champ .ph{width:64px;height:64px;flex:none;border-radius:50%;background:var(--am-bg);border:3px solid var(--primary);display:flex;align-items:center;justify-content:center;color:var(--grey);font-size:9px;text-align:center;overflow:hidden;cursor:pointer}
   .champ .ph img{width:100%;height:100%;object-fit:cover}
+  .champ img.ph{object-fit:cover;background:#fff}
   .champ .nom{font-weight:700;color:var(--dark)}
   .champ .role{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;color:#fff;background:var(--primary);border-radius:10px;padding:1px 9px;margin:3px 0}
   .champ .why{font-size:11px;color:var(--grey)}
@@ -152,25 +153,25 @@
 
   <!-- Intro -->
   <div class="section">
-    <div class="card"><div class="card-title">Le mot de la semaine <span class="tag tag-auto">Auto · citation / astro (rotation)</span></div>
-      <div contenteditable="true">💬 <b>« Nous sommes ce que nous faisons de façon répétée. L'excellence n'est donc pas un acte, mais une habitude. »</b> — Aristote<br><span style="color:var(--grey)">Le clin d'œil de la semaine : on soigne chaque optim, pas seulement le volume. 💪 (La semaine prochaine : l'astro de la semaine 🔮)</span></div>
+    <div class="card"><div class="card-title">🔮 L'astro de la semaine <span class="tag tag-auto">Auto · à rafraîchir chaque semaine</span></div>
+      <div contenteditable="true"><b>Saison du Lion ☀️</b> (Soleil en Lion jusqu'au 22/08) : énergie, visibilité et confiance au max. <span style="color:var(--grey)">Traduction NA : on assume nos ambitions Q3 et on ose les optims audacieuses. 🦁 Cette semaine, pas de timidité sur les prix.</span></div>
     </div>
   </div>
 
   <!-- KUDOS (mardi) -->
   <div class="section only-mardi">
-    <div class="section-title">🍬 Kudos de la semaine <span class="tag tag-auto">Auto · tu valides</span></div>
+    <div class="section-title">🍬 Kudos de la semaine écoulée (S-1) <span class="tag tag-auto">Auto · tu valides</span></div>
     <div class="bravo">
       <div class="bravo-badge" contenteditable="true">🌟 MENTION DE LA SEMAINE</div>
       <div><b contenteditable="true">Naomi</b> — <span contenteditable="true">elle prend 3 semaines de congés, du jamais vu depuis 2022 ! On embrasse le leadership « take holidays » 🌴 bravo !</span></div>
     </div>
     <div class="champs">
       <div class="champ">
-        <div class="ph" onclick="pick(this)">+ photo</div>
+        <img class="ph" src="https://api.dicebear.com/9.x/adventurer/svg?seed=Mariana&backgroundColor=b6e3f4" alt="Mariana">
         <div><div class="nom" contenteditable="true">Mariana</div><div class="role" contenteditable="true">🥇 AM · top optims</div><div class="why" contenteditable="true">49 optims cette semaine — +21% vs sa moyenne 4 sem.</div></div>
       </div>
       <div class="champ">
-        <div class="ph" onclick="pick(this)">+ photo</div>
+        <img class="ph" src="https://api.dicebear.com/9.x/adventurer/svg?seed=Arthur&backgroundColor=ffd5dc" alt="Arthur">
         <div><div class="nom" contenteditable="true">Arthur</div><div class="role" contenteditable="true">🏡 SM · top publications</div><div class="why" contenteditable="true">8 publications, pile sur la cible</div></div>
       </div>
     </div>
@@ -194,9 +195,9 @@
           <tr data-mode="ratio"><td>Republished</td><td class="tgt" contenteditable="true">3</td><td class="wk" contenteditable="true">0</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
           <tr data-mode="ratio"><td><b>Net increase</b></td><td class="tgt" contenteditable="true">54</td><td class="wk" contenteditable="true">0</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
           <tr data-mode="none"><td>TLP</td><td class="tgt" contenteditable="true">2500</td><td class="wk" contenteditable="true">2712</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp grey">108%</td><td class="tc" contenteditable="true">—</td></tr>
-          <tr data-mode="ratio"><td>Conversion rate</td><td class="tgt" contenteditable="true">—</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
-          <tr data-mode="ratio"><td>Conversion rate Galactica</td><td class="tgt" contenteditable="true">—</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
-          <tr data-mode="ratio"><td>Go-live score</td><td class="tgt" contenteditable="true">—</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+          <tr data-mode="ratio"><td>Conversion rate <span style="font-weight:400;color:var(--grey)">(Looker)</span></td><td class="tgt" contenteditable="true">37%</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+          <tr data-mode="ratio"><td>Conversion rate Gyoza</td><td class="tgt" contenteditable="true">40%</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+          <tr data-mode="ratio"><td>Go-live score</td><td class="tgt" contenteditable="true">78%</td><td class="wk" contenteditable="true">74,5%</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
           <tr data-mode="ratio"><td><b>Egmv</b> <span style="font-weight:400;color:var(--grey)">(net)</span></td><td class="tgt" contenteditable="true">1 549 360 €</td><td class="wk" contenteditable="true">112 787 €</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
           <tr data-mode="none"><td>QS Score</td><td class="tgt" contenteditable="true">78%</td><td class="wk" contenteditable="true">75,4%</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp grey">—</td><td class="tc" contenteditable="true">—</td></tr>
 
@@ -233,12 +234,10 @@
           <tr><td>0% booking <span style="color:var(--grey)">(bas = mieux)</span></td><td contenteditable="true">7,6%</td><td contenteditable="true">13,7%</td><td contenteditable="true">8,0%</td><td contenteditable="true">8,5%</td><td class="nacol na-bad" contenteditable="true">8,7%</td></tr>
           <tr><td>16j ratio</td><td contenteditable="true">48,8%</td><td contenteditable="true">30,4%</td><td contenteditable="true">42,3%</td><td contenteditable="true">55,2%</td><td class="nacol na-bad" contenteditable="true">39,6%</td></tr>
           <tr><td>90j ratio</td><td contenteditable="true">86,6%</td><td contenteditable="true">75,2%</td><td contenteditable="true">85,7%</td><td contenteditable="true">90,1%</td><td class="nacol na-bad" contenteditable="true">81,6%</td></tr>
-          <tr><td>Dynamic pricing <span style="color:var(--grey)">(BI · clause acceptée)</span></td><td contenteditable="true">3,2%</td><td contenteditable="true">5,9%</td><td contenteditable="true">3,0%</td><td contenteditable="true">4,8%</td><td class="nacol" contenteditable="true">3,5%</td></tr>
-          <tr><td>Optim / area <span style="color:var(--grey)">(props touchés 60j)</span></td><td contenteditable="true">786</td><td contenteditable="true">1072</td><td contenteditable="true">725</td><td contenteditable="true">160</td><td class="nacol na-good" contenteditable="true">1203</td></tr>
-        </tbody>
+          <tr><td>Dynamic pricing <span style="color:var(--grey)">(BI · clause acceptée)</span></td><td contenteditable="true">3,2%</td><td contenteditable="true">5,9%</td><td contenteditable="true">3,0%</td><td contenteditable="true">4,8%</td><td class="nacol" contenteditable="true">3,5%</td></tr>        </tbody>
       </table>
       </div>
-      <div class="src" contenteditable="true">Lecture : NA = <b>meilleur Quality Score (75,4%)</b>, churn Q3 maîtrisé (2e) et <b>n°1 sur l'optim</b> (1203 props touchées). Mais <b>4e sur l'eGMV net</b> (12,3 M€) malgré le plus gros parc → l'<b>eGMV/logement</b> est l'enjeu. Booking early à muscler (16j 39,6%, 90j 81,6% = le plus bas). Dynamic pricing à 3,5% : à pousser (feature lancée le 28/07).</div>
+      <div class="src" contenteditable="true">Lecture : NA = <b>meilleur Quality Score (75,4%)</b> et churn Q3 maîtrisé (2e). Mais <b>4e sur l'eGMV net</b> (12,3 M€) malgré le plus gros parc → l'<b>eGMV/logement</b> est l'enjeu. Booking early à muscler (16j 39,6%, 90j 81,6% = le plus bas). Dynamic pricing à 3,5% : à pousser (feature lancée le 28/07).</div>
     </div>
   </div>
 
@@ -342,6 +341,22 @@
   function recalcAll(){document.querySelectorAll('table.track tbody tr[data-mode]').forEach(recalc);}
   document.addEventListener('input',function(e){var tr=e.target.closest('table.track tr[data-mode]');if(tr)recalc(tr);});
   recalcAll();
+
+  // Time completion — avancement de la période (eGMV = jours calendaires ; autres = jours ouvrés)
+  var SNAP = new Date(2026,7,3); // 3 août 2026
+  function workdays(a,b){var n=0,d=new Date(a.getTime());while(d<=b){var w=d.getDay();if(w>=1&&w<=5)n++;d.setDate(d.getDate()+1);}return n;}
+  function pbounds(p){var y=SNAP.getFullYear();if(p==='month')return[new Date(y,SNAP.getMonth(),1),new Date(y,SNAP.getMonth()+1,0)];if(p==='quarter'){var q=Math.floor(SNAP.getMonth()/3);return[new Date(y,q*3,1),new Date(y,q*3+3,0)];}return[new Date(y,0,1),new Date(y,11,31)];}
+  function timePct(p,egmv){var b=pbounds(p),s=b[0],e=b[1];if(egmv){var tot=(e-s)/86400000+1,el=(SNAP-s)/86400000+1;return el/tot*100;}var t2=workdays(s,e),e2=workdays(s,SNAP);return e2/t2*100;}
+  function fillTime(){
+    var period='month';
+    document.querySelectorAll('table.track tbody tr').forEach(function(tr){
+      if(tr.classList.contains('band')){var t=tr.textContent.toLowerCase();period=t.indexOf('trimest')>=0?'quarter':(t.indexOf('annuel')>=0?'year':'month');return;}
+      var tc=tr.querySelector('.tc'); if(!tc||tr.dataset.mode==='none') return;
+      var lbl=tr.querySelector('td')?tr.querySelector('td').textContent:'';
+      tc.textContent=Math.round(timePct(period,/egmv/i.test(lbl)))+'%';
+    });
+  }
+  fillTime();
 
   var current=null,fi=document.getElementById('fileIn');
   function pick(el){current=el;fi.click();}
