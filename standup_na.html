@@ -292,26 +292,33 @@
   <!-- JEUDI : KPI du jour + Thématique -->
   <div class="section only-jeudi">
     <div class="section-title">📊 KPI du jour</div>
-    <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr)">
-      <div class="kpi"><div class="lab">NLP</div><div class="val" contenteditable="true">125</div><div class="sub" contenteditable="true">Q3 · cible 357</div></div>
-      <div class="kpi"><div class="lab">Churn</div><div class="val" contenteditable="true">37</div><div class="sub" contenteditable="true">Q3 · max 171</div></div>
-      <div class="kpi"><div class="lab">Republish</div><div class="val" contenteditable="true">11</div><div class="sub" contenteditable="true">Q3 · cible 15</div></div>
-      <div class="kpi"><div class="lab">eGMV net</div><div class="val" contenteditable="true">2,05 M€</div><div class="sub" contenteditable="true">Q3 · 45%</div></div>
+    <div class="card">
+      <div class="twrap">
+      <table class="track">
+        <thead><tr><th>KPI</th><th>Target</th><th contenteditable="true">au 03/08</th><th contenteditable="true">11/08</th><th contenteditable="true">18/08</th><th contenteditable="true">25/08</th><th>Complétion %</th><th>Time&nbsp;compl.&nbsp;%</th></tr></thead>
+        <tbody>
+          <tr data-mode="ratio"><td>NLP</td><td class="tgt" contenteditable="true">100</td><td class="wk" contenteditable="true">0</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+          <tr data-mode="ratio"><td>Churn <span style="font-weight:400;color:var(--grey)">(max)</span></td><td class="tgt" contenteditable="true">49</td><td class="wk" contenteditable="true">0</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+          <tr data-mode="ratio"><td>Republished</td><td class="tgt" contenteditable="true">3</td><td class="wk" contenteditable="true">0</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+          <tr data-mode="ratio"><td><b>Egmv</b> <span style="font-weight:400;color:var(--grey)">(net)</span></td><td class="tgt" contenteditable="true">1 549 360 €</td><td class="wk" contenteditable="true">112 787 €</td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="wk" contenteditable="true"></td><td class="comp"></td><td class="tc" contenteditable="true"></td></tr>
+        </tbody>
+      </table>
+      </div>
     </div>
   </div>
   <div class="section only-jeudi">
     <div class="section-title">📈 Tendance de la semaine</div>
     <div class="card">
-      <div style="font-size:12.5px;margin-bottom:8px">🧭 <b>Focus demande des voyageurs</b> — d'après les résas des 2 dernières semaines. <b>Pic d'arrivées fin juil.–début août</b> ; séjours ~3-4 nuits, les <b>Landes</b> tirent la durée (4,4). <span style="color:var(--grey)">Source : BI/Athena (revenue), par focus region NA.</span></div>
+      <div style="font-size:12.5px;margin-bottom:8px">🧭 <b>Focus demande des voyageurs (à venir)</b> — résas récentes (2 dern. sem.) pour des séjours <b>à venir</b> (check-in futurs). <b>Pic d'arrivées 03/08–10/08</b> ; séjours 3,6-3,9 nuits, les <b>Landes</b> plus longs (5,0) et plus tardifs. <span style="color:var(--grey)">Source : BI/Athena (revenue), par focus region NA.</span></div>
       <div class="twrap">
       <table class="track" style="min-width:520px">
-        <thead><tr><th>Département</th><th>Semaines d'arrivée les + demandées</th><th>Durée moy. séjour</th></tr></thead>
+        <thead><tr><th>Département</th><th>Semaines d'arrivée à venir les + demandées</th><th>Durée moy. séjour</th></tr></thead>
         <tbody>
-          <tr><td>Dordogne</td><td contenteditable="true">sem. 27/07 &amp; 03/08</td><td contenteditable="true">3,3 nuits</td></tr>
-          <tr><td>Charente-Maritime</td><td contenteditable="true">sem. 27/07 &amp; 03/08</td><td contenteditable="true">3,6 nuits</td></tr>
-          <tr><td>Gironde</td><td contenteditable="true">sem. 27/07 &amp; 20/07</td><td contenteditable="true">3,4 nuits</td></tr>
-          <tr><td>Pyrénées-Atlantiques</td><td contenteditable="true">sem. 03/08 &amp; 27/07</td><td contenteditable="true">3,4 nuits</td></tr>
-          <tr><td>Landes</td><td contenteditable="true">sem. 27/07 &amp; 17/08</td><td contenteditable="true">4,4 nuits</td></tr>
+          <tr><td>Dordogne</td><td contenteditable="true">sem. 03/08 &amp; 10/08</td><td contenteditable="true">3,6 nuits</td></tr>
+          <tr><td>Charente-Maritime</td><td contenteditable="true">sem. 03/08 &amp; 10/08</td><td contenteditable="true">3,8 nuits</td></tr>
+          <tr><td>Gironde</td><td contenteditable="true">sem. 03/08 &amp; 10/08</td><td contenteditable="true">3,9 nuits</td></tr>
+          <tr><td>Pyrénées-Atlantiques</td><td contenteditable="true">sem. 03/08 &amp; 10/08</td><td contenteditable="true">3,9 nuits</td></tr>
+          <tr><td>Landes</td><td contenteditable="true">sem. 17/08 &amp; 10/08</td><td contenteditable="true">5,0 nuits</td></tr>
         </tbody>
       </table>
       </div>
@@ -407,12 +414,14 @@
   function pbounds(p){var y=SNAP.getFullYear();if(p==='month')return[new Date(y,SNAP.getMonth(),1),new Date(y,SNAP.getMonth()+1,0)];if(p==='quarter'){var q=Math.floor(SNAP.getMonth()/3);return[new Date(y,q*3,1),new Date(y,q*3+3,0)];}return[new Date(y,0,1),new Date(y,11,31)];}
   function timePct(p,egmv){var b=pbounds(p),s=b[0],e=b[1];if(egmv){var tot=(e-s)/86400000+1,el=(SNAP-s)/86400000+1;return el/tot*100;}var t2=workdays(s,e),e2=workdays(s,SNAP);return e2/t2*100;}
   function fillTime(){
-    var period='month';
-    document.querySelectorAll('table.track tbody tr').forEach(function(tr){
-      if(tr.classList.contains('band')){var t=tr.textContent.toLowerCase();period=t.indexOf('trimest')>=0?'quarter':(t.indexOf('annuel')>=0?'year':'month');return;}
-      var tc=tr.querySelector('.tc'); if(!tc||tr.dataset.mode==='none') return;
-      var lbl=tr.querySelector('td')?tr.querySelector('td').textContent:'';
-      tc.textContent=Math.round(timePct(period,/egmv/i.test(lbl)))+'%';
+    document.querySelectorAll('table.track').forEach(function(tbl){
+      var period='month';
+      tbl.querySelectorAll('tbody tr').forEach(function(tr){
+        if(tr.classList.contains('band')){var t=tr.textContent.toLowerCase();period=t.indexOf('trimest')>=0?'quarter':(t.indexOf('annuel')>=0?'year':'month');return;}
+        var tc=tr.querySelector('.tc'); if(!tc||tr.dataset.mode==='none') return;
+        var lbl=tr.querySelector('td')?tr.querySelector('td').textContent:'';
+        tc.textContent=Math.round(timePct(period,/egmv/i.test(lbl)))+'%';
+      });
     });
   }
   fillTime();
