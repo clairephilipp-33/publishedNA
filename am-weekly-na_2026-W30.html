@@ -104,16 +104,11 @@ footer{color:var(--grey);font-size:11px;text-align:center;padding:20px}
     <div class="qbar" id="qbar"></div>
     <div class="mlabel">Réunions</div>
     <ul class="mlist" id="mlist"></ul>
-    <div style="font-size:10.5px;color:#7fb0bc;margin:12px 4px;line-height:1.5">Chaque réunion se fige dans sa propre page. Les semaines passées ne bougent plus ; utilise 💾 <b>Enregistrer</b> pour archiver la semaine.</div>
   </nav>
   <main class="main">
     <div class="top">
       <h1>AM Weekly — Nouvelle-Aquitaine</h1>
       <div class="meta"><div class="d" id="topdate"></div><div id="topq"></div></div>
-    </div>
-    <div style="display:flex;gap:8px;margin:-6px 0 18px;flex-wrap:wrap">
-      <button onclick="downloadDeck()" style="background:var(--primary);color:#fff;border:none;border-radius:20px;padding:7px 16px;font-family:inherit;font-size:12.5px;font-weight:600;cursor:pointer">💾 Enregistrer cette semaine</button>
-      <button onclick="window.print()" style="background:#fff;color:var(--primary);border:1px solid var(--primary);border-radius:20px;padding:7px 16px;font-family:inherit;font-size:12.5px;font-weight:600;cursor:pointer">🖨️ Imprimer / PDF</button>
     </div>
     <div id="content"></div>
     <footer>© Holidu GmbH | Confidential</footer>
@@ -181,12 +176,7 @@ const DATA={
 const FOCUS=["Laetitia Millan","Mariana Braz","Amandine Dicharry","Rémi Clemenceau"];
 const TEAM=["Mariana Braz","Laetitia Millan","Rémi Clemenceau","Amandine Dicharry"];
 const initials=n=>n.split(' ').map(w=>w[0]).slice(0,2).join('').toUpperCase();
-const AV_BASE='https://api.dicebear.com/9.x/adventurer/svg?seed=';
-const AV_FIRST={"Mariana Braz":"Mariana","Laetitia Millan":"Laetitia","Rémi Clemenceau":"Rémi","Amandine Dicharry":"Amandine"};
-const AV_BG={"Mariana":"c0aede","Laetitia":"b6e3f4","Rémi":"d1d4f9","Amandine":"ffdfbf"};
-const AV_SKIN={"Mariana":"edb98a"};
-function avatarUrl(n){n=(n||'').trim();var f=AV_FIRST[n]||n.split(' ')[0];var bg=AV_BG[f]||'e8f4f7';var sk=AV_SKIN[f]||'f2d3b1';return AV_BASE+encodeURIComponent(f)+'&backgroundColor='+bg+'&skinColor='+sk;}
-function avatarHTML(n){return `<img class="avimg" src="${avatarUrl(n)}" alt="${esc(n)}">`;}
+function avatarHTML(n){return PHOTOS[n]?`<img class="avimg" src="${PHOTOS[n]}" alt="${esc(n)}">`:`<div class="av">${initials(n)}</div>`;}
 
 const COMP_COLS=["Weekly","New Listing","Mobile","Loyalty","Non-refund.","Last minute","Early bird"];
 
@@ -194,9 +184,7 @@ const COMP_COLS=["Weekly","New Listing","Mobile","Loyalty","Non-refund.","Last m
 const QUARTERS={
  "Q3 2026":["08/07/2026","22/07/2026","05/08/2026","19/08/2026","02/09/2026","16/09/2026","30/09/2026"]
 };
-const SNAPSHOT="22/07/2026";
-const CURRENT="05/08/2026";
-var FROZEN=false;
+const CURRENT="22/07/2026";
 let curQ="Q3 2026", curM=CURRENT;
 
 /* ---- helpers ---- */
@@ -223,47 +211,27 @@ function renderNav(){
    qb.appendChild(b);
  });
  const ml=$("#mlist"); ml.innerHTML="";
- const toDate=s=>{const p=s.split('/');return new Date(+p[2],+p[1]-1,+p[0]);};
- const curDate=toDate(CURRENT);
- const navStyle="width:100%;box-sizing:border-box;text-align:left;padding:9px 11px;border-radius:9px;font-size:13px;display:flex;justify-content:space-between;align-items:center;text-decoration:none";
  QUARTERS[curQ].forEach(d=>{
    const li=document.createElement("li");
-   const dt=toDate(d);
-   if(d===CURRENT){
-     const b=document.createElement("button");
-     b.innerHTML=`<span>${d.slice(0,5)}</span><span class="dot">● live</span>`;
-     b.className=(d===curM?"on":"");
-     b.onclick=()=>{curM=d;renderNav();render();};
-     li.appendChild(b);
-   } else if(dt<curDate){
-     const iw=isoWeek(d);
-     const a=document.createElement("a");
-     a.href="am-weekly-na_"+iw.y+"-W"+(iw.w<10?"0"+iw.w:iw.w)+".html";
-     a.setAttribute("style",navStyle+";color:#bfe0e8;cursor:pointer");
-     a.innerHTML=`<span>${d.slice(0,5)}</span><span class="dot" style="color:#7fb0bc;font-size:9px">archive ↗</span>`;
-     a.onmouseover=()=>a.style.background="#0c3743"; a.onmouseout=()=>a.style.background="transparent";
-     li.appendChild(a);
-   } else {
-     const s=document.createElement("span");
-     s.setAttribute("style",navStyle+";color:#5f8a95");
-     s.innerHTML=`<span>${d.slice(0,5)}</span><span class="dot" style="color:#5f8a95;font-size:9px">à venir</span>`;
-     li.appendChild(s);
-   }
-   ml.appendChild(li);
+   const b=document.createElement("button");
+   b.innerHTML=`<span>${d.slice(0,5)}</span>`+(d===CURRENT?'<span class="dot">● live</span>':'');
+   if(d===curM)b.className="on";
+   b.onclick=()=>{curM=d;renderNav();render();};
+   li.appendChild(b); ml.appendChild(li);
  });
 }
 
 /* ---- render content ---- */
 function render(){
  $("#topdate").textContent="Réunion du "+curM;
- $("#topq").textContent=curQ+(curM===CURRENT?" · KPI snapshot au "+SNAPSHOT+" (refresh le jour J) · IA champion jan–avr 2026":"");
+ $("#topq").textContent=curQ+(curM===CURRENT?" · données au 22/07/2026":"");
  const c=$("#content");
  if(curM!==CURRENT){
    c.innerHTML=sectionFollowOnly();
    bindSuccess(); bindFollow();
    return;
  }
- c.innerHTML = secStar()+secSuccess()+secActivities()+secPortfolio()+secAI()+secSujets()+secFollow();
+ c.innerHTML = secStar()+secSuccess()+secActivities()+secPortfolio()+secFollow();
  bindSuccess(); bindFollow();
 }
 
@@ -300,7 +268,7 @@ function secStar(){
   <div class="sh"><div class="n">1</div><h2>STAR of the week</h2></div>
   <div class="src">Pipedrive · rapport « NA optimization activities done » — filtre <b>This month (01–31/07/2026)</b>, Optimization Pipeline. <a href="https://bookiply.pipedrive.com/progress/insights/report/ddf9d248f800895615ecedd7eb96826e" target="_blank">Ouvrir</a></div>
   <div class="star">
-    <img class="ph" src="${avatarUrl(DATA.star.name)}" alt="${esc(DATA.star.name)}">
+    <img class="ph" src="${PHOTO}" alt="Mariana Braz">
     <div class="info">
       <div class="badge">🏆 Star of the week</div>
       <div class="big" style="margin-top:6px">${esc(DATA.star.name)}</div>
@@ -359,73 +327,10 @@ function secPortfolio(){
   </section>`;
 }
 
-/* Section 4 : IA users champion (statique, figé) */
-const AICHAMP=[
- ["Anne-Karine Prigent",238,"AURA",false],
- ["Marine Laffay",195,"AURA",false],
- ["Justine Guillomet",123,"Bretagne-PL",false],
- ["Gwen Gomis",118,"AURA",false],
- ["Pauline Lohou",101,"Bretagne-PL",false],
- ["Amandine Dicharry",97,"NA",true],
- ["Rémi Clemenceau",88,"NA",true],
- ["Célia Coffineau",85,"Provence",false],
- ["Valeria Rojas",59,"Bretagne-PL",false],
- ["Anne-Sophie Wozniak",54,"Provence",false],
- ["Laetitia Millan",52,"NA",true],
- ["Maxime Concaret",49,"Bretagne-PL",false],
- ["Malo Ramond",44,"AURA",false],
- ["Aimie Boyard",38,"Provence",false],
- ["Alexy Levillain",35,"Provence",false]
-];
-function secAI(){
- const max=AICHAMP[0][1];
- const rows=AICHAMP.map((r,i)=>{
-   const na=r[3]?'focus':''; const w=(r[1]/max*100).toFixed(0);
-   const barcol=r[3]?'var(--primary)':'var(--blue)';
-   return `<tr class="${na}"><td style="color:var(--grey)">${i+1}</td>`+
-     `<td class="name">${esc(r[0])}${r[3]?'<span class="tag">NA</span>':''}</td>`+
-     `<td style="text-align:left;color:var(--grey);font-size:11px">${r[2]}</td>`+
-     `<td><div style="display:flex;align-items:center;gap:8px"><div style="height:14px;border-radius:7px;background:${barcol};width:${w}%;min-width:6px"></div><b>${r[1]}</b></div></td></tr>`;
- }).join("");
- return `<section class="card" style="border-top-color:var(--blue)">
-  <div class="sh"><div class="n" style="background:var(--blue);color:#023">4</div><h2>IA users champion</h2></div>
-  <div class="src">Looker · dashboard 5569 « AI Agent Champions Program » — filtre <b>AI Target = host · Country = France · 01/01→30/04/2026</b>, périmètre <b>AM</b> (Account Management + Advisor Account Manager). Métrique = nb de conversations IA. <a href="https://holidu.cloud.looker.com/dashboards/5569?Created+At+Date=2026%2F01%2F01+to+2026%2F04%2F30&Ai+Target=host&User+Email=%25holidu%25&Country=France&Job+Function=Account+Management%2CAdvisor+Account+Manager%2CAdvisor+Sales%2CSales" target="_blank">Ouvrir</a></div>
-  <div class="scroll"><table><thead><tr><th style="width:34px">#</th><th class="name">Account Manager</th><th style="text-align:left">Area</th><th style="text-align:left">Conversations IA</th></tr></thead><tbody>${rows}</tbody></table></div>
-  <div class="note">Classement France AM (top 15). AM NA focus : <b>Amandine 6e (97)</b>, <b>Rémi 7e (88)</b>, <b>Laetitia 11e (52)</b>. <b>Mariana Braz</b> : aucune conversation IA enregistrée sur la période — point de coaching. Chiffres lus le 03/08/2026.</div>
-  </section>`;
-}
-
-/* Section 5 : sujets du jour (statique, figé) */
-function secSujets(){
- return `<section class="card" style="border-top-color:var(--green)">
-  <div class="sh"><div class="n" style="background:var(--green);color:#03352a">5</div><h2>Sujets du jour</h2></div>
-  <div class="src">Réunion du 05/08/2026 · 3 points à traiter.</div>
-
-  <h3 style="font-size:14px;color:#024251;margin:4px 0 6px">1 · Dynamic Pricing — on pousse tous</h3>
-  <p style="margin-bottom:8px">NA à <b>8,3 %</b> d'adoption vs <b>9,9 %</b> France → <b>5e/7 areas</b>, malgré le 2e plus gros parc publié. Feature <b>active par défaut depuis le 28/07</b>. Impact prouvé : <b>+31,7 % de Net eGMV/propriété</b> pour les nouvelles annonces configurées, et <b>53 %</b> des nouvelles partent encore sans DP. Chaque SM et chaque AM pousse le DP sur son parc.</p>
-  <a href="dynamic_pricing_adoption_NA.pdf" target="_blank" style="display:inline-block;background:var(--primary);color:#fff;border-radius:20px;padding:6px 14px;font-size:12px;font-weight:600;text-decoration:none;margin-bottom:6px">📄 Ouvrir le one-pager Dynamic Pricing</a>
-
-  <h3 style="font-size:14px;color:#024251;margin:22px 0 6px">2 · Gyoza — opportunités republish</h3>
-  <div style="background:#f4fbfc;border-left:3px solid var(--primary);border-radius:8px;padding:12px 14px;margin-bottom:8px">
-   <p style="margin-bottom:6px">On a reçu la liste de propriétés de <b>Gyoza</b>. En la croisant avec Pipedrive, Andrea a repéré des doublons — et parmi eux, des hôtes qui étaient <b>publiés chez nous puis ont churné</b>.</p>
-   <p style="margin-bottom:6px">→ Ce sont des <b>opportunités de republish</b> : on les rappelle pour les reconvaincre de retravailler avec Holidu.</p>
-   <p style="margin:0">Vos deals concernés sont dans le filtre Pipedrive ci-dessous. Passez-les en revue et calez vos appels cette semaine.</p>
-  </div>
-  <a href="https://bookiply.pipedrive.com/deals/filter/2039935?quickFilter=none" target="_blank" style="display:inline-block;background:var(--primary);color:#fff;border-radius:20px;padding:6px 14px;font-size:12px;font-weight:600;text-decoration:none">🔗 Filtre Pipedrive — Republish Gyoza</a>
-
-  <h3 style="font-size:14px;color:#024251;margin:22px 0 6px">3 · OB note — non lue ?</h3>
-  <p style="margin-bottom:8px">Constat remonté par plusieurs SM : les AM posent des questions sur des infos <b>déjà présentes dans l'OB note</b> → la note n'est pas lue (ou pas assez lisible). Décision à trancher :</p>
-  <div style="display:flex;gap:12px;flex-wrap:wrap">
-   <div style="flex:1;min-width:200px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px"><b>Option A — On garde</b><br><span style="color:var(--grey);font-size:12px">On responsabilise la lecture (checklist, accusé de lecture avant contact SM→AM).</span></div>
-   <div style="flex:1;min-width:200px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px"><b>Option B — On revamp</b><br><span style="color:var(--grey);font-size:12px">Format plus court/visuel, l'essentiel en tête, à partir du feedback SM.</span></div>
-  </div>
-  </section>`;
-}
-
-/* Section 6 : follow up (persisté localStorage, par réunion) */
+/* Section 4 : follow up (persisté localStorage, par réunion) */
 function secFollow(){
  return `<section class="card" style="border-top-color:var(--coral)">
-  <div class="sh"><div class="n">6</div><h2>Follow-up & sujets en attente</h2></div>
+  <div class="sh"><div class="n">4</div><h2>Follow-up & sujets en attente</h2></div>
   <div class="src">Zone libre — chacun peut ajouter un point. Sauvegarde locale (sur ce poste) par réunion.</div>
   ${followBody()}
  </section>`;
@@ -476,24 +381,8 @@ function renderItems(){
  ul.querySelectorAll(".del").forEach(b=>b.onclick=()=>{const a=getItems();a.splice(+b.dataset.i,1);setItems(a);renderItems();});
 }
 
-function isoWeek(dstr){
- const p=dstr.split('/'); const d=new Date(Date.UTC(+p[2],+p[1]-1,+p[0]));
- const day=(d.getUTCDay()+6)%7; d.setUTCDate(d.getUTCDate()-day+3);
- const firstThu=new Date(Date.UTC(d.getUTCFullYear(),0,4));
- const w=1+Math.round(((d-firstThu)/86400000-3+((firstThu.getUTCDay()+6)%7))/7);
- return {y:d.getUTCFullYear(),w:w};
-}
-function downloadDeck(){
- document.querySelectorAll('textarea').forEach(function(t){t.textContent=t.value;});
- const iw=isoWeek(curM);
- const name='am-weekly-na_'+iw.y+'-W'+(iw.w<10?'0'+iw.w:iw.w)+'.html';
- let html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
- html=html.replace('var FROZEN=false;','var FROZEN=true;');
- const blob=new Blob([html],{type:'text/html;charset=utf-8'});
- const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;
- document.body.appendChild(a);a.click();setTimeout(function(){a.remove();URL.revokeObjectURL(a.href);},0);
-}
-if(!FROZEN){renderNav();render();}
+renderNav();
+render();
 </script>
 </body>
 </html>
