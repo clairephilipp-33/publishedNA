@@ -545,11 +545,8 @@ const WEEKS_DATA = {
   ['62664796','info@moulinduporteil.com','Focus Region Dordogne','Churn Q3','2026-07-01','false']
 ],
     channelErrors: [
-  ['64283060','AIRBNB','','UN_PUBLICATION','HOST','Listing suspendu/supprimé','2026-08-04','false'],
   ['66387291','AIRBNB','','PUBLICATION','HOST','Contenu bloqué (titre/description)','2026-08-04','true'],
-  ['64283060','AIRBNB','','UN_PUBLICATION','HOST','Listing suspendu/supprimé','2026-08-04','false'],
   ['66373350','AIRBNB','','PUBLICATION','HOST','Contenu bloqué (titre/description)','2026-08-04','true'],
-  ['67413363','AIRBNB','','AVAILABILITY','HOST','Disponibilité bloquée','2026-08-04','true'],
   ['66183829','BOOKINGCOM','','TICKET','PROVIDER','Erreur technique (ticket en cours)','2026-08-04','true']
 ],
     zombieList: [
@@ -558,16 +555,12 @@ const WEEKS_DATA = {
   ['57173121','false','UNDER_RENOVATION','—','true'],
   ['62447784','false','PROPERTY_TEMPORARILY_UNAVAILABLE','HO staying in the house during the renovation','true'],
   ['60717155','false','UNDER_RENOVATION','Problem related to public works','false'],
-  ['55554152','false','UNDER_RENOVATION','ho lives in the property','false'],
   ['65047402','false','PROPERTY_TEMPORARILY_UNAVAILABLE','—','false'],
   ['57173139','false','UNDER_RENOVATION','—','true'],
   ['63382093','false','SEASONAL_CLOSURE','Ho prioritizes direct bookings and opens his calendar from May to mid-October.','false'],
   ['63589959','false','PROPERTY_TEMPORARILY_UNAVAILABLE','The owner’s brother will occupy it for a few months; she will reopen it afterwards','true'],
   ['54467316','false','PROPERTY_TEMPORARILY_UNAVAILABLE','Health problem of the HO','false'],
-  ['62454339','false','PROPERTY_FOR_SALE','—','true'],
   ['55423027','false','NO_LONGER_FOR_RENT','HO has rented out her three apartments on a long-term basis until the end of 2026.','false'],
-  ['67413363','false','SEASONAL_CLOSURE','—','true'],
-  ['63168086','false','UNDER_RENOVATION','Ho lives in the ppty','false'],
   ['65868622','false','DEATH_OR_ILLNESS','owner is sick','false'],
   ['66278872','false','PROPERTY_TEMPORARILY_UNAVAILABLE','Ho lives on the property for one year','false'],
   ['63277623','false','UNDER_RENOVATION','—','true'],
@@ -577,27 +570,27 @@ const WEEKS_DATA = {
 ],
     paceNeg: [
   ['56202182',3451,22614,-19162],
+  ['54643908',0,13052,-13052],
+  ['56740039',0,10751,-10751],
+  ['57081962',0,10607,-10607],
+  ['61855230',0,10280,-10280],
+  ['60717155',0,9664,-9664],
   ['54240567',18177,26641,-8464],
   ['61680751',0,7571,-7571],
   ['61680595',4949,12457,-7508],
+  ['60873233',0,6940,-6940],
+  ['61703308',0,6923,-6923],
+  ['54467316',0,6679,-6679],
   ['57513362',2558,8802,-6244],
+  ['55757311',0,6214,-6214],
+  ['61079253',0,5800,-5800],
   ['54821922',0,5738,-5738],
   ['58093956',0,5544,-5544],
   ['60873051',10097,15598,-5501],
   ['56154666',1730,6704,-4974],
-  ['56850335',0,4848,-4848],
-  ['57793512',11743,16407,-4664],
-  ['51225287',19782,24195,-4413],
-  ['58091938',0,4287,-4287],
-  ['54643806',13903,17784,-3881],
-  ['62077090',1062,4665,-3604],
-  ['58091944',0,3549,-3549],
-  ['56678671',4198,7618,-3419],
-  ['61066376',2941,6291,-3349],
-  ['58160764',12769,16108,-3339],
-  ['58359143',0,3251,-3251]
+  ['61514613',0,4914,-4914]
 ],
-    paceNegCount: 93,
+    paceNegCount: 141,
     booking16d: [
   ['mariana.braz@holidu.com','Mariana',1106,463,41.9],
   ['amandine.dicharry@holidu.com','Amandine',759,303,39.9],
@@ -1157,12 +1150,12 @@ function renderZombieList() {
   h += `</tbody></table><div style="font-size:10px;color:#aaa;margin-top:4px;">Athena/Pipedrive · ${ATHENA_DATE}</div>`;
   el.innerHTML = h;
   // Update KPI boxes dynamically
-  const zombieActive = ZOMBIE_LIST.filter(r => r[1] !== 'true').length;
-  const zombieOnHold = ZOMBIE_LIST.filter(r => r[1] === 'true').length;
-  const zombieNonPrio = ZOMBIE_LIST.filter(r => r[1] !== 'true' && r[4] !== 'true').length;
-  const cZ = document.getElementById('zombie-count');       if (cZ) cZ.textContent = zombieActive;
-  const cR = document.getElementById('zombie-risk-count');  if (cR) cR.textContent = zombieNonPrio;
-  const cH = document.getElementById('zombie-onhold-count');if (cH) cH.textContent = zombieOnHold;
+  const zTotal = ZOMBIE_LIST.length;
+  const zOnHold = ZOMBIE_LIST.filter(r => r[1] === 'true').length;
+  const zRisque = zTotal - zOnHold;
+  const cZ = document.getElementById('zombie-count');       if (cZ) cZ.textContent = zTotal;
+  const cR = document.getElementById('zombie-risk-count');  if (cR) cR.textContent = zRisque;
+  const cH = document.getElementById('zombie-onhold-count');if (cH) cH.textContent = zOnHold;
 }
 
 // ─── PACE eGMV ───────────────────────────────────────────────────────────────
@@ -1925,11 +1918,11 @@ function getWeek(d) {
     <div style="display:flex;gap:16px;margin-bottom:12px;">
       <div class="kpi-box" style="flex:1;text-align:center;padding:8px 12px;background:#fff3f3;border-radius:6px;border:1px solid #f5c6c6;">
         <div style="font-size:22px;font-weight:700;color:#c0392b;" id="zombie-count">15</div>
-        <div style="font-size:11px;color:var(--grey);">Zombie properties</div>
+        <div style="font-size:11px;color:var(--grey);">Total zombie</div>
       </div>
       <div class="kpi-box" style="flex:1;text-align:center;padding:8px 12px;background:#fff8ec;border-radius:6px;border:1px solid #ffd591;">
         <div style="font-size:22px;font-weight:700;color:#e67e22;" id="zombie-risk-count">19</div>
-        <div style="font-size:11px;color:var(--grey);">Zombie at risk</div>
+        <div style="font-size:11px;color:var(--grey);">À risque</div>
       </div>
       <div class="kpi-box" style="flex:1;text-align:center;padding:8px 12px;background:#f0f0f0;border-radius:6px;border:1px solid #ddd;">
         <div style="font-size:22px;font-weight:700;color:#555;" id="zombie-onhold-count">2</div>
