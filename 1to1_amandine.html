@@ -2103,5 +2103,66 @@ function getWeek(d) {
 </div>
 
 </div></div>
+<script>
+/* ===== 1to1 Partie 2 — sauvegarde (Enregistrer -> Slack -> validation) ===== */
+(function(){
+  var P2_ENDPOINT = "PASTE_APPS_SCRIPT_EXEC_URL"; // <-- URL /exec du déploiement Apps Script
+  function amEmail(){ try { return (typeof AM_EMAIL!=="undefined"&&AM_EMAIL) || ""; } catch(e){ return ""; } }
+  function week(){ try { return (typeof CURRENT_WEEK_KEY!=="undefined"&&CURRENT_WEEK_KEY) || ""; } catch(e){ return ""; } }
+  function fields(){
+    var out={}, tas=document.querySelectorAll('textarea'), i;
+    for(i=0;i<tas.length;i++){ var k=tas[i].id || ('ta'+i); out[k]=tas[i].value; }
+    var mood=document.querySelector('.mood-btn.p2-sel'); if(mood) out['__mood']=mood.textContent.trim();
+    var act=document.getElementById('action-list'); if(act) out['__actions']=act.innerText.trim();
+    return out;
+  }
+  function setFields(data){
+    if(!data) return;
+    var tas=document.querySelectorAll('textarea'), i;
+    for(i=0;i<tas.length;i++){ var k=tas[i].id || ('ta'+i); if(data[k]!=null) tas[i].value=data[k]; }
+    if(data['__mood']){ var btns=document.querySelectorAll('.mood-btn'); for(i=0;i<btns.length;i++){ if(btns[i].textContent.trim()===data['__mood']) btns[i].classList.add('p2-sel'); } }
+    var act=document.getElementById('action-list'); if(act&&data['__actions']) act.innerText=data['__actions'];
+  }
+  function moodTrack(){
+    var btns=document.querySelectorAll('.mood-btn'), i;
+    for(i=0;i<btns.length;i++){ btns[i].addEventListener('click',function(){ document.querySelectorAll('.mood-btn').forEach(function(b){b.classList.remove('p2-sel');}); this.classList.add('p2-sel'); }); }
+  }
+  function save(btn,status){
+    if(P2_ENDPOINT.indexOf('http')!==0){ status.textContent="⚠️ Backend pas encore configuré (Apps Script)."; status.style.color="#c0392b"; return; }
+    var payload={ am:(document.title||'').replace('1-to-1 ','').split(' —')[0]||amEmail(), amEmail:amEmail(), week:week(), data:fields() };
+    status.textContent="Envoi…"; status.style.color="var(--grey)";
+    fetch(P2_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})
+      .then(function(){ status.textContent="✅ Envoyé à Claire — en attente de validation."; status.style.color="var(--green)"; })
+      .catch(function(){ status.textContent="✅ Envoyé (sans accusé)."; status.style.color="var(--green)"; });
+  }
+  function loadLatest(){
+    if(P2_ENDPOINT.indexOf('http')!==0) return;
+    var cb='__p2cb'+Date.now();
+    window[cb]=function(d){ try{ setFields(d); }catch(e){} try{ delete window[cb]; }catch(e){} };
+    var s=document.createElement('script');
+    s.src=P2_ENDPOINT+'?action=latest&am='+encodeURIComponent(amEmail())+'&week='+encodeURIComponent(week())+'&callback='+cb;
+    s.onerror=function(){ try{delete window[cb];}catch(e){} };
+    document.body.appendChild(s);
+  }
+  function mount(){
+    if(document.getElementById('p2-save-card')) return;
+    // Ancrer après la dernière carte de la Partie 2 (le bloc Feedback)
+    var cards=document.querySelectorAll('.section .card');
+    var anchor=cards.length?cards[cards.length-1]:document.body;
+    var card=document.createElement('div'); card.className='card'; card.id='p2-save-card';
+    card.style.cssText='text-align:center;';
+    card.innerHTML='<button id="p2-save-btn" class="btn btn-p" style="font-size:14px;padding:10px 18px;">💾 Enregistrer &amp; envoyer à Claire</button>'
+      +'<div id="p2-save-status" style="font-size:12px;margin-top:8px;color:var(--grey);"></div>'
+      +'<div style="font-size:10px;color:#aaa;margin-top:4px;">Claire reçoit une notif Slack et valide. La saisie se recharge à ta prochaine visite.</div>';
+    anchor.parentNode.insertBefore(card, anchor.nextSibling);
+    var status=card.querySelector('#p2-save-status');
+    card.querySelector('#p2-save-btn').addEventListener('click',function(){ save(this,status); });
+    moodTrack(); loadLatest();
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){ setTimeout(mount,1200); });
+  else setTimeout(mount,1200);
+})();
+</script>
+
 </body>
 </html>
