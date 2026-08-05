@@ -572,7 +572,6 @@ const WEEKS_DATA = {
     channelErrors: [
   ['67895777','BOOKINGCOM','','TICKET','PROVIDER','Erreur technique (ticket en cours)','2026-08-04','false'],
   ['67405234','AIRBNB','','AVAILABILITY','HOST','Disponibilité bloquée','2026-08-04','false'],
-  ['55697912','AIRBNB','','AVAILABILITY','HOST','Disponibilité bloquée','2026-08-04','true'],
   ['68423621','AIRBNB','','AVAILABILITY','HOST','Disponibilité bloquée','2026-08-04','true'],
   ['65308695','BOOKINGCOM','','TICKET','PROVIDER','Erreur technique (ticket en cours)','2026-08-04','true'],
   ['56956946','AIRBNB','','UN_PUBLICATION','HOST','Listing suspendu/supprimé','2026-08-04','false'],
@@ -610,28 +609,28 @@ const WEEKS_DATA = {
   ['48488195','false','UNDER_RENOVATION','—','true']
 ],
     paceNeg: [
+  ['56231021',8506,30570,-22064],
+  ['56980481',0,17735,-17735],
+  ['51617404',0,15574,-15574],
+  ['56169104',0,13301,-13301],
+  ['62346242',0,12790,-12790],
+  ['56438666',0,12088,-12088],
+  ['62706117',0,11341,-11341],
   ['62290635',3384,14454,-11070],
+  ['62076696',0,10252,-10252],
   ['57046296',14879,25108,-10229],
   ['60780230',5249,15110,-9861],
   ['50004170',4720,14316,-9597],
   ['56956946',1674,11250,-9576],
   ['56844140',3257,12544,-9287],
+  ['56833212',0,9235,-9235],
+  ['48777232',0,9202,-9202],
+  ['55557357',0,8834,-8834],
+  ['60905806',0,8788,-8788],
   ['57273744',5500,14091,-8591],
-  ['56060823',6022,14058,-8036],
-  ['55080496',1538,9555,-8017],
-  ['53301950',4458,12425,-7967],
-  ['16841163',7953,14982,-7029],
-  ['54126945',1379,8079,-6700],
-  ['56895399',2783,9407,-6625],
-  ['55621918',18417,24456,-6039],
-  ['55309958',2469,8445,-5976],
-  ['56604268',7270,12982,-5712],
-  ['54379745',3331,8667,-5337],
-  ['54862797',0,5223,-5223],
-  ['56239727',220,5030,-4810],
-  ['52072505',1000,5606,-4606]
+  ['55253253',0,8197,-8197]
 ],
-    paceNegCount: 135,
+    paceNegCount: 216,
     booking16d: [
   ['mariana.braz@holidu.com','Mariana',1106,463,41.9],
   ['amandine.dicharry@holidu.com','Amandine',759,303,39.9],
@@ -1189,12 +1188,12 @@ function renderZombieList() {
   h += `</tbody></table><div style="font-size:10px;color:#aaa;margin-top:4px;">Athena/Pipedrive · ${ATHENA_DATE}</div>`;
   el.innerHTML = h;
   // Update KPI boxes dynamically
-  const zombieActive = ZOMBIE_LIST.filter(r => r[1] !== 'true').length;
-  const zombieOnHold = ZOMBIE_LIST.filter(r => r[1] === 'true').length;
-  const zombieNonPrio = ZOMBIE_LIST.filter(r => r[1] !== 'true' && r[4] !== 'true').length;
-  const cZ = document.getElementById('zombie-count');       if (cZ) cZ.textContent = zombieActive;
-  const cR = document.getElementById('zombie-risk-count');  if (cR) cR.textContent = zombieNonPrio;
-  const cH = document.getElementById('zombie-onhold-count');if (cH) cH.textContent = zombieOnHold;
+  const zTotal = ZOMBIE_LIST.length;
+  const zOnHold = ZOMBIE_LIST.filter(r => r[1] === 'true').length;
+  const zRisque = zTotal - zOnHold;
+  const cZ = document.getElementById('zombie-count');       if (cZ) cZ.textContent = zTotal;
+  const cR = document.getElementById('zombie-risk-count');  if (cR) cR.textContent = zRisque;
+  const cH = document.getElementById('zombie-onhold-count');if (cH) cH.textContent = zOnHold;
 }
 
 // ─── PACE eGMV ───────────────────────────────────────────────────────────────
@@ -1957,11 +1956,11 @@ function getWeek(d) {
     <div style="display:flex;gap:16px;margin-bottom:12px;">
       <div class="kpi-box" style="flex:1;text-align:center;padding:8px 12px;background:#fff3f3;border-radius:6px;border:1px solid #f5c6c6;">
         <div style="font-size:22px;font-weight:700;color:#c0392b;" id="zombie-count">15</div>
-        <div style="font-size:11px;color:var(--grey);">Zombie properties</div>
+        <div style="font-size:11px;color:var(--grey);">Total zombie</div>
       </div>
       <div class="kpi-box" style="flex:1;text-align:center;padding:8px 12px;background:#fff8ec;border-radius:6px;border:1px solid #ffd591;">
         <div style="font-size:22px;font-weight:700;color:#e67e22;" id="zombie-risk-count">19</div>
-        <div style="font-size:11px;color:var(--grey);">Zombie at risk</div>
+        <div style="font-size:11px;color:var(--grey);">À risque</div>
       </div>
       <div class="kpi-box" style="flex:1;text-align:center;padding:8px 12px;background:#f0f0f0;border-radius:6px;border:1px solid #ddd;">
         <div style="font-size:22px;font-weight:700;color:#555;" id="zombie-onhold-count">2</div>
