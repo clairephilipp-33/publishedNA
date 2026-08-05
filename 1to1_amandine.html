@@ -611,7 +611,6 @@ const WEEKS_DATA = {
   ['67902790','AIRBNB','','AVAILABILITY','HOST','Disponibilité bloquée','2026-08-04','false']
 ],
     zombieList: [
-  ['63639778','false','UNDER_RENOVATION','—','false'],
   ['49073536','false','PROPERTY_TEMPORARILY_UNAVAILABLE','she is old and is afraid to open too soon; prefers to open just before high season.','false'],
   ['64957449','false','PROPERTY_TEMPORARILY_UNAVAILABLE','Her daughter occupies the property.','false'],
   ['64456893','false','COMMISSION_TOO_HIGH','—','true'],
@@ -619,9 +618,7 @@ const WEEKS_DATA = {
   ['55509279','false','PROPERTY_TEMPORARILY_UNAVAILABLE','HO wishes to reopen in 2027; taking a break in 2026','false'],
   ['64047709','false','UNDER_RENOVATION,PROPERTY_TEMPORARILY_UNAVAILABLE','The property is under renovation.','false'],
   ['49339737','false','UNDER_RENOVATION','—','false'],
-  ['65416874','false','DEATH_OR_ILLNESS','—','false'],
   ['56537440','false','UNDER_RENOVATION','—','false'],
-  ['67944995','false','DEATH_OR_ILLNESS','—','false'],
   ['57058775','false','UNDER_RENOVATION','—','false'],
   ['49778568','false','UNDER_RENOVATION','—','false'],
   ['49055548','false','UNDER_RENOVATION','—','false'],
@@ -645,27 +642,27 @@ const WEEKS_DATA = {
 ],
     paceNeg: [
   ['57909870',30901,50588,-19687],
+  ['54306314',0,18205,-18205],
+  ['60806714',1644,16547,-14903],
+  ['61713542',671,15462,-14792],
   ['51960513',17966,32514,-14548],
   ['63168042',0,12219,-12219],
   ['56728928',14702,26723,-12021],
   ['60816308',2047,13822,-11775],
+  ['56980667',0,10394,-10394],
   ['50188857',4346,14508,-10161],
   ['56788117',4500,14573,-10073],
+  ['61713616',1336,10419,-9083],
   ['57147579',9943,18376,-8433],
+  ['58152379',2317,10459,-8142],
   ['56728815',921,8973,-8052],
+  ['53291541',437,8455,-8018],
   ['61067377',5561,13400,-7839],
   ['55317864',12455,20233,-7778],
-  ['51194501',5985,13136,-7151],
-  ['49107616',5507,12555,-7048],
-  ['50634401',22243,28938,-6695],
-  ['53026769',4934,11432,-6498],
-  ['51691809',12833,19178,-6344],
-  ['58387670',14504,20688,-6184],
-  ['56537440',0,5885,-5885],
-  ['61237738',7168,12814,-5646],
-  ['49108079',5001,10642,-5642]
+  ['55674956',2608,9884,-7277],
+  ['51194501',5985,13136,-7151]
 ],
-    paceNegCount: 154,
+    paceNegCount: 186,
     booking16d: [
   ['mariana.braz@holidu.com','Mariana',1106,463,41.9],
   ['amandine.dicharry@holidu.com','Amandine',759,303,39.9],
@@ -1227,12 +1224,12 @@ function renderZombieList() {
   h += `</tbody></table><div style="font-size:10px;color:#aaa;margin-top:4px;">Athena/Pipedrive · ${ATHENA_DATE}</div>`;
   el.innerHTML = h;
   // Update KPI boxes dynamically
-  const zombieActive = ZOMBIE_LIST.filter(r => r[1] !== 'true').length;
-  const zombieOnHold = ZOMBIE_LIST.filter(r => r[1] === 'true').length;
-  const zombieNonPrio = ZOMBIE_LIST.filter(r => r[1] !== 'true' && r[4] !== 'true').length;
-  const cZ = document.getElementById('zombie-count');       if (cZ) cZ.textContent = zombieActive;
-  const cR = document.getElementById('zombie-risk-count');  if (cR) cR.textContent = zombieNonPrio;
-  const cH = document.getElementById('zombie-onhold-count');if (cH) cH.textContent = zombieOnHold;
+  const zTotal = ZOMBIE_LIST.length;
+  const zOnHold = ZOMBIE_LIST.filter(r => r[1] === 'true').length;
+  const zRisque = zTotal - zOnHold;
+  const cZ = document.getElementById('zombie-count');       if (cZ) cZ.textContent = zTotal;
+  const cR = document.getElementById('zombie-risk-count');  if (cR) cR.textContent = zRisque;
+  const cH = document.getElementById('zombie-onhold-count');if (cH) cH.textContent = zOnHold;
 }
 
 // ─── PACE eGMV ───────────────────────────────────────────────────────────────
@@ -1995,11 +1992,11 @@ function getWeek(d) {
     <div style="display:flex;gap:16px;margin-bottom:12px;">
       <div class="kpi-box" style="flex:1;text-align:center;padding:8px 12px;background:#fff3f3;border-radius:6px;border:1px solid #f5c6c6;">
         <div style="font-size:22px;font-weight:700;color:#c0392b;" id="zombie-count">15</div>
-        <div style="font-size:11px;color:var(--grey);">Zombie properties</div>
+        <div style="font-size:11px;color:var(--grey);">Total zombie</div>
       </div>
       <div class="kpi-box" style="flex:1;text-align:center;padding:8px 12px;background:#fff8ec;border-radius:6px;border:1px solid #ffd591;">
         <div style="font-size:22px;font-weight:700;color:#e67e22;" id="zombie-risk-count">19</div>
-        <div style="font-size:11px;color:var(--grey);">Zombie at risk</div>
+        <div style="font-size:11px;color:var(--grey);">À risque</div>
       </div>
       <div class="kpi-box" style="flex:1;text-align:center;padding:8px 12px;background:#f0f0f0;border-radius:6px;border:1px solid #ddd;">
         <div style="font-size:22px;font-weight:700;color:#555;" id="zombie-onhold-count">2</div>
